@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySet>
+  <Entities>
+    <EntityType name="UK">
+      <Properties>
+        <IsSingular>false</IsSingular>
+        <IsDataEntityType>true</IsDataEntityType>
+        <DataEntityTypeName>UK</DataEntityTypeName>
+      </Properties>
+      <Attributes>
+        <Attribute name="UnemploymentDataID">
+          <IsKey>true</IsKey>
+          <AutoIncrement>false</AutoIncrement>
+        </Attribute>
+      </Attributes>
+      <DataVariables>
+        <DataVariable name="Unemployment rate">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Unemployment rate</InputVariableName>
+          <Units>Dimensionless</Units>
+        </DataVariable>
+        <DataVariable name="Unemployment rate Raw">
+          <Interpolation>Raw</Interpolation>
+          <InputVariableName>Unemployment rate</InputVariableName>
+          <Units>Dimensionless</Units>
+          <Description>UK unemployment rate as decimal</Description>
+        </DataVariable>
+      </DataVariables>
+      <Images>
+        <Image name="Image1">
+          <Image ImageSource="" />
+        </Image>
+      </Images>
+      <Diagrams>
+        <Diagram name="Main">
+          <Nodes />
+          <Links />
+        </Diagram>
+      </Diagrams>
+      <References>
+        <Reference name="Model">
+          <BaseType>EntityType:Model</BaseType>
+        </Reference>
+      </References>
+      <Collections>
+        <Collection name="UK[]">
+          <BaseType>UK</BaseType>
+          <Properties />
+          <Auxiliaries>
+            <Auxiliary name="Count">
+              <Units>dmnl</Units>
+              <IsConstant>false</IsConstant>
+              <Description>Built-in variable. Reports the number of entities of this type existing at the end of each time slice.</Description>
+            </Auxiliary>
+          </Auxiliaries>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes />
+              <Links />
+            </Diagram>
+          </Diagrams>
+        </Collection>
+      </Collections>
+    </EntityType>
+  </Entities>
+</EntitySet>
