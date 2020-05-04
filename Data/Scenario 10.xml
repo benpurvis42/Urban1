@@ -4,7 +4,7 @@
     <xs:element name="Scenario_x0020_10" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
       <xs:complexType>
         <xs:choice minOccurs="0" maxOccurs="unbounded">
-          <xs:element name="Model" msdata:EntityTypeName="Model" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="EntityName" msprop:LookupTableFields="">
+          <xs:element name="Model" msdata:EntityTypeName="Model" msdata:IsEntityTypeSingular="True" msprop:EntityKeyFields="EntityName" msprop:LookupTableFields="">
             <xs:complexType>
               <xs:sequence>
                 <xs:element name="EntityName" type="xs:string" minOccurs="0" />
@@ -17,10 +17,10 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element name="World3_2003" msdata:EntityTypeName="World3_2003" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="World3_2003ID" msprop:LookupTableFields="Assimilation half life multiplier table,Capital utilisation function table,Compensatory multiplier from perceived life table,Crowding multiplier from industrialisation table,Development cost per hectare table,Education index table,Family response to social norm table,Fecundity multiplier table,Fertility control effectiveness table,Fraction of agricultural inputs allocated to land development table,Fraction of agricultural inputs for land maintenance table,Fraction of capital allocated to obtaining resources 1 table,Fraction of capital allocated to obtaining resources 2 table,Fraction of industrial output allocated to agriculture 1 table,Fraction of industrial output allocated to agriculture 2 table,Fraction of industrial output allocated to consumption variable table,Fraction of industrial output allocated to services 1 table,Fraction of industrial output allocated to services 2 table,Fraction of population urban table,Fraction of services allocated to fertility control per capita table,GDP per capita table,Health services per capita table,Indicated food per capita 1 table,Indicated food per capita 2 table,Indicated service output per capita 1 table,Indicated service output per capita 2 table,Industrial capital output ratio from pollution table,Industrial capital output ratio from resource table,Industrial capital output ratio multiplier table,Jobs per hectare table,Jobs per industrial capital unit table,Jobs per service capital unit table,Land fertility degradation rate table,Land fertility regeneration time table,Land life multiplier from land yield 1 table,Land life multiplier from land yield 2 table,Land yield multipler from air pollution 1 table,Land yield multiplier from air pollution 2 table,Land yield multiplier from capital table,Land yield technology change rate multiplier table 1,Land yield technology change rate multiplier table 2,Life expectancy index table,Lifetime multiplier from food table,Lifetime multiplier from health services 1 table,Lifetime multiplier from health services 2 table,Lifetime multiplier from persistent pollution table,Marginal land yield multiplier from capital table,Mortality 0 to 14 table,Mortality 15 to 44 table,Mortality 45 to 64 table,Mortality 65 plus table,Per capita resource usage multiplier table,Persistent pollution technology change multiplier 1 table,Persistent pollution technology change multiplier 2 table,Resource technology change rate multiplier 1 table,Resource technology change rate multiplier 2 table,Social family size norm table,Urban and industrial land required per capita table">
+          <xs:element name="Urban1" msdata:EntityTypeName="Urban1" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="Urban1ID" msprop:LookupTableFields="Assimilation half life multiplier table,Capital utilisation function table,Compensatory multiplier from perceived life table,Crowding multiplier from industrialisation table,Development cost per hectare table,Education index table,Family response to social norm table,Fecundity multiplier table,Fertility control effectiveness table,Fraction of agricultural inputs allocated to land development table,Fraction of agricultural inputs for land maintenance table,Fraction of capital allocated to obtaining resources 1 table,Fraction of capital allocated to obtaining resources 2 table,Fraction of industrial output allocated to agriculture 1 table,Fraction of industrial output allocated to agriculture 2 table,Fraction of industrial output allocated to consumption variable table,Fraction of industrial output allocated to services 1 table,Fraction of industrial output allocated to services 2 table,Fraction of population urban table,Fraction of services allocated to fertility control per capita table,GDP per capita table,Health services per capita table,Indicated food per capita 1 table,Indicated food per capita 2 table,Indicated service output per capita 1 table,Indicated service output per capita 2 table,Industrial capital output ratio from pollution table,Industrial capital output ratio from resource table,Industrial capital output ratio multiplier table,Jobs per hectare table,Jobs per industrial capital unit table,Jobs per service capital unit table,Land fertility degradation rate table,Land fertility regeneration time table,Land life multiplier from land yield 1 table,Land life multiplier from land yield 2 table,Land yield multipler from air pollution 1 table,Land yield multiplier from air pollution 2 table,Land yield multiplier from capital table,Land yield technology change rate multiplier table 1,Land yield technology change rate multiplier table 2,Life expectancy index table,Lifetime multiplier from food table,Lifetime multiplier from health services 1 table,Lifetime multiplier from health services 2 table,Lifetime multiplier from persistent pollution table,Marginal land yield multiplier from capital table,Mortality 0 to 14 table,Mortality 15 to 44 table,Mortality 45 to 64 table,Mortality 65 plus table,Per capita resource usage multiplier table,Persistent pollution technology change multiplier 1 table,Persistent pollution technology change multiplier 2 table,Resource technology change rate multiplier 1 table,Resource technology change rate multiplier 2 table,Social family size norm table,Urban and industrial land required per capita table">
             <xs:complexType>
               <xs:sequence>
-                <xs:element name="World3_2003ID" type="xs:string" minOccurs="0" />
+                <xs:element name="Urban1ID" type="xs:string" minOccurs="0" />
                 <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
                 <xs:element name="Time" type="xs:double" minOccurs="0" />
                 <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
@@ -150,7 +150,11 @@
                 <xs:element name="Delayed_x0020_industrial_x0020_output_x0020_per_x0020_capita_x0020_SMOOTH31_x0020_Level2" type="xs:double" minOccurs="0" />
                 <xs:element name="Delayed_x0020_industrial_x0020_output_x0020_per_x0020_capita_x0020_SMOOTH31_x0020_Level1" type="xs:double" minOccurs="0" />
                 <xs:element name="Average_x0020_industrial_x0020_output_x0020_per_x0020_capita_x0020_SMOOTH1_x0020_SMOOTH" type="xs:double" minOccurs="0" />
+                <xs:element name="Initial_x0020_population_x0020_total" type="xs:double" minOccurs="0" />
+                <xs:element name="Initial_x0020_industrial_x0020_capital" type="xs:double" minOccurs="0" />
+                <xs:element name="Total_x0020_potentially_x0020_arable_x0020_land" type="xs:double" minOccurs="0" />
                 <xs:element name="Agricultural_x0020_inputs_x0020_SMOOTHI1_x0020_SMOOTHI" type="xs:double" minOccurs="0" />
+                <xs:element name="Initial_x0020_agricultural_x0020_inputs" type="xs:double" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -158,7 +162,7 @@
       </xs:complexType>
     </xs:element>
   </xs:schema>
-  <World3_2003>
+  <Urban1>
     <Enabled>true</Enabled>
     <Average_x0020_lifetime_x0020_of_x0020_agricultural_x0020_inputs_x0020_2>2.5</Average_x0020_lifetime_x0020_of_x0020_agricultural_x0020_inputs_x0020_2>
     <Average_x0020_lifetime_x0020_of_x0020_industrial_x0020_capital_x0020_2>18</Average_x0020_lifetime_x0020_of_x0020_industrial_x0020_capital_x0020_2>
@@ -174,5 +178,5 @@
     <persistent_x0020_pollution_x0020_technology_x0020_change_x0020_time>1982</persistent_x0020_pollution_x0020_technology_x0020_change_x0020_time>
     <Policy_x0020_year>1982</Policy_x0020_year>
     <Resource_x0020_technology_x0020_change_x0020_time>1982</Resource_x0020_technology_x0020_change_x0020_time>
-  </World3_2003>
+  </Urban1>
 </Scenario_x0020_10>

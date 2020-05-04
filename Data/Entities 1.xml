@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="yes"?>
-<Scenario_x0020_3>
-  <xs:schema id="Scenario_x0020_3" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
-    <xs:element name="Scenario_x0020_3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+<Entities_x0020_1>
+  <xs:schema id="Entities_x0020_1" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+    <xs:element name="Entities_x0020_1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
       <xs:complexType>
         <xs:choice minOccurs="0" maxOccurs="unbounded">
           <xs:element name="Model" msdata:EntityTypeName="Model" msdata:IsEntityTypeSingular="True" msprop:EntityKeyFields="EntityName" msprop:LookupTableFields="">
@@ -106,7 +106,6 @@
                 <xs:element name="Nonrenewable_x0020_resources" type="xs:double" minOccurs="0" />
                 <xs:element name="Per_x0020_capita_x0020_resource_x0020_usage_x0020_multiplier_x0020_table" type="xs:string" minOccurs="0" />
                 <xs:element name="Persistent_x0020_pollution" type="xs:double" minOccurs="0" />
-                <xs:element name="Persistent_x0020_pollution_x0020_generation_x0020_factor_x0020_2" type="xs:double" minOccurs="0" />
                 <xs:element name="Persistent_x0020_pollution_x0020_technology" type="xs:double" minOccurs="0" />
                 <xs:element name="Persistent_x0020_pollution_x0020_technology_x0020_change_x0020_multiplier_x0020_1_x0020_table" type="xs:string" minOccurs="0" />
                 <xs:element name="Persistent_x0020_pollution_x0020_technology_x0020_change_x0020_multiplier_x0020_2_x0020_table" type="xs:string" minOccurs="0" />
@@ -163,10 +162,11 @@
     </xs:element>
   </xs:schema>
   <Urban1>
+    <Urban1ID>World</Urban1ID>
     <Enabled>true</Enabled>
-    <Fraction_x0020_of_x0020_capital_x0020_allocated_x0020_to_x0020_obtaining_x0020_resources_x0020_switch_x0020_time>2002</Fraction_x0020_of_x0020_capital_x0020_allocated_x0020_to_x0020_obtaining_x0020_resources_x0020_switch_x0020_time>
-    <Initial_x0020_nonrenewable_x0020_resources>2000000000000</Initial_x0020_nonrenewable_x0020_resources>
-    <persistent_x0020_pollution_x0020_technology_x0020_change_x0020_time>2002</persistent_x0020_pollution_x0020_technology_x0020_change_x0020_time>
-    <Policy_x0020_year>2002</Policy_x0020_year>
   </Urban1>
-</Scenario_x0020_3>
+  <Urban1>
+    <Urban1ID>Urban</Urban1ID>
+    <Enabled>true</Enabled>
+  </Urban1>
+</Entities_x0020_1>
