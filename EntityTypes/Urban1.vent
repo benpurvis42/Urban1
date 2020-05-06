@@ -252,8 +252,6 @@ Updated to 1000 in Meadows et a;; 1992 (p239-249)</Description>
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Industrial output" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Migration" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Net migration" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Service output" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
@@ -550,7 +548,39 @@ Updated to 3.8 iin Meadows et al 1992 (p239-249)</Description>
             <Use CausalType="InformationSource" VariableName="Fertility control effectiveness" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
-        <Auxiliary name="Food">
+        <Auxiliary name="Food imported">
+          <Units>Veg equiv kg/Year</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>SMOOTHI(Marginal productivity of importing food * Fraction of industrial output allocated to agriculture * Fraction of agricultural inputs allocated to importing food * Industrial output, 3, 0)</Equation>
+          <Description>Total food imported into urban system</Description>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Marginal productivity of importing food" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Fraction of industrial output allocated to agriculture" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Industrial output" OwnerTag="EntityType:Urban1" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Food per capita" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Food per capita">
+          <Units>Veg equiv kg/(Person*Year)</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>(Food produced + Food imported )/ Population</Equation>
+          <Description>Total food available per capita</Description>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Food produced" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Food imported" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:Urban1" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Food ratio" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture 1" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture 2" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Lifetime multiplier from food" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Food produced">
           <Units>Veg equiv kg/Year</Units>
           <IsConstant>false</IsConstant>
           <Equation>Land yield * Arable land * Land fraction harvested * (1 - Processing loss)</Equation>
@@ -565,21 +595,6 @@ The units of vegetable equivalents take into account the conversion factor for t
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Food per capita" OwnerTag="EntityType:Urban1" />
-          </Uses>
-        </Auxiliary>
-        <Auxiliary name="Food per capita">
-          <Units>Veg equiv kg/(Person*Year)</Units>
-          <IsConstant>false</IsConstant>
-          <Equation>Food / Population</Equation>
-          <Causes>
-            <Cause CausalType="Information" VariableName="Food" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:Urban1" />
-          </Causes>
-          <Uses>
-            <Use CausalType="InformationSource" VariableName="Food ratio" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture 1" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture 2" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Lifetime multiplier from food" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Food ratio">
@@ -604,6 +619,26 @@ The units of vegetable equivalents take into account the conversion factor for t
           <Uses>
             <Use CausalType="InformationSource" VariableName="Perceived food ratio" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Perceived food ratio SMOOTHI1 DelayTime" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Fraction of agricultural inputs allocated to importing food">
+          <Units>Dimensionless</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Fraction of agricultural inputs allocated to importing food table ( Marginal productivity of importing food / ( Marginal productivity of agricultural inputs + Marginal productivity of land development ))</Equation>
+          <Description>Fraction of agricultural inputs that are allocated to importing food from outside the urban system</Description>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Fraction of agricultural inputs allocated to importing food table" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Marginal productivity of importing food" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Marginal productivity of agricultural inputs" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Marginal productivity of land development" OwnerTag="EntityType:Urban1" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Food imported" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported DELAY31 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTH31 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTHI1 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Total agricultural investment" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Fraction of agricultural inputs allocated to land development">
@@ -710,6 +745,11 @@ Its value at any tie defines the necessary fraction of capital stock that must b
             <Cause CausalType="Information" VariableName="Fraction of industrial output allocated to agriculture 1" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
+            <Use CausalType="InformationSource" VariableName="Food imported" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported DELAY31 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTH31 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTHI1 Input" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to industry" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Total agricultural investment" OwnerTag="EntityType:Urban1" />
           </Uses>
@@ -1214,6 +1254,11 @@ The utilisation of industrial capital to produce industrial output both depletes
             <Cause CausalType="Information" VariableName="Industrial capital output ratio" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
+            <Use CausalType="InformationSource" VariableName="Food imported" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported DELAY31 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTH31 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTHI1 Input" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Industrial capital investment rate" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Industrial output per capita" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Land yield multiplier from air pollution 1" OwnerTag="EntityType:Urban1" />
@@ -1543,6 +1588,7 @@ The utilisation of industrial capital to produce industrial output both depletes
           <Description>Cropping intensity of land</Description>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food produced" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Land life multiplier from land yield">
@@ -1609,6 +1655,7 @@ Varies from ~600 in traditional agricultual society to 5000 in intensive and ech
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food produced" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Land life multiplier from land yield 1" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Land life multiplier from land yield 2" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Marginal productivity of agricultural inputs" OwnerTag="EntityType:Urban1" />
@@ -1919,7 +1966,24 @@ Air pollution affects food output by: reducing plant growth, or by making food i
             <Cause CausalType="Information" VariableName="Land yield multiplier from capital" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
+            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to land development" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Marginal productivity of importing food">
+          <Units>Veg equiv kg / $</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>1/ World3_2003.Food cost</Equation>
+          <Causes>
+            <Cause CausalType="Information" Reference="World3_2003" VariableName="Food cost" OwnerTag="EntityType:World3_2003" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Food imported" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported DELAY31 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTH31 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTHI1 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Marginal productivity of land development">
@@ -1934,6 +1998,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Cause CausalType="Information" VariableName="Social discount rate" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
+            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to land development" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
@@ -1963,10 +2028,9 @@ Informed by perceived social benefit of development: Land yield/ Social discount
         <Auxiliary name="Migration normal">
           <Units>Dimensionless</Units>
           <IsConstant>true</IsConstant>
-          <Equation>0.2</Equation>
-          <Description>Normalisation constant for migration</Description>
+          <Equation>0.1</Equation>
+          <Description>Normalisation constant for migration, represents the maximum possible yearly net migration as a fraction of the total population</Description>
           <Uses>
-            <Use CausalType="InformationSource" VariableName="Migration" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Net migration" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
@@ -2323,7 +2387,6 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Use CausalType="InformationSource" VariableName="Food per capita" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of population urban" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Industrial output per capita" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Migration" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Net migration" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Nonrenewable resource usage rate" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Persistent pollution generated by industrial output" OwnerTag="EntityType:Urban1" />
@@ -2385,6 +2448,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Description>Percentage of food lossed in production</Description>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food produced" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Ref high GDP">
@@ -2415,6 +2479,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Net migration" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Net migration SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Reproductive lifetime">
@@ -2598,12 +2663,13 @@ Informed by perceived social benefit of development: Land yield/ Social discount
         <Auxiliary name="Total agricultural investment">
           <Units>$ / Year</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Industrial output * Fraction of industrial output allocated to agriculture</Equation>
+          <Equation>Industrial output * Fraction of industrial output allocated to agriculture * (1 - Fraction of agricultural inputs allocated to importing food)</Equation>
           <Description>"Value in dollar equivalents of that portion of the world's industrial output allocated to agriculture each year" (Meadows et al 1974, p287)
 "May be allocated in two ways: to develop new arable land or to increase the yield on land already developed" (p288)</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Industrial output" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Fraction of industrial output allocated to agriculture" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Current agricultural inputs" OwnerTag="EntityType:Urban1" />
@@ -2762,11 +2828,11 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Use CausalType="InformationSource" VariableName="Education index" OwnerTag="EntityType:Urban1" />
           </Uses>
         </TableFunction>
-        <TableFunction name="Employment availability table">
+        <TableFunction name="Employment multiplier table">
           <Description>Relates the capital utilisation fraction to net migration</Description>
           <UnitsIn>Dimensionless</UnitsIn>
           <UnitsOut>/Year</UnitsOut>
-          <Equation>0,1,0,1,0,0,1,0</Equation>
+          <Equation>-2,2,-2,2,-1,1,0,0,1,-1</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Net migration" OwnerTag="EntityType:Urban1" />
           </Uses>
@@ -2794,6 +2860,14 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Equation>-1,4,0,2,0,0.75,0.5,0.85,1,0.9,1.5,0.95,2,0.98,2.5,0.99,3,1</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fertility control effectiveness" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </TableFunction>
+        <TableFunction name="Fraction of agricultural inputs allocated to importing food table">
+          <UnitsIn>Dimensionless</UnitsIn>
+          <UnitsOut>Dimensionless</UnitsOut>
+          <Equation>-1,2,-1,2,0,0,0.25,0.05,0.5,0.15,0.75,0.3,1,0.5,1.25,0.7,1.5,0.85,1.75,0.95,2,1</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
           </Uses>
         </TableFunction>
         <TableFunction name="Fraction of agricultural inputs allocated to land development table">
@@ -3214,6 +3288,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Agricultural inputs per hectare" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food produced" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of land cultivated" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Land erosion rate" OwnerTag="EntityType:Urban1" />
@@ -3674,11 +3749,11 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           <To>Population 15 to 44</To>
           <IsConstant>false</IsConstant>
           <Description>Net migration into urban system due to number of available jobs</Description>
-          <Equation>Migration normal*Population* Employment availability table(Relative unemployment rate)</Equation>
+          <Equation>Migration normal*Population* Employment multiplier table(SMOOTH(Relative unemployment rate,2))</Equation>
           <Causes>
             <Cause CausalType="Information" VariableName="Migration normal" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" VariableName="Employment availability table" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Employment multiplier table" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Relative unemployment rate" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
@@ -3880,7 +3955,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
         </Chart>
         <Chart name="Plot2">
           <PlotedItems>
-            <PlottedItem VariableName="Food" OwnerTag="EntityType:Urban1" />
+            <PlottedItem VariableName="Food produced" OwnerTag="EntityType:Urban1" />
             <PlottedItem VariableName="Population" OwnerTag="EntityType:Urban1" />
             <PlottedItem VariableName="Nonrenewable resources" OwnerTag="EntityType:Urban1" />
             <PlottedItem VariableName="Industrial output" OwnerTag="EntityType:Urban1" />
@@ -3902,7 +3977,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <ForeColor />
             <Border Visibility="True" Color="D3D3D3" Thickness="1" />
             <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
-            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
             <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
             </EmptyChartText>
@@ -3932,7 +4007,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -3960,7 +4035,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -3979,7 +4054,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <SecondaryAxesX />
             <SecondaryAxesY />
             <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="140" BackColor="FFFFFF">
-              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               <Border Visibility="True" Color="D3D3D3" Thickness="1" />
               <Shadow Size="2" Visible="false" Color="FFFFFF" />
               <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
@@ -6142,8 +6217,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="98" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="325" LocationY="300" Height="45" Width="50.00183" />
-              <Label LocationX="301.9991" LocationY="292.4544" Height="15.09114" Width="46.00183" />
+              <Position LocationX="325" LocationY="300" Height="45" Width="50.00211" />
+              <Label LocationX="301.999" LocationY="292.4544" Height="15.09114" Width="46.00211" />
             </Node>
             <Node PartID="103" NodeType="Flow" MemberName="Land erosion rate" IsMidLabel="True" LabelText="Land erosion rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6203,12 +6278,12 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="1611" NodeType="Auxiliary" MemberName="Social discount rate" IsMidLabel="False" LabelText="Social discount rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="0" LocationY="400" Height="52" Width="124.283" />
-              <Label LocationX="-60.1415" LocationY="392.4544" Height="15.09114" Width="120.283" />
+              <Label LocationX="-60.14149" LocationY="392.4544" Height="15.09114" Width="120.283" />
             </Node>
             <Node PartID="2675" NodeType="Auxiliary" MemberName="Average life of land" IsMidLabel="False" LabelText="Average life of land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="473.1646" LocationY="300" Height="52" Width="92.95398" />
-              <Label LocationX="428.6876" LocationY="284.9088" Height="30.18229" Width="88.95395" />
+              <Label LocationX="428.6876" LocationY="284.9088" Height="30.18229" Width="88.95398" />
             </Node>
             <Node PartID="2823" NodeType="Auxiliary" MemberName="Average life of land normal" IsMidLabel="False" LabelText="Average life of land normal" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6379,8 +6454,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="15" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="439" LocationY="154" Height="44.99997" Width="50.0011" />
-              <Label LocationX="415.9995" LocationY="146.4544" Height="15.09114" Width="46.0011" />
+              <Position LocationX="439" LocationY="154" Height="44.99997" Width="50.00238" />
+              <Label LocationX="415.9988" LocationY="146.4544" Height="15.09114" Width="46.00235" />
             </Node>
             <Node PartID="17" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6557,7 +6632,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Position LocationX="125" LocationY="-200" Height="52" Width="76" />
               <Label LocationX="89" LocationY="-215.0911" Height="30.18229" Width="72" />
             </Node>
-            <Node PartID="4446" NodeType="TableFunction" MemberName="Employment availability table" IsMidLabel="False" LabelText="Employment availability table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+            <Node PartID="4446" NodeType="TableFunction" MemberName="Employment multiplier table" IsMidLabel="False" LabelText="Employment multiplier table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="-32.68283" LocationY="-100" Height="55" Width="118.6343" />
               <Label LocationX="-90" LocationY="-115.0911" Height="30.18229" Width="114.6343" />
@@ -6858,23 +6933,23 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           <Nodes>
             <Node PartID="1" NodeType="Auxiliary" MemberName="Food per capita" IsMidLabel="False" LabelText="Food per capita" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="400" LocationY="125" Height="52" Width="76" />
-              <Label LocationX="364" LocationY="109.9089" Height="30.18229" Width="72" />
+              <Position LocationX="450" LocationY="50" Height="52" Width="76" />
+              <Label LocationX="414" LocationY="34.90886" Height="30.18229" Width="72" />
             </Node>
-            <Node PartID="3" NodeType="Auxiliary" MemberName="Food" IsMidLabel="False" LabelText="Food " CaptionHidden="False" IsEditable="False" IsPrimary="True">
+            <Node PartID="3" NodeType="Auxiliary" MemberName="Food produced" IsMidLabel="False" LabelText="Food produced" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="300" LocationY="37" Height="28" Width="76" />
-              <Label LocationX="264" LocationY="29.45443" Height="15.09114" Width="72" />
+              <Position LocationX="300" LocationY="37" Height="36" Width="76" />
+              <Label LocationX="264" LocationY="21.90886" Height="30.18229" Width="72" />
             </Node>
             <Node PartID="9" NodeType="Auxiliary" MemberName="Population" IsMidLabel="False" LabelText="Population" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="400" LocationY="-100" Height="52" Width="76" />
-              <Label LocationX="364" LocationY="-107.5456" Height="15.09114" Width="72" />
+              <Position LocationX="575" LocationY="50" Height="52" Width="76" />
+              <Label LocationX="539" LocationY="42.45443" Height="15.09114" Width="72" />
             </Node>
             <Node PartID="21" NodeType="Auxiliary" MemberName="Fraction of industrial output allocated to agriculture" IsMidLabel="False" LabelText="Fraction of industrial output allocated to agriculture" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="500" LocationY="-175" Height="84" Width="140" />
-              <Label LocationX="432" LocationY="-197.6367" Height="45.27343" Width="136" />
+              <Position LocationX="500" LocationY="-375" Height="84" Width="140" />
+              <Label LocationX="432" LocationY="-397.6367" Height="45.27343" Width="136" />
             </Node>
             <Node PartID="29" NodeType="Auxiliary" MemberName="Subsistence food per capita" IsMidLabel="False" LabelText="Subsistence food per capita" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6883,103 +6958,103 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="1731" NodeType="Auxiliary" MemberName="Land yield" IsMidLabel="False" LabelText="Land yield" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="300" LocationY="-40.5" Height="33" Width="76" />
-              <Label LocationX="264" LocationY="-48.04557" Height="15.09114" Width="72" />
+              <Position LocationX="225" LocationY="125" Height="33" Width="76" />
+              <Label LocationX="189" LocationY="117.4544" Height="15.09114" Width="72" />
             </Node>
             <Node PartID="1742" NodeType="Stock" MemberName="Arable land" IsMidLabel="False" LabelText="Arable land" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="150" LocationY="50" Height="60" Width="86" />
-              <Label LocationX="109" LocationY="42.45443" Height="15.09114" Width="82" />
+              <Position LocationX="125" LocationY="25" Height="60" Width="86" />
+              <Label LocationX="84" LocationY="17.45443" Height="15.09114" Width="82" />
             </Node>
             <Node PartID="1749" NodeType="Auxiliary" MemberName="Land fraction harvested" IsMidLabel="False" LabelText="Land fraction harvested" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="275" LocationY="125" Height="52" Width="101" />
-              <Label LocationX="226.5" LocationY="109.9088" Height="30.18229" Width="97" />
+              <Position LocationX="325" LocationY="150" Height="52" Width="101" />
+              <Label LocationX="276.5" LocationY="134.9089" Height="30.18229" Width="97" />
             </Node>
             <Node PartID="1766" NodeType="Auxiliary" MemberName="Processing loss" IsMidLabel="False" LabelText="Processing loss" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="150" LocationY="-50" Height="52" Width="76.45874" />
-              <Label LocationX="113.7706" LocationY="-65.09116" Height="30.18229" Width="72.45874" />
+              <Position LocationX="150" LocationY="100" Height="52" Width="76.45874" />
+              <Label LocationX="113.7706" LocationY="84.90886" Height="30.18229" Width="72.45874" />
             </Node>
             <Node PartID="1830" NodeType="Auxiliary" MemberName="Indicated food per capita" IsMidLabel="False" LabelText="Indicated food per capita" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="625" LocationY="275" Height="52" Width="110" />
-              <Label LocationX="572" LocationY="259.9089" Height="30.18229" Width="106" />
+              <Position LocationX="725" LocationY="50" Height="52" Width="110" />
+              <Label LocationX="672" LocationY="34.90886" Height="30.18229" Width="106" />
             </Node>
             <Node PartID="1858" NodeType="Auxiliary" MemberName="Indicated food per capita 1" IsMidLabel="False" LabelText="Indicated food per capita 1" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="525" LocationY="350" Height="52" Width="95" />
-              <Label LocationX="479.5" LocationY="334.9088" Height="30.18229" Width="91" />
+              <Position LocationX="625" LocationY="150" Height="52" Width="95" />
+              <Label LocationX="579.5" LocationY="134.9088" Height="30.18229" Width="91" />
             </Node>
             <Node PartID="1880" NodeType="Auxiliary" MemberName="Indicated food per capita 2" IsMidLabel="False" LabelText="Indicated food per capita 2" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="750" LocationY="350" Height="52" Width="102" />
-              <Label LocationX="701" LocationY="334.9088" Height="30.18229" Width="98" />
+              <Position LocationX="850" LocationY="150" Height="52" Width="102" />
+              <Label LocationX="801" LocationY="134.9088" Height="30.18229" Width="98" />
             </Node>
             <Node PartID="1914" NodeType="TableFunction" MemberName="Indicated food per capita 1 table" IsMidLabel="False" LabelText="Indicated food per capita 1 table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="425" LocationY="425" Height="55" Width="132.6343" />
-              <Label LocationX="360.6828" LocationY="409.9088" Height="30.18229" Width="128.6343" />
+              <Position LocationX="625" LocationY="225" Height="55" Width="132.6343" />
+              <Label LocationX="560.6829" LocationY="209.9089" Height="30.18229" Width="128.6343" />
             </Node>
             <Node PartID="1936" NodeType="TableFunction" MemberName="Indicated food per capita 2 table" IsMidLabel="False" LabelText="Indicated food per capita 2 table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="900" LocationY="350" Height="55" Width="128.6344" />
-              <Label LocationX="837.6828" LocationY="334.9088" Height="30.18229" Width="124.6344" />
+              <Position LocationX="1000" LocationY="150" Height="55" Width="128.6344" />
+              <Label LocationX="937.6828" LocationY="134.9088" Height="30.18229" Width="124.6344" />
             </Node>
             <Node PartID="1956" NodeType="Auxiliary" MemberName="Policy year" IsMidLabel="False" LabelText="Policy year" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="800" LocationY="275" Height="52" Width="76" />
-              <Label LocationX="764" LocationY="267.4544" Height="15.09114" Width="72" />
+              <Position LocationX="900" LocationY="75" Height="52" Width="76" />
+              <Label LocationX="864" LocationY="67.45444" Height="15.09114" Width="72" />
             </Node>
             <Node PartID="1964" NodeType="Auxiliary" MemberName="Industrial output per capita" IsMidLabel="False" LabelText="Industrial output per capita" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="625" LocationY="425" Height="52" Width="105" />
-              <Label LocationX="574.5" LocationY="409.9088" Height="30.18229" Width="101" />
+              <Position LocationX="800" LocationY="225" Height="52" Width="105" />
+              <Label LocationX="749.5" LocationY="209.9089" Height="30.18229" Width="101" />
             </Node>
             <Node PartID="1972" NodeType="Auxiliary" MemberName="Time" IsMidLabel="False" LabelText="Time" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
-              <Position LocationX="775" LocationY="225" Height="52" Width="76" />
-              <Label LocationX="739" LocationY="209.9089" Height="30.18229" Width="72" />
+              <Position LocationX="875" LocationY="25" Height="52" Width="76" />
+              <Label LocationX="839" LocationY="9.908859" Height="30.18229" Width="72" />
             </Node>
             <Node PartID="2406" NodeType="Auxiliary" MemberName="Total agricultural investment" IsMidLabel="False" LabelText="Total agricultural investment" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="225" LocationY="-175" Height="52" Width="107" />
-              <Label LocationX="173.5" LocationY="-190.0911" Height="30.18229" Width="103" />
+              <Position LocationX="25" LocationY="-300" Height="52" Width="107" />
+              <Label LocationX="-26.5" LocationY="-315.0912" Height="30.18229" Width="103" />
             </Node>
             <Node PartID="2740" NodeType="Auxiliary" MemberName="Industrial output" IsMidLabel="False" LabelText="Industrial output" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="225" LocationY="-250" Height="52" Width="76" />
-              <Label LocationX="189" LocationY="-265.0911" Height="30.18229" Width="72" />
+              <Position LocationX="150" LocationY="-75" Height="52" Width="76" />
+              <Label LocationX="114" LocationY="-90.09116" Height="30.18229" Width="72" />
             </Node>
             <Node PartID="2793" NodeType="Auxiliary" MemberName="Policy year" IsMidLabel="False" LabelText="Policy year" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="650" LocationY="-225" Height="52" Width="76" />
-              <Label LocationX="614" LocationY="-232.5456" Height="15.09114" Width="72" />
+              <Position LocationX="700" LocationY="-325" Height="52" Width="76" />
+              <Label LocationX="664" LocationY="-332.5456" Height="15.09114" Width="72" />
             </Node>
             <Node PartID="2812" NodeType="Auxiliary" MemberName="Time" IsMidLabel="False" LabelText="Time" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
-              <Position LocationX="725" LocationY="-175" Height="52" Width="76" />
-              <Label LocationX="689" LocationY="-190.0911" Height="30.18229" Width="72" />
+              <Position LocationX="675" LocationY="-375" Height="52" Width="76" />
+              <Label LocationX="639" LocationY="-390.0911" Height="30.18229" Width="72" />
             </Node>
             <Node PartID="2872" NodeType="Auxiliary" MemberName="Fraction of industrial output allocated to agriculture 1" IsMidLabel="False" LabelText="Fraction of industrial output allocated to agriculture 1" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="875" LocationY="0" Height="84" Width="132" />
-              <Label LocationX="811" LocationY="-22.63672" Height="45.27343" Width="128" />
+              <Position LocationX="750" LocationY="-200" Height="84" Width="132" />
+              <Label LocationX="686" LocationY="-222.6367" Height="45.27343" Width="128" />
             </Node>
             <Node PartID="3011" NodeType="Auxiliary" MemberName="Fraction of industrial output allocated to agriculture 2" IsMidLabel="False" LabelText="Fraction of industrial output allocated to agriculture 2" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="500" LocationY="0" Height="52" Width="131" />
-              <Label LocationX="436.5" LocationY="-22.63672" Height="45.27343" Width="127" />
+              <Position LocationX="575" LocationY="-200" Height="52" Width="131" />
+              <Label LocationX="511.5" LocationY="-222.6367" Height="45.27343" Width="127" />
             </Node>
             <Node PartID="3540" NodeType="TableFunction" MemberName="Fraction of industrial output allocated to agriculture 1 table" IsMidLabel="False" LabelText="Fraction of industrial output allocated to agriculture 1 table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="875" LocationY="150" Height="68" Width="149.6344" />
-              <Label LocationX="802.1828" LocationY="127.3633" Height="45.27343" Width="145.6344" />
+              <Position LocationX="875" LocationY="-75" Height="68" Width="149.6343" />
+              <Label LocationX="802.1829" LocationY="-97.63672" Height="45.27343" Width="145.6343" />
             </Node>
             <Node PartID="3644" NodeType="TableFunction" MemberName="Fraction of industrial output allocated to agriculture 2 table" IsMidLabel="False" LabelText="Fraction of industrial output allocated to agriculture 2 table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="675" LocationY="0" Height="68" Width="153.6343" />
-              <Label LocationX="600.1829" LocationY="-22.63672" Height="45.27343" Width="149.6343" />
+              <Position LocationX="475" LocationY="-75" Height="68" Width="153.6343" />
+              <Label LocationX="400.1829" LocationY="-97.63672" Height="45.27343" Width="149.6343" />
             </Node>
             <Node PartID="5689" NodeType="Auxiliary" MemberName="Agricultural inputs" IsMidLabel="False" LabelText="Agricultural inputs" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6998,8 +7073,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="5969" NodeType="Auxiliary" MemberName="Fraction of agricultural inputs allocated to land development" IsMidLabel="False" LabelText="Fraction of agricultural inputs allocated to land development" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="0" LocationY="-225" Height="84" Width="151.8925" />
-              <Label LocationX="-73.94625" LocationY="-247.6367" Height="45.27343" Width="147.8925" />
+              <Position LocationX="-150" LocationY="-200" Height="84" Width="151.8925" />
+              <Label LocationX="-223.9463" LocationY="-222.6367" Height="45.27343" Width="147.8925" />
             </Node>
             <Node PartID="6920" NodeType="Auxiliary" MemberName="Time" IsMidLabel="False" LabelText="Time" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
@@ -7048,46 +7123,81 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="8085" NodeType="Auxiliary" MemberName="Food shortage perception delay" IsMidLabel="False" LabelText="Food shortage perception delay" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="475" LocationY="275" Height="52" Width="109" />
-              <Label LocationX="422.5" LocationY="259.9088" Height="30.18229" Width="105" />
+              <Position LocationX="475" LocationY="325" Height="52" Width="109" />
+              <Label LocationX="422.5" LocationY="309.9088" Height="30.18229" Width="105" />
             </Node>
             <Node PartID="8291" NodeType="Auxiliary" MemberName="Initial agricultural inputs" IsMidLabel="False" LabelText="Initial agricultural inputs" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="25" LocationY="75" Height="52" Width="76" />
               <Label LocationX="-11" LocationY="52.36328" Height="45.27343" Width="72" />
             </Node>
+            <Node PartID="8420" NodeType="Auxiliary" MemberName="Fraction of agricultural inputs allocated to importing food" IsMidLabel="False" LabelText="Fraction of agricultural inputs allocated to importing food" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="175" LocationY="-200" Height="84" Width="135" />
+              <Label LocationX="109.5" LocationY="-230.1823" Height="60.36458" Width="131" />
+            </Node>
+            <Node PartID="8927" NodeType="Auxiliary" MemberName="Marginal productivity of importing food" IsMidLabel="False" LabelText="Marginal productivity of importing food" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="350" LocationY="-150" Height="53.54018" Width="111.1981" />
+              <Label LocationX="296.4009" LocationY="-172.6367" Height="45.27343" Width="107.1981" />
+            </Node>
+            <Node PartID="9207" NodeType="Auxiliary" MemberName="Marginal productivity of agricultural inputs" IsMidLabel="False" LabelText="Marginal productivity of agricultural inputs" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="300" LocationY="-350" Height="68" Width="115.3473" />
+              <Label LocationX="244.3264" LocationY="-372.6367" Height="45.27343" Width="111.3473" />
+            </Node>
+            <Node PartID="9397" NodeType="Auxiliary" MemberName="Marginal productivity of land development" IsMidLabel="False" LabelText="Marginal productivity of land development" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="175" LocationY="-325" Height="68" Width="109.3473" />
+              <Label LocationX="122.3264" LocationY="-347.6367" Height="45.27343" Width="105.3473" />
+            </Node>
+            <Node PartID="9788" NodeType="TableFunction" MemberName="Fraction of agricultural inputs allocated to importing food table" IsMidLabel="False" LabelText="Fraction of agricultural inputs allocated to importing food table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="375" LocationY="-300" Height="55" Width="160.9515" />
+              <Label LocationX="296.5243" LocationY="-322.6367" Height="45.27343" Width="156.9515" />
+            </Node>
+            <Node PartID="11539" NodeType="Auxiliary" MemberName="Food imported" IsMidLabel="False" LabelText="Food imported" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="275" LocationY="-50" Height="52" Width="76" />
+              <Label LocationX="239" LocationY="-65.09114" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="18464" NodeType="Auxiliary" MemberName="Food cost" IsMidLabel="False" LabelText="Food cost" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:World3_2003" ReferenceName="World3_2003" />
+              <Position LocationX="400" LocationY="-225" Height="52" Width="90.14365" />
+              <Label LocationX="356.9282" LocationY="-240.0911" Height="30.18229" Width="86.14365" />
+            </Node>
           </Nodes>
           <Links>
-            <Link PartID="6" LinkType="Information" FromNode="3" FromPort="8213" ToNode="1" ToPort="8212" PointCount="4" LabelNodeID="0" Points="339|48.81659|349.3052|52.46744|366.3423|67.80077|384.1124|98" ManualStroke="False" />
-            <Link PartID="13" LinkType="Information" FromNode="9" FromPort="8214" ToNode="1" ToPort="8212" PointCount="4" LabelNodeID="0" Points="399.6538|-73|399|-22|399|35|399.7|98" ManualStroke="False" />
-            <Link PartID="1777" LinkType="Information" FromNode="1766" FromPort="8221" ToNode="3" ToPort="8213" PointCount="4" LabelNodeID="0" Points="189.2294|-38.94021|227.5666|-28.13194|255.8694|-11.71628|286.412|22" ManualStroke="False" />
-            <Link PartID="1788" LinkType="Information" FromNode="1749" FromPort="8220" ToNode="3" ToPort="8213" PointCount="4" LabelNodeID="0" Points="273.7504|98|272.7878|77.20113|277.1439|61.86779|286.2134|52" ManualStroke="False" />
-            <Link PartID="1799" LinkType="Information" FromNode="1742" FromPort="8219" ToNode="3" ToPort="8213" PointCount="4" LabelNodeID="0" Points="194|32.51462|214.6065|24.32572|236.9398|22.39016|261|27.96445" ManualStroke="False" />
-            <Link PartID="1810" LinkType="Information" FromNode="1731" FromPort="8218" ToNode="3" ToPort="8213" PointCount="4" LabelNodeID="0" Points="299.386|-23|299|-12|299|3|299.5588|22" ManualStroke="False" />
-            <Link PartID="1991" LinkType="Information" FromNode="1858" FromPort="8223" ToNode="1830" ToPort="8222" PointCount="4" LabelNodeID="0" Points="573.5|332.6032|586.3333|328|595.6667|321|607.7826|302" ManualStroke="False" />
-            <Link PartID="2010" LinkType="Information" FromNode="1880" FromPort="8224" ToNode="1830" ToPort="8222" PointCount="4" LabelNodeID="0" Points="698|336.9138|683.0434|333.1499|671.3768|326.1499|649.4805|302" ManualStroke="False" />
-            <Link PartID="2029" LinkType="Information" FromNode="1956" FromPort="8227" ToNode="1830" ToPort="8222" PointCount="4" LabelNodeID="0" Points="761|286.8782|734.3333|295|707.6667|295|681|288.5484" ManualStroke="False" />
-            <Link PartID="2048" LinkType="Information" FromNode="1972" FromPort="8229" ToNode="1830" ToPort="8222" PointCount="4" LabelNodeID="0" Points="738.8377|252|723.9913|263.0849|705.6579|269.196|681|270.9703" ManualStroke="False" />
-            <Link PartID="2067" LinkType="Information" FromNode="1914" FromPort="8225" ToNode="1858" ToPort="8223" PointCount="4" LabelNodeID="0" Points="444.3726|396.5|459.6667|374|468.3333|367.5|476.5|364.9779" ManualStroke="False" />
-            <Link PartID="2105" LinkType="Information" FromNode="1936" FromPort="8226" ToNode="1880" ToPort="8224" PointCount="4" LabelNodeID="0" Points="834.6828|367.1411|823.7885|370|812.8943|370|802|366.5357" ManualStroke="False" />
-            <Link PartID="2124" LinkType="Information" FromNode="1964" FromPort="8228" ToNode="1858" ToPort="8223" PointCount="4" LabelNodeID="0" Points="571.5|408.2035|567.6667|407|558.3333|400|543|377" ManualStroke="False" />
-            <Link PartID="2143" LinkType="Information" FromNode="1964" FromPort="8228" ToNode="1880" ToPort="8224" PointCount="4" LabelNodeID="0" Points="678.5|402.5715|687.3768|398.8501|699.0434|391.8501|717.1248|377" ManualStroke="False" />
-            <Link PartID="2426" LinkType="Information" FromNode="21" FromPort="8215" ToNode="2406" ToPort="8230" PointCount="4" LabelNodeID="0" Points="429|-186.5731|371.1667|-196|321.3333|-196|279.5|-186.8806" ManualStroke="False" />
-            <Link PartID="2761" LinkType="Information" FromNode="2740" FromPort="8231" ToNode="2406" ToPort="8230" PointCount="4" LabelNodeID="0" Points="240.8823|-223|245|-216|245|-209|240.8823|-202" ManualStroke="False" />
-            <Link PartID="2835" LinkType="Information" FromNode="2812" FromPort="8233" ToNode="21" ToPort="8215" PointCount="4" LabelNodeID="0" Points="686|-164.9138|647.6667|-155|609.3333|-155|571|-162.0122" ManualStroke="False" />
-            <Link PartID="2858" LinkType="Information" FromNode="2793" FromPort="8232" ToNode="21" ToPort="8215" PointCount="4" LabelNodeID="0" Points="615.8895|-198|603.9912|-188.582|590.6578|-184.1375|571|-182.1562" ManualStroke="False" />
-            <Link PartID="3036" LinkType="Information" FromNode="3011" FromPort="8235" ToNode="21" ToPort="8215" PointCount="4" LabelNodeID="0" Points="491.2903|-27|480|-62|480|-97|488.9743|-132" ManualStroke="False" />
-            <Link PartID="3061" LinkType="Information" FromNode="2872" FromPort="8234" ToNode="21" ToPort="8215" PointCount="4" LabelNodeID="0" Points="808|-36.87888|740.5423|-74.00968|661.5423|-110.8764|571|-146.8168" ManualStroke="False" />
-            <Link PartID="3086" LinkType="Information" FromNode="1" FromPort="8212" ToNode="3011" ToPort="8235" PointCount="4" LabelNodeID="0" Points="410.6512|98|424.916|61.83944|443.8493|38.17278|460.284|27" ManualStroke="False" />
-            <Link PartID="3111" LinkType="Information" FromNode="1" FromPort="8212" ToNode="2872" ToPort="8234" PointCount="4" LabelNodeID="0" Points="439|128.0407|579.9102|139.027|702.9102|106.6586|808|41.52557" ManualStroke="False" />
-            <Link PartID="3136" LinkType="Information" FromNode="1830" FromPort="8222" ToNode="3011" ToPort="8235" PointCount="4" LabelNodeID="0" Points="606.307|248|561.035|182.6094|527.5502|108.9427|506.8279|27" ManualStroke="False" />
-            <Link PartID="3161" LinkType="Information" FromNode="1830" FromPort="8222" ToNode="2872" ToPort="8234" PointCount="4" LabelNodeID="0" Points="642.8369|248|696.8678|166.2132|758.989|97.87984|824.0347|43" ManualStroke="False" />
-            <Link PartID="3671" LinkType="Information" FromNode="3540" FromPort="8236" ToNode="2872" ToPort="8234" PointCount="4" LabelNodeID="0" Points="874.3965|115|874|92|874|68|874.3677|43" ManualStroke="False" />
-            <Link PartID="3698" LinkType="Information" FromNode="3644" FromPort="8237" ToNode="3011" ToPort="8235" PointCount="4" LabelNodeID="0" Points="597.1829|17.67673|586.9553|20|576.7276|20|566.5|17.33405" ManualStroke="False" />
-            <Link PartID="6031" LinkType="Information" FromNode="5969" FromPort="8241" ToNode="5774" ToPort="8239" PointCount="4" LabelNodeID="0" Points="4.795876|-182|5.36479|-176.8991|5.814791|-166.8991|5.347265|-152" ManualStroke="False" />
+            <Link PartID="6" LinkType="Information" FromNode="3" FromPort="8334" ToNode="1" ToPort="8333" PointCount="4" LabelNodeID="0" Points="339|28.28413|364.7269|22.5346|388.7269|24.6146|411|33.84233" ManualStroke="False" />
+            <Link PartID="13" LinkType="Information" FromNode="9" FromPort="8335" ToNode="1" ToPort="8333" PointCount="4" LabelNodeID="0" Points="536|64.26829|520.3333|70|504.6667|70|489|64.2683" ManualStroke="False" />
+            <Link PartID="1777" LinkType="Information" FromNode="1766" FromPort="8341" ToNode="3" ToPort="8334" PointCount="4" LabelNodeID="0" Points="183.2717|73|205.4083|55.03615|229.3318|44.98826|261|41.40852" ManualStroke="False" />
+            <Link PartID="1788" LinkType="Information" FromNode="1749" FromPort="8340" ToNode="3" ToPort="8334" PointCount="4" LabelNodeID="0" Points="306.7399|123|294.5577|104.987|289.6168|82.65363|295.6787|56" ManualStroke="False" />
+            <Link PartID="1799" LinkType="Information" FromNode="1742" FromPort="8339" ToNode="3" ToPort="8334" PointCount="4" LabelNodeID="0" Points="169|16.41638|201.0349|10.16694|231.7015|12.2698|261|22.87848" ManualStroke="False" />
+            <Link PartID="1810" LinkType="Information" FromNode="1731" FromPort="8338" ToNode="3" ToPort="8334" PointCount="4" LabelNodeID="0" Points="230.2617|107.5|239.3238|77.3603|253.9544|60.19362|262.2799|56" ManualStroke="False" />
+            <Link PartID="1991" LinkType="Information" FromNode="1858" FromPort="8343" ToNode="1830" ToPort="8342" PointCount="4" LabelNodeID="0" Points="638.4777|123|653.1912|93.52451|668.5245|78.19118|670.9108|77" ManualStroke="False" />
+            <Link PartID="2010" LinkType="Information" FromNode="1880" FromPort="8344" ToNode="1830" ToPort="8342" PointCount="4" LabelNodeID="0" Points="798|128.7614|784.5894|123.284|765.4228|107.9507|743.8336|77" ManualStroke="False" />
+            <Link PartID="2029" LinkType="Information" FromNode="1956" FromPort="8347" ToNode="1830" ToPort="8342" PointCount="4" LabelNodeID="0" Points="861|80.93187|831.5049|85.41806|804.8383|81.60854|781|72.1708" ManualStroke="False" />
+            <Link PartID="2048" LinkType="Information" FromNode="1972" FromPort="8349" ToNode="1830" ToPort="8342" PointCount="4" LabelNodeID="0" Points="836|46.13133|820.9547|54.28334|802.6213|57.33889|781|55.29465" ManualStroke="False" />
+            <Link PartID="2067" LinkType="Information" FromNode="1914" FromPort="8345" ToNode="1858" ToPort="8343" PointCount="4" LabelNodeID="0" Points="608.7143|196.5|605|190|605|183.5|608.8806|177" ManualStroke="False" />
+            <Link PartID="2105" LinkType="Information" FromNode="1936" FromPort="8346" ToNode="1880" ToPort="8344" PointCount="4" LabelNodeID="0" Points="934.6828|167.1411|923.7885|170|912.8943|170|902|166.5357" ManualStroke="False" />
+            <Link PartID="2124" LinkType="Information" FromNode="1964" FromPort="8348" ToNode="1858" ToPort="8343" PointCount="4" LabelNodeID="0" Points="746.5|215.6533|714.2883|210.0258|689.9549|199.5972|660.3605|177" ManualStroke="False" />
+            <Link PartID="2143" LinkType="Information" FromNode="1964" FromPort="8348" ToNode="1880" ToPort="8344" PointCount="4" LabelNodeID="0" Points="800.9567|198|801.4352|184.4965|806.1019|177.4965|806.8945|177" ManualStroke="False" />
+            <Link PartID="2426" LinkType="Information" FromNode="21" FromPort="8336" ToNode="2406" ToPort="8350" PointCount="4" LabelNodeID="0" Points="429|-387.3205|294.6193|-410.6394|178.1192|-392.2448|69.81789|-327" ManualStroke="False" />
+            <Link PartID="2761" LinkType="Information" FromNode="2740" FromPort="8351" ToNode="2406" ToPort="8350" PointCount="4" LabelNodeID="0" Points="126.6845|-102|85.85019|-149.2871|54.18353|-206.2871|33.40819|-273" ManualStroke="False" />
+            <Link PartID="2835" LinkType="Information" FromNode="2812" FromPort="8353" ToNode="21" ToPort="8336" PointCount="4" LabelNodeID="0" Points="636|-362.1429|614.3333|-355|592.6667|-355|571|-359.6763" ManualStroke="False" />
+            <Link PartID="2858" LinkType="Information" FromNode="2793" FromPort="8352" ToNode="21" ToPort="8336" PointCount="4" LabelNodeID="0" Points="661|-323.8631|626.1493|-322.8472|596.1493|-330.3472|571|-342.0268" ManualStroke="False" />
+            <Link PartID="3036" LinkType="Information" FromNode="3011" FromPort="8355" ToNode="21" ToPort="8336" PointCount="4" LabelNodeID="0" Points="552.5734|-227|530.0457|-254.1216|515.0457|-289.1216|507.5335|-332" ManualStroke="False" />
+            <Link PartID="3061" LinkType="Information" FromNode="2872" FromPort="8354" ToNode="21" ToPort="8336" PointCount="4" LabelNodeID="0" Points="683|-232.7111|634.7213|-256.282|592.3403|-285.9487|544.5881|-332" ManualStroke="False" />
+            <Link PartID="3086" LinkType="Information" FromNode="1" FromPort="8333" ToNode="3011" ToPort="8355" PointCount="4" LabelNodeID="0" Points="489|24.07767|551.7253|-17.61431|584.392|-82.9476|577.1664|-173" ManualStroke="False" />
+            <Link PartID="3111" LinkType="Information" FromNode="1" FromPort="8333" ToNode="2872" ToPort="8354" PointCount="4" LabelNodeID="0" Points="489|29.82543|579.85|-17.171|651.85|-77.17105|715.6396|-157" ManualStroke="False" />
+            <Link PartID="3136" LinkType="Information" FromNode="1830" FromPort="8342" ToNode="3011" ToPort="8355" PointCount="4" LabelNodeID="0" Points="701.1243|23|652.4501|-32.04343|613.2501|-97.37676|585.0635|-173" ManualStroke="False" />
+            <Link PartID="3161" LinkType="Information" FromNode="1830" FromPort="8342" ToNode="2872" ToPort="8354" PointCount="4" LabelNodeID="0" Points="721.6017|23|713.7993|-38.99007|719.7993|-98.99007|737.1436|-157" ManualStroke="False" />
+            <Link PartID="3671" LinkType="Information" FromNode="3540" FromPort="8356" ToNode="2872" ToPort="8354" PointCount="4" LabelNodeID="0" Points="812.8963|-110|810.1912|-111.5245|794.5245|-127.1912|776.2957|-157" ManualStroke="False" />
+            <Link PartID="3698" LinkType="Information" FromNode="3644" FromPort="8357" ToNode="3011" ToPort="8355" PointCount="4" LabelNodeID="0" Points="489.9121|-110|504.1826|-143.4939|520.9827|-164.4939|533.9235|-173" ManualStroke="False" />
+            <Link PartID="6031" LinkType="Information" FromNode="5969" FromPort="8361" ToNode="5774" ToPort="8359" PointCount="4" LabelNodeID="0" Points="-73.05375|-181.0434|-57.00845|-177.0904|-49.6972|-173.5413|-25.64598|-152" ManualStroke="False" />
             <Link PartID="6062" LinkType="Information" FromNode="5774" FromPort="8239" ToNode="5689" ToPort="8238" PointCount="4" LabelNodeID="0" Points="-9.870051|-98|-17.99205|-82.73953|-23.57738|-59.07286|-24.34978|-27" ManualStroke="False" />
             <Link PartID="6093" LinkType="Information" FromNode="5859" FromPort="8240" ToNode="5689" ToPort="8238" PointCount="4" LabelNodeID="0" Points="-122|-15.07635|-102.895|-20|-83.79008|-20|-64.68512|-13.50062" ManualStroke="False" />
-            <Link PartID="6124" LinkType="Information" FromNode="2406" FromPort="8230" ToNode="5774" ToPort="8239" PointCount="4" LabelNodeID="0" Points="170.5|-175.0509|120.8507|-175.0972|85.3507|-166.2221|57.45628|-152" ManualStroke="False" />
+            <Link PartID="6124" LinkType="Information" FromNode="2406" FromPort="8350" ToNode="5774" ToPort="8359" PointCount="4" LabelNodeID="0" Points="16.76621|-273|4.976559|-234.3397|0.2518005|-194.0064|2.837827|-152" ManualStroke="False" />
             <Link PartID="7089" LinkType="Information" FromNode="6957" FromPort="8244" ToNode="5859" ToPort="8240" PointCount="4" LabelNodeID="0" Points="-179.3608|65|-182.855|60.83464|-185.905|50.83464|-184.2214|35" ManualStroke="False" />
             <Link PartID="7124" LinkType="Information" FromNode="7054" FromPort="8245" ToNode="5859" ToPort="8240" PointCount="4" LabelNodeID="0" Points="-172.2501|-65|-176.595|-58.16536|-179.645|-48.16536|-179.8787|-35" ManualStroke="False" />
             <Link PartID="7159" LinkType="Information" FromNode="6920" FromPort="8242" ToNode="5859" ToPort="8240" PointCount="4" LabelNodeID="0" Points="-243.5|-50.16193|-232.6465|-50.21772|-231.1465|-49.42407|-216.3657|-35" ManualStroke="False" />
@@ -7098,11 +7208,22 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Link PartID="7884" LinkType="Information" FromNode="7845" FromPort="8249" ToNode="7769" ToPort="8248" PointCount="4" LabelNodeID="0" Points="-30.03833|320.6643|-15.48897|320|4.060383|320|28.60974|321.2794" ManualStroke="False" />
             <Link PartID="7963" LinkType="Information" FromNode="7923" FromPort="8250" ToNode="7769" ToPort="8248" PointCount="4" LabelNodeID="0" Points="236|337.8848|214.4634|345|192.9268|345|171.3903|340.3648" ManualStroke="False" />
             <Link PartID="8044" LinkType="Information" FromNode="8003" FromPort="8251" ToNode="7923" ToPort="8250" PointCount="4" LabelNodeID="0" Points="381.1665|252|359.5772|282.9507|340.4106|298.284|314|309.071" ManualStroke="False" />
-            <Link PartID="8127" LinkType="Information" FromNode="8085" FromPort="8252" ToNode="7923" ToPort="8250" PointCount="4" LabelNodeID="0" Points="419.9237|302|389.1841|317.0695|354.0174|325.8612|314|325.425" ManualStroke="False" />
-            <Link PartID="8169" LinkType="Information" FromNode="1" FromPort="8212" ToNode="8003" ToPort="8251" PointCount="4" LabelNodeID="0" Points="400.6532|152|401|166.3333|401|181.6667|400.623|198" ManualStroke="False" />
+            <Link PartID="8127" LinkType="Information" FromNode="8085" FromPort="8371" ToNode="7923" ToPort="8369" PointCount="4" LabelNodeID="0" Points="419.5|337.2426|384.3333|345|349.1667|345|314|335.5168" ManualStroke="False" />
+            <Link PartID="8169" LinkType="Information" FromNode="1" FromPort="8333" ToNode="8003" ToPort="8370" PointCount="4" LabelNodeID="0" Points="449.9972|77|449.9924|122.8277|438.4686|163.1611|416.7961|198" ManualStroke="False" />
             <Link PartID="8211" LinkType="Information" FromNode="29" FromPort="8216" ToNode="8003" ToPort="8251" PointCount="4" LabelNodeID="0" Points="317.6702|219.8844|326.1134|219|340.5567|219|361|221.0635" ManualStroke="False" />
-            <Link PartID="8251" LinkType="Information" FromNode="1742" FromPort="8219" ToNode="7540" ToPort="8246" PointCount="4" LabelNodeID="0" Points="126.8976|81|98.80369|118.6978|72.00369|141.0311|39.68509|156.2779" ManualStroke="False" />
+            <Link PartID="8251" LinkType="Information" FromNode="1742" FromPort="8339" ToNode="7540" ToPort="8366" PointCount="4" LabelNodeID="0" Points="110.004|56|88.97553|99.47035|63.41998|130.137|38.16821|148" ManualStroke="False" />
             <Link PartID="8332" LinkType="Information" FromNode="8291" FromPort="8292" ToNode="5689" ToPort="8277" PointCount="4" LabelNodeID="0" Points="-14|52.2733|-14.30767|52.09401|-18.97434|45.09401|-21.39214|27" ManualStroke="False" />
+            <Link PartID="8602" LinkType="Information" FromNode="8420" FromPort="8421" ToNode="2406" ToPort="8350" PointCount="4" LabelNodeID="0" Points="106.5|-227.4918|84.40599|-236.359|69.40601|-246.359|47.35159|-273" ManualStroke="False" />
+            <Link PartID="9159" LinkType="Information" FromNode="8927" FromPort="8928" ToNode="8420" ToPort="8421" PointCount="4" LabelNodeID="0" Points="293.4009|-151.2173|271.2729|-151.6932|254.6392|-156.4456|243.5|-162.5376" ManualStroke="False" />
+            <Link PartID="9540" LinkType="Information" FromNode="9397" FromPort="9398" ToNode="8420" ToPort="8421" PointCount="4" LabelNodeID="0" Points="188.8158|-290|195|-274.3333|195|-258.6667|189.6591|-243" ManualStroke="False" />
+            <Link PartID="9589" LinkType="Information" FromNode="9207" FromPort="9208" ToNode="8420" ToPort="8421" PointCount="4" LabelNodeID="0" Points="283.5234|-315|266.1978|-278.1963|246.1978|-254.1963|231.4891|-243" ManualStroke="False" />
+            <Link PartID="9986" LinkType="Information" FromNode="9788" FromPort="9789" ToNode="8420" ToPort="8421" PointCount="4" LabelNodeID="0" Points="339.6743|-271.5|302.1109|-241.1948|277.2776|-228.7781|243.5|-219.274" ManualStroke="False" />
+            <Link PartID="11738" LinkType="Information" FromNode="8927" FromPort="8928" ToNode="11539" ToPort="11540" PointCount="4" LabelNodeID="0" Points="341.8305|-122.2299|333.865|-95.15326|322.5575|-80.07663|314|-74.66464" ManualStroke="False" />
+            <Link PartID="11785" LinkType="Information" FromNode="21" FromPort="8336" ToNode="11539" ToPort="11540" PointCount="4" LabelNodeID="0" Points="494.4489|-332|476.2221|-190.813|417.376|-105.813|314|-65.28844" ManualStroke="False" />
+            <Link PartID="11832" LinkType="Information" FromNode="8420" FromPort="8421" ToNode="11539" ToPort="11540" PointCount="4" LabelNodeID="0" Points="221.313|-157|238.0854|-141.4273|255.8632|-114.7607|267.0215|-77" ManualStroke="False" />
+            <Link PartID="11879" LinkType="Information" FromNode="2740" FromPort="11851" ToNode="11539" ToPort="11878" PointCount="4" LabelNodeID="0" Points="189|-74.22348|206.6278|-73.8725|222.2945|-70.73917|236|-65.34617" ManualStroke="False" />
+            <Link PartID="18512" LinkType="Information" FromNode="18464" FromPort="18465" ToNode="8927" ToPort="8928" PointCount="4" LabelNodeID="0" Points="377.2373|-198|377.3607|-198.1464|372.8652|-191.4031|365.3363|-177.7701" ManualStroke="False" />
+            <Link PartID="18560" LinkType="Information" FromNode="11539" FromPort="18558" ToNode="1" ToPort="18513" PointCount="4" LabelNodeID="0" Points="314|-33.60176|351.2947|-17.92054|383.6281|0.5556536|413.7563|23" ManualStroke="False" />
           </Links>
         </Diagram>
         <Diagram name="Industrial">
@@ -8566,6 +8687,9 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           <Conditions>
             <Condition Key="UnemploymentDataID" Value="" />
           </Conditions>
+        </Reference>
+        <Reference name="World3_2003">
+          <BaseType>EntityType:World3_2003</BaseType>
         </Reference>
       </References>
       <Collections>

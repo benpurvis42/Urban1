@@ -10,7 +10,7 @@
       <Attributes>
         <Attribute name="UnemploymentDataID">
           <IsKey>true</IsKey>
-          <AutoIncrement>false</AutoIncrement>
+          <AutoIncrement>true</AutoIncrement>
         </Attribute>
       </Attributes>
       <DataVariables>

@@ -38,7 +38,7 @@
           </xs:schema>
           <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
             <DocumentElement>
-              <UK diffgr:id="UK4" msdata:rowOrder="0" diffgr:hasChanges="modified">
+              <UK diffgr:id="UK1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
                 <dataFieldName>UnemploymentDataID</dataFieldName>
                 <dataFieldType>Key</dataFieldType>
                 <dataInterpolationType />
@@ -47,7 +47,7 @@
                 <dataEntityFieldType>Attribute</dataEntityFieldType>
                 <dataEntityFieldKey>Key</dataEntityFieldKey>
               </UK>
-              <UK diffgr:id="UK1" msdata:rowOrder="1" diffgr:hasChanges="modified">
+              <UK diffgr:id="UK2" msdata:rowOrder="1" diffgr:hasChanges="inserted">
                 <dataFieldName>Unemployment rate</dataFieldName>
                 <dataFieldType>Variable</dataFieldType>
                 <dataInterpolationType>Straight</dataInterpolationType>
@@ -59,28 +59,6 @@
                 <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
               </UK>
             </DocumentElement>
-            <diffgr:before>
-              <UK diffgr:id="UK4" msdata:rowOrder="0">
-                <dataFieldName>UnemploymentDataID</dataFieldName>
-                <dataFieldType>Key</dataFieldType>
-                <dataInterpolationType />
-                <dataAggregationType />
-                <dataEntityFieldName>UnemploymentDataID</dataEntityFieldName>
-                <dataEntityFieldType>Attribute</dataEntityFieldType>
-                <dataEntityFieldKey>Key</dataEntityFieldKey>
-              </UK>
-              <UK diffgr:id="UK1" msdata:rowOrder="1">
-                <dataFieldName>Unemployment rate</dataFieldName>
-                <dataFieldType>Variable</dataFieldType>
-                <dataInterpolationType>Straight</dataInterpolationType>
-                <dataAggregationType />
-                <dataFieldUnits>Dimensionless</dataFieldUnits>
-                <dataFieldDescription>UK unemployment rate</dataFieldDescription>
-                <dataEntityFieldName>Unemployment rate</dataEntityFieldName>
-                <dataEntityFieldType>Data Variable</dataEntityFieldType>
-                <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
-              </UK>
-            </diffgr:before>
           </diffgr:diffgram>
         </MappingDataTable>
       </EntityTypeMapping>

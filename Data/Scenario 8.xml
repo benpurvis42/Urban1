@@ -156,18 +156,21 @@
                 <xs:element name="Agricultural_x0020_inputs_x0020_SMOOTHI1_x0020_SMOOTHI" type="xs:double" minOccurs="0" />
                 <xs:element name="Initial_x0020_agricultural_x0020_inputs" type="xs:double" minOccurs="0" />
                 <xs:element name="Migration_x0020_normal" type="xs:double" minOccurs="0" />
-                <xs:element name="Employment_x0020_availability_x0020_table" type="xs:string" minOccurs="0" />
+                <xs:element name="Employment_x0020_multiplier_x0020_table" type="xs:string" minOccurs="0" />
                 <xs:element name="National" type="xs:string" minOccurs="0" />
+                <xs:element name="Fraction_x0020_of_x0020_agricultural_x0020_inputs_x0020_allocated_x0020_to_x0020_importing_x0020_food_x0020_table" type="xs:string" minOccurs="0" />
+                <xs:element name="Food_x0020_imported_x0020_SMOOTHI1_x0020_SMOOTHI" type="xs:double" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element name="UK" msdata:EntityTypeName="UK" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="UKID" msprop:LookupTableFields="">
+          <xs:element name="UK" msdata:EntityTypeName="UK" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="UnemploymentDataID" msprop:LookupTableFields="">
             <xs:complexType>
               <xs:sequence>
+                <xs:element name="UnemploymentDataID" type="xs:string" minOccurs="0" />
                 <xs:element name="UKID" type="xs:string" minOccurs="0" />
                 <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
                 <xs:element name="Time" type="xs:double" minOccurs="0" />
-                <xs:element name="Enabled" type="xs:boolean" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
                 <xs:element name="EntityName" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>

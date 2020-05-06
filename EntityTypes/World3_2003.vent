@@ -552,6 +552,28 @@ The units of vegetable equivalents take into account the conversion factor for t
             <Use CausalType="InformationSource" VariableName="Food per capita" OwnerTag="EntityType:World3_2003" />
           </Uses>
         </Auxiliary>
+        <Auxiliary name="Food cost">
+          <Units>$ / Veg equiv kg</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Food cost normal * Food cost table (Food per capita)</Equation>
+          <Description>Global average food cost</Description>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Food cost normal" OwnerTag="EntityType:World3_2003" />
+            <Cause CausalType="Information" VariableName="Food cost table" OwnerTag="EntityType:World3_2003" />
+            <Cause CausalType="Information" VariableName="Food per capita" OwnerTag="EntityType:World3_2003" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Urban1" VariableName="Marginal productivity of importing food" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Food cost normal">
+          <Units>Dimensionless</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>0.3333</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Food cost" OwnerTag="EntityType:World3_2003" />
+          </Uses>
+        </Auxiliary>
         <Auxiliary name="Food per capita">
           <Units>Veg equiv kg/(Person*Year)</Units>
           <IsConstant>false</IsConstant>
@@ -561,6 +583,7 @@ The units of vegetable equivalents take into account the conversion factor for t
             <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:World3_2003" />
           </Causes>
           <Uses>
+            <Use CausalType="InformationSource" VariableName="Food cost" OwnerTag="EntityType:World3_2003" />
             <Use CausalType="InformationSource" VariableName="Food ratio" OwnerTag="EntityType:World3_2003" />
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture 1" OwnerTag="EntityType:World3_2003" />
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture 2" OwnerTag="EntityType:World3_2003" />
@@ -2684,6 +2707,14 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Equation>-1,4,0,2,0,0.75,0.5,0.85,1,0.9,1.5,0.95,2,0.98,2.5,0.99,3,1</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fertility control effectiveness" OwnerTag="EntityType:World3_2003" />
+          </Uses>
+        </TableFunction>
+        <TableFunction name="Food cost table">
+          <UnitsIn>Veg equiv kg/(Person*Year)</UnitsIn>
+          <UnitsOut>$ / Veg equiv kg</UnitsOut>
+          <Equation>0,1201,0,129,4.6875,128,9.375,64,18.75,32,37.5,16,75,8,150,4,300,2,600,1,1200,0.5</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Food cost" OwnerTag="EntityType:World3_2003" />
           </Uses>
         </TableFunction>
         <TableFunction name="Fraction of agricultural inputs allocated to land development table">
@@ -6731,8 +6762,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="29" NodeType="Auxiliary" MemberName="Subsistence food per capita" IsMidLabel="False" LabelText="Subsistence food per capita" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:World3_2003" />
-              <Position LocationX="268.8351" LocationY="225" Height="52" Width="95.67017" />
-              <Label LocationX="223" LocationY="209.9089" Height="30.18229" Width="91.67017" />
+              <Position LocationX="125" LocationY="225" Height="52" Width="95.67017" />
+              <Label LocationX="79.16492" LocationY="209.9089" Height="30.18229" Width="91.67017" />
             </Node>
             <Node PartID="1731" NodeType="Auxiliary" MemberName="Land yield" IsMidLabel="False" LabelText="Land yield" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:World3_2003" />
@@ -6896,13 +6927,28 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="8003" NodeType="Auxiliary" MemberName="Food ratio" IsMidLabel="False" LabelText="Food ratio" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:World3_2003" />
-              <Position LocationX="400" LocationY="225" Height="52" Width="76" />
-              <Label LocationX="364" LocationY="217.4544" Height="15.09114" Width="72" />
+              <Position LocationX="275" LocationY="225" Height="52" Width="76" />
+              <Label LocationX="239" LocationY="217.4544" Height="15.09114" Width="72" />
             </Node>
             <Node PartID="8085" NodeType="Auxiliary" MemberName="Food shortage perception delay" IsMidLabel="False" LabelText="Food shortage perception delay" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:World3_2003" />
-              <Position LocationX="475" LocationY="275" Height="52" Width="109" />
-              <Label LocationX="422.5" LocationY="259.9088" Height="30.18229" Width="105" />
+              <Position LocationX="100" LocationY="425" Height="52" Width="109" />
+              <Label LocationX="47.5" LocationY="409.9088" Height="30.18229" Width="105" />
+            </Node>
+            <Node PartID="8557" NodeType="Auxiliary" MemberName="Food cost" IsMidLabel="False" LabelText="Food cost" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:World3_2003" />
+              <Position LocationX="500" LocationY="200" Height="52" Width="76" />
+              <Label LocationX="464" LocationY="192.4544" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="8598" NodeType="Auxiliary" MemberName="Food cost normal" IsMidLabel="False" LabelText="Food cost normal" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:World3_2003" />
+              <Position LocationX="375" LocationY="250" Height="52" Width="76" />
+              <Label LocationX="339" LocationY="234.9088" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="8682" NodeType="TableFunction" MemberName="Food cost table" IsMidLabel="False" LabelText="Food cost table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:World3_2003" />
+              <Position LocationX="500" LocationY="275" Height="55" Width="120.5" />
+              <Label LocationX="441.75" LocationY="267.4544" Height="15.09114" Width="116.5" />
             </Node>
           </Nodes>
           <Links>
@@ -6945,11 +6991,14 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Link PartID="7807" LinkType="Information" FromNode="7769" FromPort="8248" ToNode="7540" ToPort="8246" PointCount="4" LabelNodeID="0" Points="60.86454|290|40.4701|271.7607|20.91455|242.4273|8.374834|202" ManualStroke="False" />
             <Link PartID="7884" LinkType="Information" FromNode="7845" FromPort="8249" ToNode="7769" ToPort="8248" PointCount="4" LabelNodeID="0" Points="-30.03833|320.6643|-15.48897|320|4.060383|320|28.60974|321.2794" ManualStroke="False" />
             <Link PartID="7963" LinkType="Information" FromNode="7923" FromPort="8250" ToNode="7769" ToPort="8248" PointCount="4" LabelNodeID="0" Points="236|337.8848|214.4634|345|192.9268|345|171.3903|340.3648" ManualStroke="False" />
-            <Link PartID="8044" LinkType="Information" FromNode="8003" FromPort="8251" ToNode="7923" ToPort="8250" PointCount="4" LabelNodeID="0" Points="381.1665|252|359.5772|282.9507|340.4106|298.284|314|309.071" ManualStroke="False" />
-            <Link PartID="8127" LinkType="Information" FromNode="8085" FromPort="8252" ToNode="7923" ToPort="8250" PointCount="4" LabelNodeID="0" Points="419.9237|302|389.1841|317.0695|354.0174|325.8612|314|325.425" ManualStroke="False" />
-            <Link PartID="8169" LinkType="Information" FromNode="1" FromPort="8212" ToNode="8003" ToPort="8251" PointCount="4" LabelNodeID="0" Points="400.6532|152|401|166.3333|401|181.6667|400.623|198" ManualStroke="False" />
-            <Link PartID="8211" LinkType="Information" FromNode="29" FromPort="8216" ToNode="8003" ToPort="8251" PointCount="4" LabelNodeID="0" Points="317.6702|219.8844|326.1134|219|340.5567|219|361|221.0635" ManualStroke="False" />
+            <Link PartID="8044" LinkType="Information" FromNode="8003" FromPort="8289" ToNode="7923" ToPort="8288" PointCount="4" LabelNodeID="0" Points="287.7559|252|295|267.3333|295|282.6667|287.7559|298" ManualStroke="False" />
+            <Link PartID="8127" LinkType="Information" FromNode="8085" FromPort="8290" ToNode="7923" ToPort="8288" PointCount="4" LabelNodeID="0" Points="142.4612|398|175.9106|376.7304|205.4939|359.8256|236|344.5407" ManualStroke="False" />
+            <Link PartID="8169" LinkType="Information" FromNode="1" FromPort="8252" ToNode="8003" ToPort="8289" PointCount="4" LabelNodeID="0" Points="381.1665|152|359.5772|182.9507|340.4106|198.284|314|209.071" ManualStroke="False" />
+            <Link PartID="8211" LinkType="Information" FromNode="29" FromPort="8256" ToNode="8003" ToPort="8289" PointCount="4" LabelNodeID="0" Points="173.8351|210.9582|194.5567|205|215.2784|205|236|211.9394" ManualStroke="False" />
             <Link PartID="8251" LinkType="Information" FromNode="1742" FromPort="8219" ToNode="7540" ToPort="8246" PointCount="4" LabelNodeID="0" Points="126.8976|81|98.80369|118.6978|72.00369|141.0311|39.68509|156.2779" ManualStroke="False" />
+            <Link PartID="8640" LinkType="Information" FromNode="8598" FromPort="8912" ToNode="8557" ToPort="8558" PointCount="4" LabelNodeID="0" Points="406.5423|223|422.2389|209.5638|437.9055|203.2972|461|202.0709" ManualStroke="False" />
+            <Link PartID="8725" LinkType="Information" FromNode="8682" FromPort="9005" ToNode="8557" ToPort="8558" PointCount="4" LabelNodeID="0" Points="483.7143|246.5|480|240|480|233.5|483.8806|227" ManualStroke="False" />
+            <Link PartID="8768" LinkType="Information" FromNode="1" FromPort="8252" ToNode="8557" ToPort="8558" PointCount="4" LabelNodeID="0" Points="439|137.2442|457.3333|143|466.6667|150|482|173" ManualStroke="False" />
           </Links>
         </Diagram>
         <Diagram name="Industrial">
