@@ -8,7 +8,7 @@
     <property name="ShowGroupPanel">false</property>
   </property>
   <property name="ActiveFilterEnabled">true</property>
-  <property name="Columns" iskey="true" value="103">
+  <property name="Columns" iskey="true" value="105">
     <property name="Item1" isnull="true" iskey="true">
       <property name="Name">CalendarTime</property>
       <property name="VisibleIndex">2</property>
@@ -185,7 +185,7 @@
     </property>
     <property name="Item23" isnull="true" iskey="true">
       <property name="Name">Fertility control effectiveness time</property>
-      <property name="VisibleIndex">21</property>
+      <property name="VisibleIndex">22</property>
       <property name="Visible">true</property>
       <property name="Width">182</property>
       <property name="MinWidth">20</property>
@@ -193,7 +193,7 @@
     </property>
     <property name="Item24" isnull="true" iskey="true">
       <property name="Name">Fraction of agricultural inputs allocated to land development table</property>
-      <property name="VisibleIndex">22</property>
+      <property name="VisibleIndex">24</property>
       <property name="Visible">true</property>
       <property name="Width">190</property>
       <property name="MinWidth">20</property>
@@ -201,7 +201,7 @@
     </property>
     <property name="Item25" isnull="true" iskey="true">
       <property name="Name">Fraction of agricultural inputs for land maintenance table</property>
-      <property name="VisibleIndex">23</property>
+      <property name="VisibleIndex">25</property>
       <property name="Visible">true</property>
       <property name="Width">199</property>
       <property name="MinWidth">20</property>
@@ -209,7 +209,7 @@
     </property>
     <property name="Item26" isnull="true" iskey="true">
       <property name="Name">Fraction of capital allocated to obtaining resources 1 table</property>
-      <property name="VisibleIndex">24</property>
+      <property name="VisibleIndex">26</property>
       <property name="Visible">true</property>
       <property name="Width">164</property>
       <property name="MinWidth">20</property>
@@ -217,7 +217,7 @@
     </property>
     <property name="Item27" isnull="true" iskey="true">
       <property name="Name">Fraction of capital allocated to obtaining resources 2 table</property>
-      <property name="VisibleIndex">25</property>
+      <property name="VisibleIndex">27</property>
       <property name="Visible">true</property>
       <property name="Width">164</property>
       <property name="MinWidth">20</property>
@@ -225,7 +225,7 @@
     </property>
     <property name="Item28" isnull="true" iskey="true">
       <property name="Name">Fraction of capital allocated to obtaining resources switch time</property>
-      <property name="VisibleIndex">26</property>
+      <property name="VisibleIndex">28</property>
       <property name="Visible">true</property>
       <property name="Width">169</property>
       <property name="MinWidth">20</property>
@@ -233,7 +233,7 @@
     </property>
     <property name="Item29" isnull="true" iskey="true">
       <property name="Name">Fraction of industrial output allocated to agriculture 1 table</property>
-      <property name="VisibleIndex">27</property>
+      <property name="VisibleIndex">29</property>
       <property name="Visible">true</property>
       <property name="Width">198</property>
       <property name="MinWidth">20</property>
@@ -241,7 +241,7 @@
     </property>
     <property name="Item30" isnull="true" iskey="true">
       <property name="Name">Fraction of industrial output allocated to agriculture 2 table</property>
-      <property name="VisibleIndex">28</property>
+      <property name="VisibleIndex">30</property>
       <property name="Visible">true</property>
       <property name="Width">198</property>
       <property name="MinWidth">20</property>
@@ -249,7 +249,7 @@
     </property>
     <property name="Item31" isnull="true" iskey="true">
       <property name="Name">Fraction of industrial output allocated to consumption variable table</property>
-      <property name="VisibleIndex">29</property>
+      <property name="VisibleIndex">31</property>
       <property name="Visible">true</property>
       <property name="Width">198</property>
       <property name="MinWidth">20</property>
@@ -257,7 +257,7 @@
     </property>
     <property name="Item32" isnull="true" iskey="true">
       <property name="Name">Fraction of industrial output allocated to services 1 table</property>
-      <property name="VisibleIndex">30</property>
+      <property name="VisibleIndex">32</property>
       <property name="Visible">true</property>
       <property name="Width">198</property>
       <property name="MinWidth">20</property>
@@ -265,7 +265,7 @@
     </property>
     <property name="Item33" isnull="true" iskey="true">
       <property name="Name">Fraction of industrial output allocated to services 2 table</property>
-      <property name="VisibleIndex">31</property>
+      <property name="VisibleIndex">33</property>
       <property name="Visible">true</property>
       <property name="Width">198</property>
       <property name="MinWidth">20</property>
@@ -273,7 +273,7 @@
     </property>
     <property name="Item34" isnull="true" iskey="true">
       <property name="Name">Fraction of population urban table</property>
-      <property name="VisibleIndex">32</property>
+      <property name="VisibleIndex">34</property>
       <property name="Visible">true</property>
       <property name="Width">182</property>
       <property name="MinWidth">20</property>
@@ -281,7 +281,7 @@
     </property>
     <property name="Item35" isnull="true" iskey="true">
       <property name="Name">Fraction of services allocated to fertility control per capita table</property>
-      <property name="VisibleIndex">33</property>
+      <property name="VisibleIndex">35</property>
       <property name="Visible">true</property>
       <property name="Width">172</property>
       <property name="MinWidth">20</property>
@@ -289,7 +289,7 @@
     </property>
     <property name="Item36" isnull="true" iskey="true">
       <property name="Name">GDP per capita table</property>
-      <property name="VisibleIndex">34</property>
+      <property name="VisibleIndex">36</property>
       <property name="Visible">true</property>
       <property name="Width">117</property>
       <property name="MinWidth">20</property>
@@ -297,7 +297,7 @@
     </property>
     <property name="Item37" isnull="true" iskey="true">
       <property name="Name">Health services per capita table</property>
-      <property name="VisibleIndex">35</property>
+      <property name="VisibleIndex">37</property>
       <property name="Visible">true</property>
       <property name="Width">170</property>
       <property name="MinWidth">20</property>
@@ -305,7 +305,7 @@
     </property>
     <property name="Item38" isnull="true" iskey="true">
       <property name="Name">Indicated food per capita 1 table</property>
-      <property name="VisibleIndex">36</property>
+      <property name="VisibleIndex">38</property>
       <property name="Visible">true</property>
       <property name="Width">176</property>
       <property name="MinWidth">20</property>
@@ -313,7 +313,7 @@
     </property>
     <property name="Item39" isnull="true" iskey="true">
       <property name="Name">Indicated food per capita 2 table</property>
-      <property name="VisibleIndex">37</property>
+      <property name="VisibleIndex">39</property>
       <property name="Visible">true</property>
       <property name="Width">176</property>
       <property name="MinWidth">20</property>
@@ -321,7 +321,7 @@
     </property>
     <property name="Item40" isnull="true" iskey="true">
       <property name="Name">Indicated service output per capita 1 table</property>
-      <property name="VisibleIndex">38</property>
+      <property name="VisibleIndex">40</property>
       <property name="Visible">true</property>
       <property name="Width">196</property>
       <property name="MinWidth">20</property>
@@ -329,7 +329,7 @@
     </property>
     <property name="Item41" isnull="true" iskey="true">
       <property name="Name">Indicated service output per capita 2 table</property>
-      <property name="VisibleIndex">39</property>
+      <property name="VisibleIndex">41</property>
       <property name="Visible">true</property>
       <property name="Width">196</property>
       <property name="MinWidth">20</property>
@@ -337,7 +337,7 @@
     </property>
     <property name="Item42" isnull="true" iskey="true">
       <property name="Name">Industrial Capital</property>
-      <property name="VisibleIndex">40</property>
+      <property name="VisibleIndex">42</property>
       <property name="Visible">true</property>
       <property name="Width">100</property>
       <property name="MinWidth">20</property>
@@ -345,7 +345,7 @@
     </property>
     <property name="Item43" isnull="true" iskey="true">
       <property name="Name">Industrial capital output ratio from pollution table</property>
-      <property name="VisibleIndex">41</property>
+      <property name="VisibleIndex">43</property>
       <property name="Visible">true</property>
       <property name="Width">183</property>
       <property name="MinWidth">20</property>
@@ -353,7 +353,7 @@
     </property>
     <property name="Item44" isnull="true" iskey="true">
       <property name="Name">Industrial capital output ratio from resource table</property>
-      <property name="VisibleIndex">42</property>
+      <property name="VisibleIndex">44</property>
       <property name="Visible">true</property>
       <property name="Width">183</property>
       <property name="MinWidth">20</property>
@@ -361,7 +361,7 @@
     </property>
     <property name="Item45" isnull="true" iskey="true">
       <property name="Name">Industrial capital output ratio multiplier table</property>
-      <property name="VisibleIndex">43</property>
+      <property name="VisibleIndex">45</property>
       <property name="Visible">true</property>
       <property name="Width">158</property>
       <property name="MinWidth">20</property>
@@ -369,7 +369,7 @@
     </property>
     <property name="Item46" isnull="true" iskey="true">
       <property name="Name">Industrial equilibrium time</property>
-      <property name="VisibleIndex">44</property>
+      <property name="VisibleIndex">46</property>
       <property name="Visible">true</property>
       <property name="Width">140</property>
       <property name="MinWidth">20</property>
@@ -377,7 +377,7 @@
     </property>
     <property name="Item47" isnull="true" iskey="true">
       <property name="Name">Initial nonrenewable resources</property>
-      <property name="VisibleIndex">45</property>
+      <property name="VisibleIndex">47</property>
       <property name="Visible">true</property>
       <property name="Width">166</property>
       <property name="MinWidth">20</property>
@@ -385,7 +385,7 @@
     </property>
     <property name="Item48" isnull="true" iskey="true">
       <property name="Name">Initial persistent pollution</property>
-      <property name="VisibleIndex">46</property>
+      <property name="VisibleIndex">48</property>
       <property name="Visible">true</property>
       <property name="Width">139</property>
       <property name="MinWidth">20</property>
@@ -393,7 +393,7 @@
     </property>
     <property name="Item49" isnull="true" iskey="true">
       <property name="Name">Initial population 0 to 14</property>
-      <property name="VisibleIndex">47</property>
+      <property name="VisibleIndex">49</property>
       <property name="Visible">true</property>
       <property name="Width">135</property>
       <property name="MinWidth">20</property>
@@ -401,7 +401,7 @@
     </property>
     <property name="Item50" isnull="true" iskey="true">
       <property name="Name">Initial population 15 to 44</property>
-      <property name="VisibleIndex">48</property>
+      <property name="VisibleIndex">50</property>
       <property name="Visible">true</property>
       <property name="Width">141</property>
       <property name="MinWidth">20</property>
@@ -409,7 +409,7 @@
     </property>
     <property name="Item51" isnull="true" iskey="true">
       <property name="Name">Initial population 45 to 64</property>
-      <property name="VisibleIndex">49</property>
+      <property name="VisibleIndex">51</property>
       <property name="Visible">true</property>
       <property name="Width">141</property>
       <property name="MinWidth">20</property>
@@ -417,7 +417,7 @@
     </property>
     <property name="Item52" isnull="true" iskey="true">
       <property name="Name">Initial population 65 plus</property>
-      <property name="VisibleIndex">50</property>
+      <property name="VisibleIndex">52</property>
       <property name="Visible">true</property>
       <property name="Width">135</property>
       <property name="MinWidth">20</property>
@@ -425,7 +425,7 @@
     </property>
     <property name="Item53" isnull="true" iskey="true">
       <property name="Name">Initial potentially arable land</property>
-      <property name="VisibleIndex">51</property>
+      <property name="VisibleIndex">53</property>
       <property name="Visible">true</property>
       <property name="Width">154</property>
       <property name="MinWidth">20</property>
@@ -433,7 +433,7 @@
     </property>
     <property name="Item54" isnull="true" iskey="true">
       <property name="Name">Initial service capital</property>
-      <property name="VisibleIndex">52</property>
+      <property name="VisibleIndex">54</property>
       <property name="Visible">true</property>
       <property name="Width">116</property>
       <property name="MinWidth">20</property>
@@ -441,7 +441,7 @@
     </property>
     <property name="Item55" isnull="true" iskey="true">
       <property name="Name">Initial urban and industrial land</property>
-      <property name="VisibleIndex">53</property>
+      <property name="VisibleIndex">55</property>
       <property name="Visible">true</property>
       <property name="Width">166</property>
       <property name="MinWidth">20</property>
@@ -449,7 +449,7 @@
     </property>
     <property name="Item56" isnull="true" iskey="true">
       <property name="Name">Jobs per hectare table</property>
-      <property name="VisibleIndex">54</property>
+      <property name="VisibleIndex">56</property>
       <property name="Visible">true</property>
       <property name="Width">127</property>
       <property name="MinWidth">20</property>
@@ -457,7 +457,7 @@
     </property>
     <property name="Item57" isnull="true" iskey="true">
       <property name="Name">Jobs per industrial capital unit table</property>
-      <property name="VisibleIndex">55</property>
+      <property name="VisibleIndex">57</property>
       <property name="Visible">true</property>
       <property name="Width">188</property>
       <property name="MinWidth">20</property>
@@ -465,7 +465,7 @@
     </property>
     <property name="Item58" isnull="true" iskey="true">
       <property name="Name">Jobs per service capital unit table</property>
-      <property name="VisibleIndex">56</property>
+      <property name="VisibleIndex">58</property>
       <property name="Visible">true</property>
       <property name="Width">179</property>
       <property name="MinWidth">20</property>
@@ -473,7 +473,7 @@
     </property>
     <property name="Item59" isnull="true" iskey="true">
       <property name="Name">Land fertility</property>
-      <property name="VisibleIndex">57</property>
+      <property name="VisibleIndex">59</property>
       <property name="Visible">true</property>
       <property name="Width">79</property>
       <property name="MinWidth">20</property>
@@ -481,7 +481,7 @@
     </property>
     <property name="Item60" isnull="true" iskey="true">
       <property name="Name">Land fertility degradation rate table</property>
-      <property name="VisibleIndex">58</property>
+      <property name="VisibleIndex">60</property>
       <property name="Visible">true</property>
       <property name="Width">190</property>
       <property name="MinWidth">20</property>
@@ -489,7 +489,7 @@
     </property>
     <property name="Item61" isnull="true" iskey="true">
       <property name="Name">Land fertility regeneration time table</property>
-      <property name="VisibleIndex">59</property>
+      <property name="VisibleIndex">61</property>
       <property name="Visible">true</property>
       <property name="Width">194</property>
       <property name="MinWidth">20</property>
@@ -497,7 +497,7 @@
     </property>
     <property name="Item62" isnull="true" iskey="true">
       <property name="Name">Land life multiplier from land yield 1 table</property>
-      <property name="VisibleIndex">60</property>
+      <property name="VisibleIndex">62</property>
       <property name="Visible">true</property>
       <property name="Width">186</property>
       <property name="MinWidth">20</property>
@@ -505,7 +505,7 @@
     </property>
     <property name="Item63" isnull="true" iskey="true">
       <property name="Name">Land life multiplier from land yield 2 table</property>
-      <property name="VisibleIndex">61</property>
+      <property name="VisibleIndex">63</property>
       <property name="Visible">true</property>
       <property name="Width">186</property>
       <property name="MinWidth">20</property>
@@ -513,7 +513,7 @@
     </property>
     <property name="Item64" isnull="true" iskey="true">
       <property name="Name">Land life policy implementation year</property>
-      <property name="VisibleIndex">62</property>
+      <property name="VisibleIndex">64</property>
       <property name="Visible">true</property>
       <property name="Width">189</property>
       <property name="MinWidth">20</property>
@@ -521,7 +521,7 @@
     </property>
     <property name="Item65" isnull="true" iskey="true">
       <property name="Name">Land yield multipler from air pollution 1 table</property>
-      <property name="VisibleIndex">63</property>
+      <property name="VisibleIndex">65</property>
       <property name="Visible">true</property>
       <property name="Width">193</property>
       <property name="MinWidth">20</property>
@@ -529,7 +529,7 @@
     </property>
     <property name="Item66" isnull="true" iskey="true">
       <property name="Name">Land yield multiplier from air pollution 2 table</property>
-      <property name="VisibleIndex">64</property>
+      <property name="VisibleIndex">66</property>
       <property name="Visible">true</property>
       <property name="Width">195</property>
       <property name="MinWidth">20</property>
@@ -537,7 +537,7 @@
     </property>
     <property name="Item67" isnull="true" iskey="true">
       <property name="Name">Land yield multiplier from capital table</property>
-      <property name="VisibleIndex">65</property>
+      <property name="VisibleIndex">67</property>
       <property name="Visible">true</property>
       <property name="Width">198</property>
       <property name="MinWidth">20</property>
@@ -545,7 +545,7 @@
     </property>
     <property name="Item68" isnull="true" iskey="true">
       <property name="Name">Land yield policy time</property>
-      <property name="VisibleIndex">66</property>
+      <property name="VisibleIndex">68</property>
       <property name="Visible">true</property>
       <property name="Width">120</property>
       <property name="MinWidth">20</property>
@@ -553,7 +553,7 @@
     </property>
     <property name="Item69" isnull="true" iskey="true">
       <property name="Name">Land yield technology</property>
-      <property name="VisibleIndex">67</property>
+      <property name="VisibleIndex">69</property>
       <property name="Visible">true</property>
       <property name="Width">123</property>
       <property name="MinWidth">20</property>
@@ -561,7 +561,7 @@
     </property>
     <property name="Item70" isnull="true" iskey="true">
       <property name="Name">Land yield technology change rate multiplier table 1</property>
-      <property name="VisibleIndex">68</property>
+      <property name="VisibleIndex">70</property>
       <property name="Visible">true</property>
       <property name="Width">184</property>
       <property name="MinWidth">20</property>
@@ -569,7 +569,7 @@
     </property>
     <property name="Item71" isnull="true" iskey="true">
       <property name="Name">Land yield technology change rate multiplier table 2</property>
-      <property name="VisibleIndex">69</property>
+      <property name="VisibleIndex">71</property>
       <property name="Visible">true</property>
       <property name="Width">184</property>
       <property name="MinWidth">20</property>
@@ -577,7 +577,7 @@
     </property>
     <property name="Item72" isnull="true" iskey="true">
       <property name="Name">Life expectancy index table</property>
-      <property name="VisibleIndex">70</property>
+      <property name="VisibleIndex">72</property>
       <property name="Visible">true</property>
       <property name="Width">151</property>
       <property name="MinWidth">20</property>
@@ -585,7 +585,7 @@
     </property>
     <property name="Item73" isnull="true" iskey="true">
       <property name="Name">Lifetime multiplier from food table</property>
-      <property name="VisibleIndex">71</property>
+      <property name="VisibleIndex">73</property>
       <property name="Visible">true</property>
       <property name="Width">178</property>
       <property name="MinWidth">20</property>
@@ -593,7 +593,7 @@
     </property>
     <property name="Item74" isnull="true" iskey="true">
       <property name="Name">Lifetime multiplier from health services 1 table</property>
-      <property name="VisibleIndex">72</property>
+      <property name="VisibleIndex">74</property>
       <property name="Visible">true</property>
       <property name="Width">201</property>
       <property name="MinWidth">20</property>
@@ -601,7 +601,7 @@
     </property>
     <property name="Item75" isnull="true" iskey="true">
       <property name="Name">Lifetime multiplier from health services 2 table</property>
-      <property name="VisibleIndex">73</property>
+      <property name="VisibleIndex">75</property>
       <property name="Visible">true</property>
       <property name="Width">201</property>
       <property name="MinWidth">20</property>
@@ -609,7 +609,7 @@
     </property>
     <property name="Item76" isnull="true" iskey="true">
       <property name="Name">Lifetime multiplier from persistent pollution table</property>
-      <property name="VisibleIndex">74</property>
+      <property name="VisibleIndex">76</property>
       <property name="Visible">true</property>
       <property name="Width">177</property>
       <property name="MinWidth">20</property>
@@ -617,7 +617,7 @@
     </property>
     <property name="Item77" isnull="true" iskey="true">
       <property name="Name">Marginal land yield multiplier from capital table</property>
-      <property name="VisibleIndex">75</property>
+      <property name="VisibleIndex">77</property>
       <property name="Visible">true</property>
       <property name="Width">177</property>
       <property name="MinWidth">20</property>
@@ -625,7 +625,7 @@
     </property>
     <property name="Item78" isnull="true" iskey="true">
       <property name="Name">Mortality 0 to 14 table</property>
-      <property name="VisibleIndex">76</property>
+      <property name="VisibleIndex">78</property>
       <property name="Visible">true</property>
       <property name="Width">125</property>
       <property name="MinWidth">20</property>
@@ -633,7 +633,7 @@
     </property>
     <property name="Item79" isnull="true" iskey="true">
       <property name="Name">Mortality 15 to 44 table</property>
-      <property name="VisibleIndex">77</property>
+      <property name="VisibleIndex">79</property>
       <property name="Visible">true</property>
       <property name="Width">131</property>
       <property name="MinWidth">20</property>
@@ -641,7 +641,7 @@
     </property>
     <property name="Item80" isnull="true" iskey="true">
       <property name="Name">Mortality 45 to 64 table</property>
-      <property name="VisibleIndex">78</property>
+      <property name="VisibleIndex">80</property>
       <property name="Visible">true</property>
       <property name="Width">131</property>
       <property name="MinWidth">20</property>
@@ -649,7 +649,7 @@
     </property>
     <property name="Item81" isnull="true" iskey="true">
       <property name="Name">Mortality 65 plus table</property>
-      <property name="VisibleIndex">79</property>
+      <property name="VisibleIndex">81</property>
       <property name="Visible">true</property>
       <property name="Width">125</property>
       <property name="MinWidth">20</property>
@@ -657,7 +657,7 @@
     </property>
     <property name="Item82" isnull="true" iskey="true">
       <property name="Name">Nonrenewable resource usage factor 1</property>
-      <property name="VisibleIndex">80</property>
+      <property name="VisibleIndex">82</property>
       <property name="Visible">true</property>
       <property name="Width">197</property>
       <property name="MinWidth">20</property>
@@ -665,7 +665,7 @@
     </property>
     <property name="Item83" isnull="true" iskey="true">
       <property name="Name">Nonrenewable resources</property>
-      <property name="VisibleIndex">81</property>
+      <property name="VisibleIndex">83</property>
       <property name="Visible">true</property>
       <property name="Width">138</property>
       <property name="MinWidth">20</property>
@@ -673,7 +673,7 @@
     </property>
     <property name="Item84" isnull="true" iskey="true">
       <property name="Name">Per capita resource usage multiplier table</property>
-      <property name="VisibleIndex">82</property>
+      <property name="VisibleIndex">84</property>
       <property name="Visible">true</property>
       <property name="Width">189</property>
       <property name="MinWidth">20</property>
@@ -681,7 +681,7 @@
     </property>
     <property name="Item85" isnull="true" iskey="true">
       <property name="Name">Persistent pollution</property>
-      <property name="VisibleIndex">83</property>
+      <property name="VisibleIndex">85</property>
       <property name="Visible">true</property>
       <property name="Width">110</property>
       <property name="MinWidth">20</property>
@@ -689,7 +689,7 @@
     </property>
     <property name="Item86" isnull="true" iskey="true">
       <property name="Name">Persistent pollution technology</property>
-      <property name="VisibleIndex">84</property>
+      <property name="VisibleIndex">86</property>
       <property name="Visible">true</property>
       <property name="Width">166</property>
       <property name="MinWidth">20</property>
@@ -697,7 +697,7 @@
     </property>
     <property name="Item87" isnull="true" iskey="true">
       <property name="Name">Persistent pollution technology change multiplier 1 table</property>
-      <property name="VisibleIndex">85</property>
+      <property name="VisibleIndex">87</property>
       <property name="Visible">true</property>
       <property name="Width">166</property>
       <property name="MinWidth">20</property>
@@ -705,7 +705,7 @@
     </property>
     <property name="Item88" isnull="true" iskey="true">
       <property name="Name">Persistent pollution technology change multiplier 2 table</property>
-      <property name="VisibleIndex">86</property>
+      <property name="VisibleIndex">88</property>
       <property name="Visible">true</property>
       <property name="Width">166</property>
       <property name="MinWidth">20</property>
@@ -713,7 +713,7 @@
     </property>
     <property name="Item89" isnull="true" iskey="true">
       <property name="Name">persistent pollution technology change time</property>
-      <property name="VisibleIndex">87</property>
+      <property name="VisibleIndex">89</property>
       <property name="Visible">true</property>
       <property name="Width">166</property>
       <property name="MinWidth">20</property>
@@ -721,7 +721,7 @@
     </property>
     <property name="Item90" isnull="true" iskey="true">
       <property name="Name">Policy year</property>
-      <property name="VisibleIndex">88</property>
+      <property name="VisibleIndex">90</property>
       <property name="Visible">true</property>
       <property name="Width">75</property>
       <property name="MinWidth">20</property>
@@ -729,7 +729,7 @@
     </property>
     <property name="Item91" isnull="true" iskey="true">
       <property name="Name">Population 0 to 14</property>
-      <property name="VisibleIndex">89</property>
+      <property name="VisibleIndex">91</property>
       <property name="Visible">true</property>
       <property name="Width">106</property>
       <property name="MinWidth">20</property>
@@ -737,7 +737,7 @@
     </property>
     <property name="Item92" isnull="true" iskey="true">
       <property name="Name">Population 15 to 44</property>
-      <property name="VisibleIndex">90</property>
+      <property name="VisibleIndex">92</property>
       <property name="Visible">true</property>
       <property name="Width">112</property>
       <property name="MinWidth">20</property>
@@ -745,7 +745,7 @@
     </property>
     <property name="Item93" isnull="true" iskey="true">
       <property name="Name">Population 45 to 64</property>
-      <property name="VisibleIndex">91</property>
+      <property name="VisibleIndex">93</property>
       <property name="Visible">true</property>
       <property name="Width">112</property>
       <property name="MinWidth">20</property>
@@ -753,7 +753,7 @@
     </property>
     <property name="Item94" isnull="true" iskey="true">
       <property name="Name">Population 65 plus</property>
-      <property name="VisibleIndex">92</property>
+      <property name="VisibleIndex">94</property>
       <property name="Visible">true</property>
       <property name="Width">106</property>
       <property name="MinWidth">20</property>
@@ -761,7 +761,7 @@
     </property>
     <property name="Item95" isnull="true" iskey="true">
       <property name="Name">Potentially arable land</property>
-      <property name="VisibleIndex">93</property>
+      <property name="VisibleIndex">95</property>
       <property name="Visible">true</property>
       <property name="Width">125</property>
       <property name="MinWidth">20</property>
@@ -769,7 +769,7 @@
     </property>
     <property name="Item96" isnull="true" iskey="true">
       <property name="Name">Resource conservation technology</property>
-      <property name="VisibleIndex">94</property>
+      <property name="VisibleIndex">96</property>
       <property name="Visible">true</property>
       <property name="Width">185</property>
       <property name="MinWidth">20</property>
@@ -777,7 +777,7 @@
     </property>
     <property name="Item97" isnull="true" iskey="true">
       <property name="Name">Resource technology change rate multiplier 1 table</property>
-      <property name="VisibleIndex">95</property>
+      <property name="VisibleIndex">97</property>
       <property name="Visible">true</property>
       <property name="Width">181</property>
       <property name="MinWidth">20</property>
@@ -785,7 +785,7 @@
     </property>
     <property name="Item98" isnull="true" iskey="true">
       <property name="Name">Resource technology change rate multiplier 2 table</property>
-      <property name="VisibleIndex">96</property>
+      <property name="VisibleIndex">98</property>
       <property name="Visible">true</property>
       <property name="Width">181</property>
       <property name="MinWidth">20</property>
@@ -793,7 +793,7 @@
     </property>
     <property name="Item99" isnull="true" iskey="true">
       <property name="Name">Resource technology change time</property>
-      <property name="VisibleIndex">97</property>
+      <property name="VisibleIndex">99</property>
       <property name="Visible">true</property>
       <property name="Width">181</property>
       <property name="MinWidth">20</property>
@@ -801,7 +801,7 @@
     </property>
     <property name="Item100" isnull="true" iskey="true">
       <property name="Name">Service capital</property>
-      <property name="VisibleIndex">98</property>
+      <property name="VisibleIndex">100</property>
       <property name="Visible">true</property>
       <property name="Width">88</property>
       <property name="MinWidth">20</property>
@@ -809,7 +809,7 @@
     </property>
     <property name="Item101" isnull="true" iskey="true">
       <property name="Name">Social family size norm table</property>
-      <property name="VisibleIndex">99</property>
+      <property name="VisibleIndex">101</property>
       <property name="Visible">true</property>
       <property name="Width">152</property>
       <property name="MinWidth">20</property>
@@ -817,7 +817,7 @@
     </property>
     <property name="Item102" isnull="true" iskey="true">
       <property name="Name">Urban and Industrial Land</property>
-      <property name="VisibleIndex">100</property>
+      <property name="VisibleIndex">102</property>
       <property name="Visible">true</property>
       <property name="Width">143</property>
       <property name="MinWidth">20</property>
@@ -825,9 +825,25 @@
     </property>
     <property name="Item103" isnull="true" iskey="true">
       <property name="Name">Urban and industrial land required per capita table</property>
-      <property name="VisibleIndex">101</property>
+      <property name="VisibleIndex">103</property>
       <property name="Visible">true</property>
       <property name="Width">200</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+    <property name="Item104" isnull="true" iskey="true">
+      <property name="Name">Food cost normal</property>
+      <property name="VisibleIndex">21</property>
+      <property name="Visible">true</property>
+      <property name="Width">101</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+    <property name="Item105" isnull="true" iskey="true">
+      <property name="Name">Food cost table</property>
+      <property name="VisibleIndex">23</property>
+      <property name="Visible">true</property>
+      <property name="Width">93</property>
       <property name="MinWidth">20</property>
       <property name="MaxWidth">0</property>
     </property>

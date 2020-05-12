@@ -166,10 +166,10 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element name="UK" msdata:EntityTypeName="UK" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="UnemploymentDataID" msprop:LookupTableFields="">
+          <xs:element name="UK" msdata:EntityTypeName="UK" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="UKDataID" msprop:LookupTableFields="">
             <xs:complexType>
               <xs:sequence>
-                <xs:element name="UnemploymentDataID" type="xs:string" minOccurs="0" />
+                <xs:element name="UKDataID" type="xs:string" minOccurs="0" />
                 <xs:element name="UKID" type="xs:string" minOccurs="0" />
                 <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
                 <xs:element name="Time" type="xs:double" minOccurs="0" />

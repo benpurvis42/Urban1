@@ -3946,7 +3946,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </VChartDataStyle>
             <VChartDataStyle>
               <Variable ParentName="World3_2003" VariableName="Food" />
-              <Result UniqueId="" Name="Scenario 2" DateRun="0001-01-01T00:00:00" FilePath="" Visibility="false" IsLoaded="false" />
+              <Result UniqueId="ov78Lf5qo6" Name="Scenario 2" DateRun="2020-05-11T14:41:52.9744095+01:00" FilePath="" Visibility="false" IsLoaded="false" />
               <EntityName />
               <Style Color="9BBB59" DashStyle="Solid" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
             </VChartDataStyle>
