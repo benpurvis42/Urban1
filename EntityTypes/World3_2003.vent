@@ -2582,6 +2582,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Units>Hectare</Units>
           <IsConstant>false</IsConstant>
           <Equation>1.91e+09</Equation>
+          <Description>Normalised so that HEF is equalt 1 in 1970, this is not the actual total land p293</Description>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Human ecological footprint" OwnerTag="EntityType:World3_2003" />
           </Uses>
@@ -3946,7 +3947,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </VChartDataStyle>
             <VChartDataStyle>
               <Variable ParentName="World3_2003" VariableName="Food" />
-              <Result UniqueId="ov78Lf5qo6" Name="Scenario 2" DateRun="2020-05-11T14:41:52.9744095+01:00" FilePath="" Visibility="false" IsLoaded="false" />
+              <Result UniqueId="" Name="Scenario 2" DateRun="0001-01-01T00:00:00" FilePath="" Visibility="false" IsLoaded="false" />
               <EntityName />
               <Style Color="9BBB59" DashStyle="Solid" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
             </VChartDataStyle>
@@ -6074,8 +6075,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="98" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:World3_2003" />
-              <Position LocationX="325" LocationY="300" Height="45" Width="50.00134" />
-              <Label LocationX="301.9993" LocationY="292.4544" Height="15.09114" Width="46.00134" />
+              <Position LocationX="325" LocationY="300" Height="45" Width="50.0014" />
+              <Label LocationX="301.9993" LocationY="292.4544" Height="15.09114" Width="46.0014" />
             </Node>
             <Node PartID="103" NodeType="Flow" MemberName="Land erosion rate" IsMidLabel="True" LabelText="Land erosion rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:World3_2003" />
@@ -6085,7 +6086,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="167" NodeType="Auxiliary" MemberName="Initial arable land" IsMidLabel="False" LabelText="Initial arable land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:World3_2003" />
               <Position LocationX="331.7402" LocationY="41.00692" Height="36.46091" Width="111.4803" />
-              <Label LocationX="278" LocationY="33.46135" Height="15.09114" Width="107.4803" />
+              <Label LocationX="278.0001" LocationY="33.46135" Height="15.09114" Width="107.4803" />
             </Node>
             <Node PartID="195" NodeType="Auxiliary" MemberName="Initial potentially arable land" IsMidLabel="False" LabelText="Initial potentially arable land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:World3_2003" />
@@ -6120,7 +6121,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="1237" NodeType="Auxiliary" MemberName="Marginal productivity of land development" IsMidLabel="False" LabelText="Marginal productivity of land development" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:World3_2003" />
               <Position LocationX="0" LocationY="200" Height="68" Width="129.3959" />
-              <Label LocationX="-62.69795" LocationY="184.9088" Height="30.18229" Width="125.3959" />
+              <Label LocationX="-62.69795" LocationY="184.9089" Height="30.18229" Width="125.3959" />
             </Node>
             <Node PartID="1291" NodeType="Auxiliary" MemberName="Marginal productivity of agricultural inputs" IsMidLabel="False" LabelText="Marginal productivity of agricultural inputs" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:World3_2003" />
@@ -6135,12 +6136,12 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="1611" NodeType="Auxiliary" MemberName="Social discount rate" IsMidLabel="False" LabelText="Social discount rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:World3_2003" />
               <Position LocationX="0" LocationY="400" Height="52" Width="124.283" />
-              <Label LocationX="-60.14149" LocationY="392.4544" Height="15.09114" Width="120.283" />
+              <Label LocationX="-60.1415" LocationY="392.4544" Height="15.09114" Width="120.283" />
             </Node>
             <Node PartID="2675" NodeType="Auxiliary" MemberName="Average life of land" IsMidLabel="False" LabelText="Average life of land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:World3_2003" />
-              <Position LocationX="473.1646" LocationY="300" Height="52" Width="92.95389" />
-              <Label LocationX="428.6876" LocationY="284.9088" Height="30.18229" Width="88.95389" />
+              <Position LocationX="473.1646" LocationY="300" Height="52" Width="92.95398" />
+              <Label LocationX="428.6876" LocationY="284.9088" Height="30.18229" Width="88.95395" />
             </Node>
             <Node PartID="2823" NodeType="Auxiliary" MemberName="Average life of land normal" IsMidLabel="False" LabelText="Average life of land normal" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:World3_2003" />

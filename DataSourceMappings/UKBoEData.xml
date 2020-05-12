@@ -86,17 +86,7 @@
                 <dataEntityFieldType>Data Variable</dataEntityFieldType>
                 <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
               </UK>
-              <UK diffgr:id="UK7" msdata:rowOrder="5" diffgr:hasChanges="modified">
-                <dataFieldName>Industry GVA share</dataFieldName>
-                <dataFieldType>Variable</dataFieldType>
-                <dataInterpolationType>Straight</dataInterpolationType>
-                <dataAggregationType>Last</dataAggregationType>
-                <dataFieldDescription>GVA share percentage industry</dataFieldDescription>
-                <dataEntityFieldName>Fraction of GDP industry</dataEntityFieldName>
-                <dataEntityFieldType>Data Variable</dataEntityFieldType>
-                <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
-              </UK>
-              <UK diffgr:id="UK10" msdata:rowOrder="6" diffgr:hasChanges="inserted">
+              <UK diffgr:id="UK8" msdata:rowOrder="5">
                 <dataFieldName>Services GVA share</dataFieldName>
                 <dataFieldType>Variable</dataFieldType>
                 <dataInterpolationType>Straight</dataInterpolationType>
@@ -106,17 +96,17 @@
                 <dataEntityFieldType>Data Variable</dataEntityFieldType>
                 <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
               </UK>
-            </DocumentElement>
-            <diffgr:before>
-              <UK diffgr:id="UK7" msdata:rowOrder="5">
+              <UK diffgr:id="UK6" msdata:rowOrder="6">
                 <dataFieldName>Industry GVA share</dataFieldName>
                 <dataFieldType>Variable</dataFieldType>
                 <dataInterpolationType>Straight</dataInterpolationType>
                 <dataAggregationType>Last</dataAggregationType>
                 <dataFieldDescription>GVA share percentage industry</dataFieldDescription>
                 <dataEntityFieldName>Fraction of GDP industry</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
               </UK>
-            </diffgr:before>
+            </DocumentElement>
           </diffgr:diffgram>
         </MappingDataTable>
       </EntityTypeMapping>

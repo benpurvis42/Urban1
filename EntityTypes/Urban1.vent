@@ -88,7 +88,7 @@
         </Auxiliary>
         <Auxiliary name="Assimilation half life in 1970">
           <Units>Year</Units>
-          <IsConstant>false</IsConstant>
+          <IsConstant>true</IsConstant>
           <Equation>1.5</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Assimilation half life" OwnerTag="EntityType:Urban1" />
@@ -999,7 +999,7 @@ Its value at any tie defines the necessary fraction of capital stock that must b
         <Auxiliary name="Human ecological footprint">
           <Units>Dimensionless</Units>
           <IsConstant>false</IsConstant>
-          <Equation>(Arable Land + Urban and Industrial Land + Absorption land + Imported food land )/Total land</Equation>
+          <Equation>(Arable Land + Urban and Industrial Land + Absorption land + Imported food land )/Total potentially arable land</Equation>
           <Description>"Approximates Wackernagel's ecological footprint to the extent that is possible within the confines of the limited number of variables in the World3 model"
 "Normalised to be 1 in 1970"
 (Meadows et al 2005, p292-3)</Description>
@@ -1008,7 +1008,7 @@ Its value at any tie defines the necessary fraction of capital stock that must b
             <Cause CausalType="Information" VariableName="Urban and Industrial Land" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Absorption land" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Imported food land" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" VariableName="Total land" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Total potentially arable land" OwnerTag="EntityType:Urban1" />
           </Causes>
         </Auxiliary>
         <Auxiliary name="Human welfare index">
@@ -1326,7 +1326,7 @@ The utilisation of industrial capital to produce industrial output both depletes
         </Auxiliary>
         <Auxiliary name="Initial arable land">
           <Units>Hectare</Units>
-          <IsConstant>false</IsConstant>
+          <IsConstant>true</IsConstant>
           <Equation>25000</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Arable land" OwnerTag="EntityType:Urban1" />
@@ -1421,6 +1421,7 @@ The utilisation of industrial capital to produce industrial output both depletes
           <Equation>300000</Equation>
           <Description>Total initial population in system</Description>
           <Uses>
+            <Use CausalType="InformationSource" VariableName="Initial industrial capital" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Initial population 0 to 14" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Initial population 15 to 44" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Initial population 45 to 64" OwnerTag="EntityType:Urban1" />
@@ -1879,7 +1880,7 @@ Air pollution affects food output by: reducing plant growth, or by making food i
         <Auxiliary name="Lifetime multiplier from health services">
           <Units>Dmnl</Units>
           <IsConstant>false</IsConstant>
-          <Equation>IfThenElse( Model.Time &gt; 1900, Lifetime multiplier from health services 2 , Lifetime multiplier from health services 1 )</Equation>
+          <Equation>IfThenElse( Model.Time &gt; 1940, Lifetime multiplier from health services 2 , Lifetime multiplier from health services 1 )</Equation>
           <Description>Lifetime multiplier from health services (Meadows et al 1974 pp68-76)</Description>
           <Causes>
             <Cause CausalType="Information" Reference="Model" VariableName="Time" OwnerTag="EntityType:Model" />
@@ -2352,7 +2353,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
         </Auxiliary>
         <Auxiliary name="Persistent pollution transmission delay">
           <Units>Year</Units>
-          <IsConstant>false</IsConstant>
+          <IsConstant>true</IsConstant>
           <Equation>10</Equation>
           <Description>"Average number of years spent by a unit of pollution between the time of its generation and the time of its full impact on the biosphere" (Meadows et al 1974, p435)</Description>
           <Uses>
@@ -2715,14 +2716,6 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Use CausalType="InformationSource" VariableName="Births" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
-        <Auxiliary name="Total land">
-          <Units>Hectare</Units>
-          <IsConstant>false</IsConstant>
-          <Equation>100000</Equation>
-          <Uses>
-            <Use CausalType="InformationSource" VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
-          </Uses>
-        </Auxiliary>
         <Auxiliary name="Total potentially arable land">
           <Units>Hectare</Units>
           <IsConstant>true</IsConstant>
@@ -2731,6 +2724,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Uses>
             <Use CausalType="InformationSource" VariableName="Development cost per hectare" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of land cultivated" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Unemployment">
@@ -3909,7 +3903,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <ForeColor />
             <Border Visibility="True" Color="D3D3D3" Thickness="1" />
             <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
-            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
             <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
             </EmptyChartText>
@@ -3936,7 +3930,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -3964,7 +3958,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -3983,7 +3977,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <SecondaryAxesX />
             <SecondaryAxesY />
             <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
-              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               <Border Visibility="True" Color="D3D3D3" Thickness="1" />
               <Shadow Size="2" Visible="false" Color="FFFFFF" />
               <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
@@ -4016,7 +4010,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <ForeColor />
             <Border Visibility="True" Color="D3D3D3" Thickness="1" />
             <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
-            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
             <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
             </EmptyChartText>
@@ -4046,7 +4040,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4074,7 +4068,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4093,7 +4087,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <SecondaryAxesX />
             <SecondaryAxesY />
             <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
-              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               <Border Visibility="True" Color="D3D3D3" Thickness="1" />
               <Shadow Size="2" Visible="false" Color="FFFFFF" />
               <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
@@ -4120,7 +4114,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <ForeColor />
             <Border Visibility="True" Color="D3D3D3" Thickness="1" />
             <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
-            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
             <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
             </EmptyChartText>
@@ -4147,7 +4141,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4175,7 +4169,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4194,7 +4188,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <SecondaryAxesX />
             <SecondaryAxesY />
             <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
-              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               <Border Visibility="True" Color="D3D3D3" Thickness="1" />
               <Shadow Size="2" Visible="false" Color="FFFFFF" />
               <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
@@ -4221,7 +4215,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <ForeColor />
             <Border Visibility="True" Color="D3D3D3" Thickness="1" />
             <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
-            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
             <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
             </EmptyChartText>
@@ -4248,7 +4242,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4276,7 +4270,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4295,7 +4289,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <SecondaryAxesX />
             <SecondaryAxesY />
             <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
-              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               <Border Visibility="True" Color="D3D3D3" Thickness="1" />
               <Shadow Size="2" Visible="false" Color="FFFFFF" />
               <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
@@ -4527,7 +4521,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </VChartDataStyle>
             <VChartDataStyle>
               <Variable ParentName="World3_2003" VariableName="Food" />
-              <Result UniqueId="ov75FIbtR9" Name="Scenario 2" DateRun="2020-05-11T09:18:43.5059205+01:00" FilePath="" Visibility="false" IsLoaded="false" />
+              <Result UniqueId="" Name="Scenario 2" DateRun="0001-01-01T00:00:00" FilePath="" Visibility="false" IsLoaded="false" />
               <EntityName />
               <Style Color="9BBB59" DashStyle="Solid" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
             </VChartDataStyle>
@@ -6428,8 +6422,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="8565" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="1050" LocationY="50" Height="44.99997" Width="50.01086" />
-              <Label LocationX="1026.995" LocationY="42.45443" Height="15.09114" Width="46.01086" />
+              <Position LocationX="1050" LocationY="50" Height="44.99997" Width="50.01318" />
+              <Label LocationX="1026.993" LocationY="42.45443" Height="15.09114" Width="46.01318" />
             </Node>
             <Node PartID="8595" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6498,8 +6492,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="15979" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="425" LocationY="275" Height="45" Width="50.0007" />
-              <Label LocationX="401.9996" LocationY="267.4544" Height="15.09114" Width="46.0007" />
+              <Position LocationX="425" LocationY="275" Height="45" Width="50.0011" />
+              <Label LocationX="401.9995" LocationY="267.4544" Height="15.09114" Width="46.0011" />
             </Node>
             <Node PartID="16089" NodeType="Auxiliary" MemberName="Time" IsMidLabel="False" LabelText="Time" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
@@ -6666,8 +6660,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="98" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="325" LocationY="300" Height="45" Width="50.00211" />
-              <Label LocationX="301.999" LocationY="292.4544" Height="15.09114" Width="46.00211" />
+              <Position LocationX="325" LocationY="300" Height="45" Width="50.00238" />
+              <Label LocationX="301.9988" LocationY="292.4544" Height="15.09114" Width="46.00238" />
             </Node>
             <Node PartID="103" NodeType="Flow" MemberName="Land erosion rate" IsMidLabel="True" LabelText="Land erosion rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6727,7 +6721,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="1611" NodeType="Auxiliary" MemberName="Social discount rate" IsMidLabel="False" LabelText="Social discount rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="0" LocationY="400" Height="52" Width="124.283" />
-              <Label LocationX="-60.14149" LocationY="392.4544" Height="15.09114" Width="120.283" />
+              <Label LocationX="-60.1415" LocationY="392.4544" Height="15.09114" Width="120.283" />
             </Node>
             <Node PartID="2675" NodeType="Auxiliary" MemberName="Average life of land" IsMidLabel="False" LabelText="Average life of land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -7453,7 +7447,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="1956" NodeType="Auxiliary" MemberName="Policy year" IsMidLabel="False" LabelText="Policy year" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="900" LocationY="75" Height="52" Width="76" />
-              <Label LocationX="864" LocationY="67.45444" Height="15.09114" Width="72" />
+              <Label LocationX="864" LocationY="67.45443" Height="15.09114" Width="72" />
             </Node>
             <Node PartID="1964" NodeType="Auxiliary" MemberName="Industrial output per capita" IsMidLabel="False" LabelText="Industrial output per capita" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -7587,7 +7581,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="8927" NodeType="Auxiliary" MemberName="Marginal productivity of importing food" IsMidLabel="False" LabelText="Marginal productivity of importing food" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="350" LocationY="-150" Height="53.54018" Width="111.1981" />
+              <Position LocationX="350" LocationY="-150" Height="53.54019" Width="111.1981" />
               <Label LocationX="296.4009" LocationY="-172.6367" Height="45.27343" Width="107.1981" />
             </Node>
             <Node PartID="9207" NodeType="Auxiliary" MemberName="Marginal productivity of agricultural inputs" IsMidLabel="False" LabelText="Marginal productivity of agricultural inputs" CaptionHidden="False" IsEditable="False" IsPrimary="False">
@@ -7603,7 +7597,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="9788" NodeType="TableFunction" MemberName="Fraction of agricultural inputs allocated to importing food table" IsMidLabel="False" LabelText="Fraction of agricultural inputs allocated to importing food table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="375" LocationY="-300" Height="55" Width="160.9515" />
-              <Label LocationX="296.5243" LocationY="-322.6367" Height="45.27343" Width="156.9515" />
+              <Label LocationX="296.5242" LocationY="-322.6367" Height="45.27343" Width="156.9515" />
             </Node>
             <Node PartID="11539" NodeType="Auxiliary" MemberName="Food imported" IsMidLabel="False" LabelText="Food imported" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -9024,11 +9018,6 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Position LocationX="850" LocationY="175" Height="52" Width="76" />
               <Label LocationX="814" LocationY="159.9089" Height="30.18229" Width="72" />
             </Node>
-            <Node PartID="335" NodeType="Auxiliary" MemberName="Total land" IsMidLabel="False" LabelText="Total land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
-              <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="550" LocationY="75" Height="52" Width="76" />
-              <Label LocationX="514" LocationY="67.45443" Height="15.09114" Width="72" />
-            </Node>
             <Node PartID="371" NodeType="Stock" MemberName="Urban and Industrial Land" IsMidLabel="False" LabelText="Urban and Industrial Land" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="700" LocationY="175" Height="60" Width="86" />
@@ -9091,8 +9080,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="1559" NodeType="Auxiliary" MemberName="Processing loss" IsMidLabel="False" LabelText="Processing loss" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:World3_2003" ReferenceName="World3_2003" />
-              <Position LocationX="1025" LocationY="125" Height="52" Width="90.14362" />
-              <Label LocationX="981.9282" LocationY="102.3633" Height="45.27343" Width="86.14362" />
+              <Position LocationX="1025" LocationY="125" Height="52" Width="90.1438" />
+              <Label LocationX="981.9281" LocationY="102.3633" Height="45.27343" Width="86.1438" />
             </Node>
             <Node PartID="1684" NodeType="Auxiliary" MemberName="Land yield" IsMidLabel="False" LabelText="Land yield" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:World3_2003" ReferenceName="World3_2003" />
@@ -9114,6 +9103,11 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Position LocationX="825" LocationY="450" Height="52" Width="76" />
               <Label LocationX="789" LocationY="434.9088" Height="30.18229" Width="72" />
             </Node>
+            <Node PartID="2490" NodeType="Auxiliary" MemberName="Total potentially arable land" IsMidLabel="False" LabelText="Total potentially arable land" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="525" LocationY="75" Height="52" Width="76" />
+              <Label LocationX="489" LocationY="52.36328" Height="45.27343" Width="72" />
+            </Node>
           </Nodes>
           <Links>
             <Link PartID="14" LinkType="Information" FromNode="10" FromPort="13" ToNode="3" ToPort="4" PointCount="4" LabelNodeID="0" Points="74.25791|123|88.87257|106.7333|107.7218|94.06664|129.4553|85" ManualStroke="False" />
@@ -9129,7 +9123,6 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Link PartID="198" LinkType="Information" FromNode="185" FromPort="548" ToNode="88" ToPort="198" PointCount="4" LabelNodeID="0" Points="386|224.2303|374.3333|224|358.6667|224|339|224.3352" ManualStroke="False" />
             <Link PartID="225" LinkType="Information" FromNode="211" FromPort="572" ToNode="88" ToPort="198" PointCount="4" LabelNodeID="0" Points="327.25|279.733|325.8578|279.1422|319.3578|272.6422|310.9706|252" ManualStroke="False" />
             <Link PartID="318" LinkType="Information" FromNode="301" FromPort="947" ToNode="7" ToPort="8" PointCount="4" LabelNodeID="0" Points="828.9427|148|802.406|113.9743|778.906|98.3076|763.5|93.75691" ManualStroke="False" />
-            <Link PartID="353" LinkType="Information" FromNode="335" FromPort="980" ToNode="7" ToPort="8" PointCount="4" LabelNodeID="0" Points="589|76.47634|602.8333|77|618.6667|77|636.5|76.56148" ManualStroke="False" />
             <Link PartID="427" LinkType="Information" FromNode="409" FromPort="2474" ToNode="7" ToPort="2459" PointCount="4" LabelNodeID="0" Points="587.1002|144|596.0031|121.1913|613.5031|107.1913|636.5|98.63261" ManualStroke="False" />
             <Link PartID="445" LinkType="Information" FromNode="371" FromPort="443" ToNode="7" ToPort="429" PointCount="4" LabelNodeID="0" Points="693.1111|144|690|130|690|116|693.4147|102" ManualStroke="False" />
             <Link PartID="482" LinkType="Information" FromNode="463" FromPort="1957" ToNode="301" ToPort="947" PointCount="4" LabelNodeID="0" Points="849.3135|248|849|235.6667|849|220.3333|849.4044|202" ManualStroke="False" />
@@ -9145,6 +9138,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Link PartID="1774" LinkType="Information" FromNode="1532" FromPort="1533" ToNode="1133" ToPort="1134" PointCount="4" LabelNodeID="0" Points="959.1509|27|931.2742|53.47359|914.9235|62.38691|889|67.42323" ManualStroke="False" />
             <Link PartID="2424" LinkType="Information" FromNode="2362" FromPort="2363" ToNode="2225" ToPort="2226" PointCount="4" LabelNodeID="0" Points="739|423.3024|737.7063|426.5091|744.5412|419.5091|755.827|402" ManualStroke="False" />
             <Link PartID="2457" LinkType="Information" FromNode="2391" FromPort="2392" ToNode="2225" ToPort="2226" PointCount="4" LabelNodeID="0" Points="787.2794|423|788.6359|427.5124|783.8041|420.5124|779.5032|402" ManualStroke="False" />
+            <Link PartID="2524" LinkType="Information" FromNode="2490" FromPort="2607" ToNode="7" ToPort="2459" PointCount="4" LabelNodeID="0" Points="564|62.65172|588.1667|55|612.3333|55|636.5|60.51331" ManualStroke="False" />
           </Links>
         </Diagram>
       </Diagrams>

@@ -23,6 +23,19 @@
             <Use CausalType="InformationSource" VariableName="GDP" OwnerTag="EntityType:UK" />
           </Uses>
         </Auxiliary>
+        <Auxiliary name="Fraction of GDP industry">
+          <Units>Dimensionless</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>1-Fraction of GDP agriculture-Fraction of GDP services</Equation>
+          <Description>GVA share of industry</Description>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Fraction of GDP agriculture" OwnerTag="EntityType:UK" />
+            <Cause CausalType="Information" VariableName="Fraction of GDP services" OwnerTag="EntityType:UK" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Industrial output per capita" OwnerTag="EntityType:UK" />
+          </Uses>
+        </Auxiliary>
         <Auxiliary name="GDP">
           <Units>$/year</Units>
           <IsConstant>false</IsConstant>
@@ -33,10 +46,20 @@
             <Cause CausalType="Information" VariableName="Inflation factor" OwnerTag="EntityType:UK" />
             <Cause CausalType="Information" VariableName="Currency conversion" OwnerTag="EntityType:UK" />
           </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Industrial output per capita" OwnerTag="EntityType:UK" />
+            <Use CausalType="InformationSource" VariableName="Service output per capita" OwnerTag="EntityType:UK" />
+          </Uses>
         </Auxiliary>
-        <Auxiliary name="Industrial output per capita 1900">
+        <Auxiliary name="Industrial output per capita">
+          <Units>$/(Year*Person)</Units>
           <IsConstant>false</IsConstant>
-          <Equation>0</Equation>
+          <Equation>Fraction of GDP industry*GDP/Population</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Fraction of GDP industry" OwnerTag="EntityType:UK" />
+            <Cause CausalType="Information" VariableName="GDP" OwnerTag="EntityType:UK" />
+            <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:UK" />
+          </Causes>
         </Auxiliary>
         <Auxiliary name="Inflation factor">
           <Units>£/2013£</Units>
@@ -48,16 +71,21 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
             <Use CausalType="InformationSource" VariableName="GDP" OwnerTag="EntityType:UK" />
           </Uses>
         </Auxiliary>
+        <Auxiliary name="Service output per capita">
+          <Units>$/(Person*Year)</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Fraction of GDP services*GDP/Population</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Fraction of GDP services" OwnerTag="EntityType:UK" />
+            <Cause CausalType="Information" VariableName="GDP" OwnerTag="EntityType:UK" />
+            <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:UK" />
+          </Causes>
+        </Auxiliary>
       </Auxiliaries>
       <DataVariables>
         <DataVariable name="Fraction of GDP agriculture">
           <Interpolation>Straight</Interpolation>
           <InputVariableName>Fraction of GDP agriculture</InputVariableName>
-          <Units>Dimensionless</Units>
-        </DataVariable>
-        <DataVariable name="Fraction of GDP industry">
-          <Interpolation>Straight</Interpolation>
-          <InputVariableName>Fraction of GDP industry</InputVariableName>
           <Units>Dimensionless</Units>
         </DataVariable>
         <DataVariable name="Fraction of GDP services">
@@ -182,10 +210,10 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
       <Diagrams>
         <Diagram name="Main">
           <Nodes>
-            <Node PartID="3" NodeType="Auxiliary" MemberName="Industrial output per capita 1900" IsMidLabel="False" LabelText="Industrial output per capita 1900" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+            <Node PartID="3" NodeType="Auxiliary" MemberName="Industrial output per capita" IsMidLabel="False" LabelText="Industrial output per capita" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:UK" />
-              <Position LocationX="225" LocationY="250" Height="52" Width="124" />
-              <Label LocationX="165" LocationY="234.9089" Height="30.18229" Width="120" />
+              <Position LocationX="275" LocationY="375" Height="52" Width="124" />
+              <Label LocationX="215" LocationY="359.9088" Height="30.18229" Width="120" />
             </Node>
             <Node PartID="5" NodeType="Data" MemberName="Unemployment rate" IsMidLabel="False" LabelText="Unemployment rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:UK" />
@@ -194,8 +222,8 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
             </Node>
             <Node PartID="7" NodeType="Data" MemberName="Population" IsMidLabel="False" LabelText="Population" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:UK" />
-              <Position LocationX="802" LocationY="204" Height="52" Width="76" />
-              <Label LocationX="766" LocationY="188.9089" Height="30.18229" Width="72" />
+              <Position LocationX="225" LocationY="100" Height="52" Width="76" />
+              <Label LocationX="189" LocationY="92.45442" Height="15.09114" Width="72" />
             </Node>
             <Node PartID="9" NodeType="Data" MemberName="GDP pounds" IsMidLabel="False" LabelText="GDP pounds" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:UK" />
@@ -209,8 +237,8 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
             </Node>
             <Node PartID="13" NodeType="Auxiliary" MemberName="GDP" IsMidLabel="False" LabelText="GDP" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:UK" />
-              <Position LocationX="634" LocationY="425" Height="52" Width="94" />
-              <Label LocationX="589" LocationY="409.9088" Height="30.18229" Width="90" />
+              <Position LocationX="650" LocationY="425" Height="52" Width="94" />
+              <Label LocationX="605" LocationY="417.4544" Height="15.09114" Width="90" />
             </Node>
             <Node PartID="20" NodeType="Auxiliary" MemberName="Currency conversion" IsMidLabel="False" LabelText="Currency conversion" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:UK" />
@@ -219,24 +247,37 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
             </Node>
             <Node PartID="100" NodeType="Data" MemberName="Fraction of GDP agriculture" IsMidLabel="False" LabelText="Fraction of GDP agriculture" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:UK" />
-              <Position LocationX="446" LocationY="223" Height="52" Width="76" />
-              <Label LocationX="410" LocationY="200.3633" Height="45.27343" Width="72" />
-            </Node>
-            <Node PartID="105" NodeType="Data" MemberName="Fraction of GDP industry" IsMidLabel="False" LabelText="Fraction of GDP industry" CaptionHidden="False" IsEditable="False" IsPrimary="True">
-              <Owner OwnerTag="EntityType:UK" />
-              <Position LocationX="493" LocationY="310" Height="52" Width="76" />
-              <Label LocationX="457" LocationY="287.3633" Height="45.27343" Width="72" />
+              <Position LocationX="600" LocationY="300" Height="52" Width="76" />
+              <Label LocationX="564" LocationY="277.3633" Height="45.27343" Width="72" />
             </Node>
             <Node PartID="110" NodeType="Data" MemberName="Fraction of GDP services" IsMidLabel="False" LabelText="Fraction of GDP services" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:UK" />
-              <Position LocationX="631" LocationY="245" Height="52" Width="76" />
-              <Label LocationX="595" LocationY="222.3633" Height="45.27343" Width="72" />
+              <Position LocationX="375" LocationY="225" Height="52" Width="76" />
+              <Label LocationX="339" LocationY="202.3633" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="192" NodeType="Auxiliary" MemberName="Fraction of GDP industry" IsMidLabel="False" LabelText="Fraction of GDP industry" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="475" LocationY="325" Height="52" Width="76" />
+              <Label LocationX="439" LocationY="302.3633" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="458" NodeType="Auxiliary" MemberName="Service output per capita" IsMidLabel="False" LabelText="Service output per capita" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="525" LocationY="200" Height="52" Width="76" />
+              <Label LocationX="489" LocationY="177.3633" Height="45.27343" Width="72" />
             </Node>
           </Nodes>
           <Links>
-            <Link PartID="28" LinkType="Information" FromNode="20" FromPort="15" ToNode="13" ToPort="14" PointCount="4" LabelNodeID="0" Points="711|507.9452|687.8345|497.8148|670.0479|482.4815|650.9324|452" ManualStroke="False" />
-            <Link PartID="36" LinkType="Information" FromNode="9" FromPort="10" ToNode="13" ToPort="14" PointCount="4" LabelNodeID="0" Points="747.5817|377|724.9738|399.2631|708.183|408.1943|682|414.1259" ManualStroke="False" />
-            <Link PartID="44" LinkType="Information" FromNode="11" FromPort="12" ToNode="13" ToPort="14" PointCount="4" LabelNodeID="0" Points="736|438.6842|718|445|700|445|682|439.5454" ManualStroke="False" />
+            <Link PartID="28" LinkType="Information" FromNode="20" FromPort="117" ToNode="13" ToPort="116" PointCount="4" LabelNodeID="0" Points="711|505.5321|693.5245|496.8088|678.1912|481.4755|663.4777|452" ManualStroke="False" />
+            <Link PartID="36" LinkType="Information" FromNode="9" FromPort="114" ToNode="13" ToPort="116" PointCount="4" LabelNodeID="0" Points="750.9074|377|730.2047|400.201|717.7473|407.6754|698|412.7253" ManualStroke="False" />
+            <Link PartID="44" LinkType="Information" FromNode="11" FromPort="115" ToNode="13" ToPort="116" PointCount="4" LabelNodeID="0" Points="736|440.0968|723.3333|445|710.6667|445|698|440.8242" ManualStroke="False" />
+            <Link PartID="203" LinkType="Information" FromNode="100" FromPort="118" ToNode="192" ToPort="193" PointCount="4" LabelNodeID="0" Points="561|323.4754|549.2556|330.5448|533.589|333.6781|514|330.7766" ManualStroke="False" />
+            <Link PartID="214" LinkType="Information" FromNode="110" FromPort="120" ToNode="192" ToPort="193" PointCount="4" LabelNodeID="0" Points="414|244.4679|431.4755|253.1912|446.8088|268.5245|461.5222|298" ManualStroke="False" />
+            <Link PartID="225" LinkType="Information" FromNode="192" FromPort="193" ToNode="3" ToPort="111" PointCount="4" LabelNodeID="0" Points="436|346.7831|408.1841|362.3195|375.5174|370.4862|338|372.1709" ManualStroke="False" />
+            <Link PartID="236" LinkType="Information" FromNode="13" FromPort="116" ToNode="3" ToPort="111" PointCount="4" LabelNodeID="0" Points="602|425.5855|511.3567|426.6913|423.3567|414.9579|338|391.9682" ManualStroke="False" />
+            <Link PartID="247" LinkType="Information" FromNode="7" FromPort="113" ToNode="3" ToPort="111" PointCount="4" LabelNodeID="0" Points="226.4535|127|230.9804|211.0889|244.3744|284.7556|265.8372|348" ManualStroke="False" />
+            <Link PartID="471" LinkType="Information" FromNode="110" FromPort="467" ToNode="458" ToPort="470" PointCount="4" LabelNodeID="0" Points="414|212.056|436.356|204.6361|460.356|200.6361|486|200.3838" ManualStroke="False" />
+            <Link PartID="484" LinkType="Information" FromNode="13" FromPort="116" ToNode="458" ToPort="459" PointCount="4" LabelNodeID="0" Points="663.5406|398|718.8502|287.7129|687.1835|230.7129|564|207.3855" ManualStroke="False" />
+            <Link PartID="497" LinkType="Information" FromNode="7" FromPort="487" ToNode="458" ToPort="496" PointCount="4" LabelNodeID="0" Points="264|109.461|341.1623|128.1798|415.1623|152.8465|486|183.2572" ManualStroke="False" />
           </Links>
         </Diagram>
       </Diagrams>
