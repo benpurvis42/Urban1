@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModelDataFileMapping xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name>UKBoEData</Name>
+  <Name>UK time series</Name>
   <Guid>f3802c20-424c-d23b-ffd6-8892c1342890</Guid>
   <TimeSeriesDataDescription>UK unemployment data 1900-2016 from Bank of England Millennium spreadsheet</TimeSeriesDataDescription>
   <Mappings>
@@ -86,7 +86,7 @@
                 <dataEntityFieldType>Data Variable</dataEntityFieldType>
                 <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
               </UK>
-              <UK diffgr:id="UK8" msdata:rowOrder="5">
+              <UK diffgr:id="UK6" msdata:rowOrder="5">
                 <dataFieldName>Services GVA share</dataFieldName>
                 <dataFieldType>Variable</dataFieldType>
                 <dataInterpolationType>Straight</dataInterpolationType>
@@ -96,7 +96,7 @@
                 <dataEntityFieldType>Data Variable</dataEntityFieldType>
                 <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
               </UK>
-              <UK diffgr:id="UK6" msdata:rowOrder="6">
+              <UK diffgr:id="UK7" msdata:rowOrder="6">
                 <dataFieldName>Industry GVA share</dataFieldName>
                 <dataFieldType>Variable</dataFieldType>
                 <dataInterpolationType>Straight</dataInterpolationType>

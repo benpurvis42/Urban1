@@ -1035,13 +1035,13 @@ Its value at any tie defines the necessary fraction of capital stock that must b
         <Auxiliary name="Imported food land">
           <Units>Hectare</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Food imported / ( World3_2003.Land yield * World3_2003.Land fraction harvested *(1 - World3_2003.Processing loss))</Equation>
+          <Equation>Food imported / ( World3.Land yield * World3.Land fraction harvested *(1 - World3.Processing loss))</Equation>
           <Description>Land footprint of the food which is imported to the urban system</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Food imported" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" Reference="World3_2003" VariableName="Land yield" OwnerTag="EntityType:World3_2003" />
-            <Cause CausalType="Information" Reference="World3_2003" VariableName="Land fraction harvested" OwnerTag="EntityType:World3_2003" />
-            <Cause CausalType="Information" Reference="World3_2003" VariableName="Processing loss" OwnerTag="EntityType:World3_2003" />
+            <Cause CausalType="Information" Reference="World3" VariableName="Land yield" OwnerTag="EntityType:World3" />
+            <Cause CausalType="Information" Reference="World3" VariableName="Land fraction harvested" OwnerTag="EntityType:World3" />
+            <Cause CausalType="Information" Reference="World3" VariableName="Processing loss" OwnerTag="EntityType:World3" />
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
@@ -1246,13 +1246,13 @@ Depends on relative value society places on saving, material goods, food and ser
         <Auxiliary name="Industrial output">
           <Units>$/Year</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Industrial capital * (1- World3_2003.Fraction of capital allocated to obtaining resources) * Capital utilisation function / Industrial capital output ratio</Equation>
+          <Equation>Industrial capital * (1- World3.Fraction of capital allocated to obtaining resources) * Capital utilisation function / Industrial capital output ratio</Equation>
           <Description>Industrial output, composed of the total global stream of manufactured goods.
 
 The utilisation of industrial capital to produce industrial output both depletes resoyrces and generates persistent pollution (Meadows 1974, p204)</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Industrial Capital" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" Reference="World3_2003" VariableName="Fraction of capital allocated to obtaining resources" OwnerTag="EntityType:World3_2003" />
+            <Cause CausalType="Information" Reference="World3" VariableName="Fraction of capital allocated to obtaining resources" OwnerTag="EntityType:World3" />
             <Cause CausalType="Information" VariableName="Capital utilisation function" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Industrial capital output ratio" OwnerTag="EntityType:Urban1" />
           </Causes>
@@ -1421,7 +1421,6 @@ The utilisation of industrial capital to produce industrial output both depletes
           <Equation>300000</Equation>
           <Description>Total initial population in system</Description>
           <Uses>
-            <Use CausalType="InformationSource" VariableName="Initial industrial capital" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Initial population 0 to 14" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Initial population 15 to 44" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Initial population 45 to 64" OwnerTag="EntityType:Urban1" />
@@ -1972,9 +1971,9 @@ Air pollution affects food output by: reducing plant growth, or by making food i
         <Auxiliary name="Marginal productivity of importing food">
           <Units>Veg equiv kg / $</Units>
           <IsConstant>false</IsConstant>
-          <Equation>1/ World3_2003.Food cost</Equation>
+          <Equation>1/ World3.Food cost</Equation>
           <Causes>
-            <Cause CausalType="Information" Reference="World3_2003" VariableName="Food cost" OwnerTag="EntityType:World3_2003" />
+            <Cause CausalType="Information" Reference="World3" VariableName="Food cost" OwnerTag="EntityType:World3" />
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Food imported" OwnerTag="EntityType:Urban1" />
@@ -2286,12 +2285,12 @@ Informed by perceived social benefit of development: Land yield/ Social discount
         <Auxiliary name="Persistent pollution index">
           <Units>Dmnl</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Max(Persistent pollution / Persistent pollution in 1970 , World3_2003.Index of persistent pollution)</Equation>
+          <Equation>Max(Persistent pollution / Persistent pollution in 1970 , World3.Index of persistent pollution)</Equation>
           <Description>Ratio scale for pollution as an index of the pollution level at time t relative to its level in 1970</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Persistent pollution" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Persistent pollution in 1970" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" Reference="World3_2003" VariableName="Index of persistent pollution" OwnerTag="EntityType:World3_2003" />
+            <Cause CausalType="Information" Reference="World3" VariableName="Index of persistent pollution" OwnerTag="EntityType:World3" />
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Assimilation half life multiplier" OwnerTag="EntityType:Urban1" />
@@ -2486,12 +2485,12 @@ Informed by perceived social benefit of development: Land yield/ Social discount
         <Auxiliary name="Relative per capita resource usage">
           <Units>Dimensionless</Units>
           <IsConstant>false</IsConstant>
-          <Equation>( Nonrenewable resource usage rate *World3_2003.Population ) / ( World3_2003.Nonrenewable resource usage rate * Population)</Equation>
+          <Equation>( Nonrenewable resource usage rate *World3.Population ) / ( World3.Nonrenewable resource usage rate * Population)</Equation>
           <Description>Ratio of urban resource usage per capita to the global average</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Nonrenewable resource usage rate" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" Reference="World3_2003" VariableName="Population" OwnerTag="EntityType:World3_2003" />
-            <Cause CausalType="Information" Reference="World3_2003" VariableName="Nonrenewable resource usage rate" OwnerTag="EntityType:World3_2003" />
+            <Cause CausalType="Information" Reference="World3" VariableName="Population" OwnerTag="EntityType:World3" />
+            <Cause CausalType="Information" Reference="World3" VariableName="Nonrenewable resource usage rate" OwnerTag="EntityType:World3" />
             <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:Urban1" />
           </Causes>
         </Auxiliary>
@@ -3779,7 +3778,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
         </Flow>
         <Flow name="Nonrenewable resource usage rate">
           <Units>Resource units/ Year</Units>
-          <From>World3_2003.Nonrenewable resources</From>
+          <From>World3.Nonrenewable resources</From>
           <IsConstant>false</IsConstant>
           <Equation>Population * Per capita resource usage multiplier * Nonrenewable resource usage factor</Equation>
           <Causes>
@@ -3792,6 +3791,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Use CausalType="InformationSource" VariableName="Resource technology change rate multiplier 1" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Resource technology change rate multiplier 2" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1[]" VariableName="Sum Nonrenewable resource usage rate" OwnerTag="Collection:Urban1.Urban1[]" />
+            <Use CausalType="OutFlow" Reference="World3" VariableName="Nonrenewable resources" OwnerTag="EntityType:World3" />
             <Use CausalType="OutFlow" Reference="World3_2003" VariableName="Nonrenewable resources" OwnerTag="EntityType:World3_2003" />
           </Uses>
         </Flow>
@@ -6294,12 +6294,6 @@ Updated in Meadows et al 1992 (p239-249)</Description>
       <MultiCharts>
         <MultiChart name="MultiChart1">
           <CapsuleTag CapsuleTag="EntityType:Urban1" />
-          <Multichart_Controls>
-            <Multichart_Control Multichart_Control_Name="MultiChart1_Control1" />
-            <Multichart_Control Multichart_Control_Name="MultiChart1_Control2" />
-            <Multichart_Control Multichart_Control_Name="MultiChart1_Control3" />
-            <Multichart_Control Multichart_Control_Name="MultiChart1_Control4" />
-          </Multichart_Controls>
         </MultiChart>
       </MultiCharts>
       <Diagrams>
@@ -6660,8 +6654,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="98" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="325" LocationY="300" Height="45" Width="50.00238" />
-              <Label LocationX="301.9988" LocationY="292.4544" Height="15.09114" Width="46.00238" />
+              <Position LocationX="325" LocationY="300" Height="45" Width="50.0025" />
+              <Label LocationX="301.9987" LocationY="292.4544" Height="15.09114" Width="46.0025" />
             </Node>
             <Node PartID="103" NodeType="Flow" MemberName="Land erosion rate" IsMidLabel="True" LabelText="Land erosion rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -7605,7 +7599,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Label LocationX="239" LocationY="-65.09114" Height="30.18229" Width="72" />
             </Node>
             <Node PartID="18464" NodeType="Auxiliary" MemberName="Food cost" IsMidLabel="False" LabelText="Food cost" CaptionHidden="False" IsEditable="False" IsPrimary="False">
-              <Owner OwnerTag="EntityType:World3_2003" ReferenceName="World3_2003" />
+              <Owner OwnerTag="EntityType:World3" ReferenceName="World3" />
               <Position LocationX="400" LocationY="-225" Height="52" Width="90.14365" />
               <Label LocationX="356.9282" LocationY="-240.0911" Height="30.18229" Width="86.14365" />
             </Node>
@@ -7852,7 +7846,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Label LocationX="1015.34" LocationY="-122.6367" Height="45.27343" Width="169.3201" />
             </Node>
             <Node PartID="6073" NodeType="Auxiliary" MemberName="Fraction of capital allocated to obtaining resources" IsMidLabel="False" LabelText="Fraction of capital allocated to obtaining resources" CaptionHidden="False" IsEditable="False" IsPrimary="False">
-              <Owner OwnerTag="EntityType:World3_2003" ReferenceName="World3_2003" />
+              <Owner OwnerTag="EntityType:World3" ReferenceName="World3" />
               <Position LocationX="425" LocationY="0" Height="84" Width="128.3842" />
               <Label LocationX="362.8079" LocationY="-30.18229" Height="60.36458" Width="124.3842" />
             </Node>
@@ -8400,7 +8394,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Label LocationX="689" LocationY="-65.09114" Height="30.18229" Width="72" />
             </Node>
             <Node PartID="9083" NodeType="Stock" MemberName="Nonrenewable resources" IsMidLabel="False" LabelText="Nonrenewable resources" CaptionHidden="False" IsEditable="False" IsPrimary="False">
-              <Owner OwnerTag="EntityType:World3_2003" ReferenceName="World3_2003" />
+              <Owner OwnerTag="EntityType:World3" ReferenceName="World3" />
               <Position LocationX="350" LocationY="175" Height="60" Width="97.07074" />
               <Label LocationX="303.4646" LocationY="152.3633" Height="45.27343" Width="93.07074" />
             </Node>
@@ -8665,7 +8659,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Label LocationX="-285.4999" LocationY="2.363283" Height="45.27343" Width="124.5135" />
             </Node>
             <Node PartID="9279" NodeType="Auxiliary" MemberName="Index of persistent pollution" IsMidLabel="False" LabelText="Index of persistent pollution" CaptionHidden="False" IsEditable="False" IsPrimary="False">
-              <Owner OwnerTag="EntityType:World3_2003" ReferenceName="World3_2003" />
+              <Owner OwnerTag="EntityType:World3" ReferenceName="World3" />
               <Position LocationX="300" LocationY="475" Height="68" Width="129.0854" />
               <Label LocationX="237.4573" LocationY="452.3633" Height="45.27343" Width="125.0854" />
             </Node>
@@ -9054,12 +9048,12 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Label LocationX="-11" LocationY="467.4544" Height="15.09114" Width="72" />
             </Node>
             <Node PartID="657" NodeType="Auxiliary" MemberName="Population" IsMidLabel="False" LabelText="Population" CaptionHidden="False" IsEditable="False" IsPrimary="False">
-              <Owner OwnerTag="EntityType:World3_2003" ReferenceName="World3_2003" />
+              <Owner OwnerTag="EntityType:World3" ReferenceName="World3" />
               <Position LocationX="475" LocationY="475" Height="52" Width="90.14368" />
               <Label LocationX="431.9282" LocationY="459.9088" Height="30.18229" Width="86.14368" />
             </Node>
             <Node PartID="733" NodeType="Flow" MemberName="Nonrenewable resource usage rate" IsMidLabel="False" LabelText="Nonrenewable resource usage rate" CaptionHidden="False" IsEditable="False" IsPrimary="False">
-              <Owner OwnerTag="EntityType:World3_2003" ReferenceName="World3_2003" />
+              <Owner OwnerTag="EntityType:World3" ReferenceName="World3" />
               <Position LocationX="350" LocationY="475" Height="68" Width="97.07074" />
               <Label LocationX="303.4646" LocationY="444.8177" Height="60.36458" Width="93.07074" />
             </Node>
@@ -9074,17 +9068,17 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Label LocationX="914" LocationY="134.7764" Height="30.18229" Width="72" />
             </Node>
             <Node PartID="1532" NodeType="Auxiliary" MemberName="Land fraction harvested" IsMidLabel="False" LabelText="Land fraction harvested" CaptionHidden="False" IsEditable="False" IsPrimary="False">
-              <Owner OwnerTag="EntityType:World3_2003" ReferenceName="World3_2003" />
+              <Owner OwnerTag="EntityType:World3" ReferenceName="World3" />
               <Position LocationX="987.5819" LocationY="0" Height="52" Width="115.3074" />
               <Label LocationX="931.9282" LocationY="-22.63672" Height="45.27343" Width="111.3074" />
             </Node>
             <Node PartID="1559" NodeType="Auxiliary" MemberName="Processing loss" IsMidLabel="False" LabelText="Processing loss" CaptionHidden="False" IsEditable="False" IsPrimary="False">
-              <Owner OwnerTag="EntityType:World3_2003" ReferenceName="World3_2003" />
+              <Owner OwnerTag="EntityType:World3" ReferenceName="World3" />
               <Position LocationX="1025" LocationY="125" Height="52" Width="90.1438" />
               <Label LocationX="981.9281" LocationY="102.3633" Height="45.27343" Width="86.1438" />
             </Node>
             <Node PartID="1684" NodeType="Auxiliary" MemberName="Land yield" IsMidLabel="False" LabelText="Land yield" CaptionHidden="False" IsEditable="False" IsPrimary="False">
-              <Owner OwnerTag="EntityType:World3_2003" ReferenceName="World3_2003" />
+              <Owner OwnerTag="EntityType:World3" ReferenceName="World3" />
               <Position LocationX="975" LocationY="75" Height="52" Width="90.14368" />
               <Label LocationX="931.9282" LocationY="59.90886" Height="30.18229" Width="86.14368" />
             </Node>
@@ -9152,8 +9146,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Condition Key="UKDataID" Value="" />
           </Conditions>
         </Reference>
-        <Reference name="World3_2003">
-          <BaseType>EntityType:World3_2003</BaseType>
+        <Reference name="World3">
+          <BaseType>EntityType:World3</BaseType>
         </Reference>
       </References>
       <Collections>
@@ -9177,6 +9171,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <Cause CausalType="Information" VariableName="Nonrenewable resource usage rate" OwnerTag="EntityType:Urban1" />
               </Causes>
               <Uses>
+                <Use CausalType="InformationSource" Reference="World3" VariableName="Nonrenewable resource usage rate" OwnerTag="EntityType:World3" />
                 <Use CausalType="InformationSource" Reference="World3_2003" VariableName="Nonrenewable resource usage rate" OwnerTag="EntityType:World3_2003" />
               </Uses>
             </Aggregate>
