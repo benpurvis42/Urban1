@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModelDataFileMapping xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>UK time series</Name>
+  <Guid>f3802c20-424c-d23b-ffd6-8892c1342890</Guid>
+  <TimeSeriesDataDescription>UK unemployment data 1900-2016 from Bank of England Millennium spreadsheet</TimeSeriesDataDescription>
+  <Mappings>
+    <IEntityTypeMapping AssemblyQualifiedName="VentityModel.DataEntityTypes.EntityTypeMapping, VentityModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <EntityTypeMapping>
+        <SourceEntityTypeName>UK</SourceEntityTypeName>
+        <DataEntityTypeName>UK</DataEntityTypeName>
+        <MappingDataTable>
+          <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+            <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="UK" msdata:UseCurrentLocale="true">
+              <xs:complexType>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element name="UK">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="dataFieldName" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataInterpolationType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataAggregationType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldUnits" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldDescription" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldMeasurementType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldLowerBound" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldUpperBound" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldName" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldKey" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldUnits" type="xs:string" minOccurs="0" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+          </xs:schema>
+          <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+            <DocumentElement>
+              <UK diffgr:id="UK1" msdata:rowOrder="0">
+                <dataFieldName>UKDataID</dataFieldName>
+                <dataFieldType>Key</dataFieldType>
+                <dataInterpolationType />
+                <dataAggregationType />
+                <dataEntityFieldName>UKDataID</dataEntityFieldName>
+              </UK>
+              <UK diffgr:id="UK2" msdata:rowOrder="1">
+                <dataFieldName>Unemployment rate</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataAggregationType />
+                <dataFieldUnits />
+                <dataFieldDescription>UK unemployment rate</dataFieldDescription>
+                <dataEntityFieldName>Unemployment rate</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
+              </UK>
+              <UK diffgr:id="UK3" msdata:rowOrder="2">
+                <dataFieldName>Population UK</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataAggregationType>Last</dataAggregationType>
+                <dataFieldDescription>UK population</dataFieldDescription>
+                <dataEntityFieldName>Population</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>Person</dataEntityFieldUnits>
+              </UK>
+              <UK diffgr:id="UK4" msdata:rowOrder="3">
+                <dataFieldName>GDP UK</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataAggregationType>Last</dataAggregationType>
+                <dataFieldDescription>UK GDP</dataFieldDescription>
+                <dataEntityFieldName>GDP pounds</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>2013£/Year</dataEntityFieldUnits>
+              </UK>
+              <UK diffgr:id="UK5" msdata:rowOrder="4">
+                <dataFieldName>Agriculture GVA share</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataAggregationType>Last</dataAggregationType>
+                <dataFieldDescription>GVA share percent agriculture</dataFieldDescription>
+                <dataEntityFieldName>Fraction of GDP agriculture</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
+              </UK>
+              <UK diffgr:id="UK6" msdata:rowOrder="5">
+                <dataFieldName>Services GVA share</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataAggregationType>Last</dataAggregationType>
+                <dataFieldDescription>GVA share percentage services</dataFieldDescription>
+                <dataEntityFieldName>Fraction of GDP services</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
+              </UK>
+              <UK diffgr:id="UK7" msdata:rowOrder="6">
+                <dataFieldName>Industry GVA share</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataAggregationType>Last</dataAggregationType>
+                <dataFieldDescription>GVA share percentage industry</dataFieldDescription>
+                <dataEntityFieldName>Fraction of GDP industry</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
+              </UK>
+            </DocumentElement>
+          </diffgr:diffgram>
+        </MappingDataTable>
+      </EntityTypeMapping>
+    </IEntityTypeMapping>
+  </Mappings>
+</ModelDataFileMapping>

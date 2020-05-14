@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySet>
+  <Entities>
+    <EntityType name="UK">
+      <Properties>
+        <IsSingular>false</IsSingular>
+        <IsDataEntityType>true</IsDataEntityType>
+        <DataEntityTypeName>UK</DataEntityTypeName>
+      </Properties>
+      <Attributes>
+        <Attribute name="UKDataID">
+          <IsKey>true</IsKey>
+          <AutoIncrement>true</AutoIncrement>
+        </Attribute>
+      </Attributes>
+      <Auxiliaries>
+        <Auxiliary name="Currency conversion">
+          <Units>$/£</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>2.393758</Equation>
+          <Description>Average GBP/USD fxtop.com</Description>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="GDP" OwnerTag="EntityType:UK" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Fraction of GDP industry">
+          <Units>Dimensionless</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>1-Fraction of GDP agriculture-Fraction of GDP services</Equation>
+          <Description>GVA share of industry</Description>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Fraction of GDP agriculture" OwnerTag="EntityType:UK" />
+            <Cause CausalType="Information" VariableName="Fraction of GDP services" OwnerTag="EntityType:UK" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Industrial output per capita" OwnerTag="EntityType:UK" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="GDP">
+          <Units>$/year</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>GDP pounds * Inflation factor * Currency conversion</Equation>
+          <Description>UK GDP in 1968 $</Description>
+          <Causes>
+            <Cause CausalType="Information" VariableName="GDP pounds" OwnerTag="EntityType:UK" />
+            <Cause CausalType="Information" VariableName="Inflation factor" OwnerTag="EntityType:UK" />
+            <Cause CausalType="Information" VariableName="Currency conversion" OwnerTag="EntityType:UK" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Industrial output per capita" OwnerTag="EntityType:UK" />
+            <Use CausalType="InformationSource" VariableName="Service output per capita" OwnerTag="EntityType:UK" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Industrial output per capita">
+          <Units>$/(Year*Person)</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Fraction of GDP industry*GDP/Population</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Fraction of GDP industry" OwnerTag="EntityType:UK" />
+            <Cause CausalType="Information" VariableName="GDP" OwnerTag="EntityType:UK" />
+            <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:UK" />
+          </Causes>
+        </Auxiliary>
+        <Auxiliary name="Inflation factor">
+          <Units>£/2013£</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>0.07</Equation>
+          <Description>COnversion factor of 2013 £ to 1968 £
+https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</Description>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="GDP" OwnerTag="EntityType:UK" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Service output per capita">
+          <Units>$/(Person*Year)</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Fraction of GDP services*GDP/Population</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Fraction of GDP services" OwnerTag="EntityType:UK" />
+            <Cause CausalType="Information" VariableName="GDP" OwnerTag="EntityType:UK" />
+            <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:UK" />
+          </Causes>
+        </Auxiliary>
+      </Auxiliaries>
+      <DataVariables>
+        <DataVariable name="Fraction of GDP agriculture">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Fraction of GDP agriculture</InputVariableName>
+          <Units>Dimensionless</Units>
+        </DataVariable>
+        <DataVariable name="Fraction of GDP services">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Fraction of GDP services</InputVariableName>
+          <Units>Dimensionless</Units>
+        </DataVariable>
+        <DataVariable name="GDP pounds">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>GDP pounds</InputVariableName>
+          <Units>2013£/Year</Units>
+          <Description>Real headline UK GDP (GB + Northern Ireland), Chained volume measure £mn, reference year 2013</Description>
+        </DataVariable>
+        <DataVariable name="Population">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Population</InputVariableName>
+          <Units>Person</Units>
+          <Description>Population of Great Britain and Northern Ireland 1900-2016</Description>
+        </DataVariable>
+        <DataVariable name="Unemployment rate">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Unemployment rate</InputVariableName>
+          <Units>Dimensionless</Units>
+        </DataVariable>
+      </DataVariables>
+      <Charts>
+        <Chart name="Plot1">
+          <MainTitleText MainTitleText="" />
+          <ViewType ViewType="Line" />
+          <VChartTitleCollection>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+          </VChartTitleCollection>
+          <VChartArea>
+            <AutoLayout>true</AutoLayout>
+            <BackColor>FFFFFF</BackColor>
+            <ForeColor>FFFFFF</ForeColor>
+            <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+            <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+            <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="Default" Visible="false">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </EmptyChartText>
+            <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="false">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </SmallChartText>
+          </VChartArea>
+          <VChartDiagram>
+            <Rotated>false</Rotated>
+            <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <PaneDistance>10</PaneDistance>
+            <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+            <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+            <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="false" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+            <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+              </Interlace>
+              <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisX>
+            <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+              </Interlace>
+              <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisY>
+            <SecondaryAxesX />
+            <SecondaryAxesY />
+            <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="613" BackColor="FFFFFF">
+              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+              <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+              <Shadow Size="2" Visible="false" Color="FFFFFF" />
+              <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+            </DefaultPane>
+          </VChartDiagram>
+        </Chart>
+      </Charts>
+      <Images>
+        <Image name="Image1">
+          <Image ImageSource="" />
+        </Image>
+      </Images>
+      <Diagrams>
+        <Diagram name="Main">
+          <Nodes>
+            <Node PartID="3" NodeType="Auxiliary" MemberName="Industrial output per capita" IsMidLabel="False" LabelText="Industrial output per capita" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="275" LocationY="375" Height="52" Width="124" />
+              <Label LocationX="215" LocationY="359.9088" Height="30.18229" Width="120" />
+            </Node>
+            <Node PartID="5" NodeType="Data" MemberName="Unemployment rate" IsMidLabel="False" LabelText="Unemployment rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="575" LocationY="125" Height="52" Width="100.8728" />
+              <Label LocationX="526.5636" LocationY="109.9089" Height="30.18229" Width="96.8728" />
+            </Node>
+            <Node PartID="7" NodeType="Data" MemberName="Population" IsMidLabel="False" LabelText="Population" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="225" LocationY="100" Height="52" Width="76" />
+              <Label LocationX="189" LocationY="92.45442" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="9" NodeType="Data" MemberName="GDP pounds" IsMidLabel="False" LabelText="GDP pounds" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="775" LocationY="350" Height="52" Width="83.25562" />
+              <Label LocationX="735.3722" LocationY="342.4544" Height="15.09114" Width="79.25562" />
+            </Node>
+            <Node PartID="11" NodeType="Auxiliary" MemberName="Inflation factor" IsMidLabel="False" LabelText="Inflation factor" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="775" LocationY="425" Height="52" Width="76" />
+              <Label LocationX="739" LocationY="409.9088" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="13" NodeType="Auxiliary" MemberName="GDP" IsMidLabel="False" LabelText="GDP" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="650" LocationY="425" Height="52" Width="94" />
+              <Label LocationX="605" LocationY="417.4544" Height="15.09114" Width="90" />
+            </Node>
+            <Node PartID="20" NodeType="Auxiliary" MemberName="Currency conversion" IsMidLabel="False" LabelText="Currency conversion" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="750" LocationY="525" Height="52" Width="76" />
+              <Label LocationX="714" LocationY="509.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="100" NodeType="Data" MemberName="Fraction of GDP agriculture" IsMidLabel="False" LabelText="Fraction of GDP agriculture" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="600" LocationY="300" Height="52" Width="76" />
+              <Label LocationX="564" LocationY="277.3633" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="110" NodeType="Data" MemberName="Fraction of GDP services" IsMidLabel="False" LabelText="Fraction of GDP services" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="375" LocationY="225" Height="52" Width="76" />
+              <Label LocationX="339" LocationY="202.3633" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="192" NodeType="Auxiliary" MemberName="Fraction of GDP industry" IsMidLabel="False" LabelText="Fraction of GDP industry" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="475" LocationY="325" Height="52" Width="76" />
+              <Label LocationX="439" LocationY="302.3633" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="458" NodeType="Auxiliary" MemberName="Service output per capita" IsMidLabel="False" LabelText="Service output per capita" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="525" LocationY="200" Height="52" Width="76" />
+              <Label LocationX="489" LocationY="177.3633" Height="45.27343" Width="72" />
+            </Node>
+          </Nodes>
+          <Links>
+            <Link PartID="28" LinkType="Information" FromNode="20" FromPort="117" ToNode="13" ToPort="116" PointCount="4" LabelNodeID="0" Points="711|505.5321|693.5245|496.8088|678.1912|481.4755|663.4777|452" ManualStroke="False" />
+            <Link PartID="36" LinkType="Information" FromNode="9" FromPort="114" ToNode="13" ToPort="116" PointCount="4" LabelNodeID="0" Points="750.9074|377|730.2047|400.201|717.7473|407.6754|698|412.7253" ManualStroke="False" />
+            <Link PartID="44" LinkType="Information" FromNode="11" FromPort="115" ToNode="13" ToPort="116" PointCount="4" LabelNodeID="0" Points="736|440.0968|723.3333|445|710.6667|445|698|440.8242" ManualStroke="False" />
+            <Link PartID="203" LinkType="Information" FromNode="100" FromPort="118" ToNode="192" ToPort="193" PointCount="4" LabelNodeID="0" Points="561|323.4754|549.2556|330.5448|533.589|333.6781|514|330.7766" ManualStroke="False" />
+            <Link PartID="214" LinkType="Information" FromNode="110" FromPort="120" ToNode="192" ToPort="193" PointCount="4" LabelNodeID="0" Points="414|244.4679|431.4755|253.1912|446.8088|268.5245|461.5222|298" ManualStroke="False" />
+            <Link PartID="225" LinkType="Information" FromNode="192" FromPort="193" ToNode="3" ToPort="111" PointCount="4" LabelNodeID="0" Points="436|346.7831|408.1841|362.3195|375.5174|370.4862|338|372.1709" ManualStroke="False" />
+            <Link PartID="236" LinkType="Information" FromNode="13" FromPort="116" ToNode="3" ToPort="111" PointCount="4" LabelNodeID="0" Points="602|425.5855|511.3567|426.6913|423.3567|414.9579|338|391.9682" ManualStroke="False" />
+            <Link PartID="247" LinkType="Information" FromNode="7" FromPort="113" ToNode="3" ToPort="111" PointCount="4" LabelNodeID="0" Points="226.4535|127|230.9804|211.0889|244.3744|284.7556|265.8372|348" ManualStroke="False" />
+            <Link PartID="471" LinkType="Information" FromNode="110" FromPort="467" ToNode="458" ToPort="470" PointCount="4" LabelNodeID="0" Points="414|212.056|436.356|204.6361|460.356|200.6361|486|200.3838" ManualStroke="False" />
+            <Link PartID="484" LinkType="Information" FromNode="13" FromPort="116" ToNode="458" ToPort="459" PointCount="4" LabelNodeID="0" Points="663.5406|398|718.8502|287.7129|687.1835|230.7129|564|207.3855" ManualStroke="False" />
+            <Link PartID="497" LinkType="Information" FromNode="7" FromPort="487" ToNode="458" ToPort="496" PointCount="4" LabelNodeID="0" Points="264|109.461|341.1623|128.1798|415.1623|152.8465|486|183.2572" ManualStroke="False" />
+          </Links>
+        </Diagram>
+      </Diagrams>
+      <References>
+        <Reference name="Model">
+          <BaseType>EntityType:Model</BaseType>
+        </Reference>
+      </References>
+      <Collections>
+        <Collection name="UK[]">
+          <BaseType>UK</BaseType>
+          <Properties />
+          <Auxiliaries>
+            <Auxiliary name="Count">
+              <Units>dmnl</Units>
+              <IsConstant>false</IsConstant>
+              <Description>Built-in variable. Reports the number of entities of this type existing at the end of each time slice.</Description>
+            </Auxiliary>
+          </Auxiliaries>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes />
+              <Links />
+            </Diagram>
+          </Diagrams>
+        </Collection>
+      </Collections>
+    </EntityType>
+  </Entities>
+</EntitySet>
