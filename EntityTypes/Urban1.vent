@@ -627,7 +627,7 @@ The units of vegetable equivalents take into account the conversion factor for t
         <Auxiliary name="Fraction of agricultural inputs allocated to importing food">
           <Units>Dimensionless</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Fraction of agricultural inputs allocated to importing food table ( Marginal productivity of importing food / ( Marginal productivity of agricultural inputs + Marginal productivity of land development ))</Equation>
+          <Equation>SMOOTH(Fraction of agricultural inputs allocated to importing food table ( SMOOTH(Marginal productivity of importing food, 3) / ( SMOOTH(Marginal productivity of agricultural inputs + Marginal productivity of land development, 3) )), 5)</Equation>
           <Description>Fraction of agricultural inputs that are allocated to importing food from outside the urban system</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Fraction of agricultural inputs allocated to importing food table" OwnerTag="EntityType:Urban1" />
@@ -1370,7 +1370,7 @@ The utilisation of industrial capital to produce industrial output both depletes
         <Auxiliary name="Initial population 0 to 14">
           <Units>Person</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Initial population total * 0.23</Equation>
+          <Equation>Initial population total * 0.31</Equation>
           <Description>Initial population aged 0 to 14</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Initial population total" OwnerTag="EntityType:Urban1" />
@@ -1382,7 +1382,7 @@ The utilisation of industrial capital to produce industrial output both depletes
         <Auxiliary name="Initial population 15 to 44">
           <Units>Person</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Initial population total * 0.43</Equation>
+          <Equation>Initial population total * 0.48</Equation>
           <Description>Initial population aged 15 to 44</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Initial population total" OwnerTag="EntityType:Urban1" />
@@ -1394,7 +1394,7 @@ The utilisation of industrial capital to produce industrial output both depletes
         <Auxiliary name="Initial population 45 to 64">
           <Units>Person</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Initial population total*0.24</Equation>
+          <Equation>Initial population total*0.16</Equation>
           <Description>Initial population aged 45 to 64</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Initial population total" OwnerTag="EntityType:Urban1" />
@@ -1406,7 +1406,7 @@ The utilisation of industrial capital to produce industrial output both depletes
         <Auxiliary name="Initial population 65 plus">
           <Units>Person</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Initial population total * 0.11</Equation>
+          <Equation>Initial population total * 0.05</Equation>
           <Description>Initial population aged 65 plus</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Initial population total" OwnerTag="EntityType:Urban1" />
@@ -1965,6 +1965,7 @@ Air pollution affects food output by: reducing plant growth, or by making food i
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to land development" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
@@ -1979,6 +1980,7 @@ Air pollution affects food output by: reducing plant growth, or by making food i
             <Use CausalType="InformationSource" VariableName="Food imported" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Food imported SMOOTHI1 Input" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH2 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Marginal productivity of land development">
@@ -1994,6 +1996,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to land development" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
@@ -2886,6 +2889,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Equation>-1,2,-1,2,0,0,0.25,0.05,0.5,0.15,0.75,0.3,1,0.5,1.25,0.7,1.5,0.85,1.75,0.95,2,1</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH3 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </TableFunction>
         <TableFunction name="Fraction of agricultural inputs allocated to land development table">
@@ -3058,17 +3062,19 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           </Uses>
         </TableFunction>
         <TableFunction name="Jobs per industrial capital unit table">
+          <Description>Updated using UK data, see data notes</Description>
           <UnitsIn>$/(Person*Year)</UnitsIn>
           <UnitsOut>Person/$</UnitsOut>
-          <Equation>0,801,-1,1,50,0.37,200,0.18,350,0.12,500,0.09,650,0.07,800,0.06</Equation>
+          <Equation>0,1701,-1,1,50,0.39,200,0.25,350,0.16,500,0.1,650,0.06,800,0.04,950,0.025,1100,0.016,1250,0.01,1400,0.006,1550,0.004,1700,0.003</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Jobs per industrial capital unit" OwnerTag="EntityType:Urban1" />
           </Uses>
         </TableFunction>
         <TableFunction name="Jobs per service capital unit table">
+          <Description>Edited using UK data - see notes for calculations</Description>
           <UnitsIn>$/(Person*Year)</UnitsIn>
           <UnitsOut>Person/$</UnitsOut>
-          <Equation>0,801,-1,2,50,1.1,200,0.6,350,0.35,500,0.2,650,0.15,800,0.15</Equation>
+          <Equation>0,3151,-1,4,50,2.52,200,0.93,350,0.62,500,0.48,650,0.4,800,0.34,950,0.3,1100,0.27,1250,0.25,1400,0.23,1550,0.21,1700,0.2,1850,0.19,2000,0.18,2150,0.17,2300,0.16,2450,0.15,2750,0.14,3150,0.13</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Jobs per service capital unit" OwnerTag="EntityType:Urban1" />
           </Uses>
@@ -3792,7 +3798,6 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Use CausalType="InformationSource" VariableName="Resource technology change rate multiplier 2" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1[]" VariableName="Sum Nonrenewable resource usage rate" OwnerTag="Collection:Urban1.Urban1[]" />
             <Use CausalType="OutFlow" Reference="World3" VariableName="Nonrenewable resources" OwnerTag="EntityType:World3" />
-            <Use CausalType="OutFlow" Reference="World3_2003" VariableName="Nonrenewable resources" OwnerTag="EntityType:World3_2003" />
           </Uses>
         </Flow>
         <Flow name="Persistent pollution appearance rate">
@@ -6416,8 +6421,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="8565" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="1050" LocationY="50" Height="44.99997" Width="50.01318" />
-              <Label LocationX="1026.993" LocationY="42.45443" Height="15.09114" Width="46.01318" />
+              <Position LocationX="1050" LocationY="50" Height="44.99997" Width="50.01343" />
+              <Label LocationX="1026.993" LocationY="42.45443" Height="15.09114" Width="46.01343" />
             </Node>
             <Node PartID="8595" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6486,8 +6491,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="15979" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="425" LocationY="275" Height="45" Width="50.0011" />
-              <Label LocationX="401.9995" LocationY="267.4544" Height="15.09114" Width="46.0011" />
+              <Position LocationX="425" LocationY="275" Height="45" Width="50.00189" />
+              <Label LocationX="401.9991" LocationY="267.4544" Height="15.09114" Width="46.00186" />
             </Node>
             <Node PartID="16089" NodeType="Auxiliary" MemberName="Time" IsMidLabel="False" LabelText="Time" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
@@ -6715,7 +6720,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="1611" NodeType="Auxiliary" MemberName="Social discount rate" IsMidLabel="False" LabelText="Social discount rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="0" LocationY="400" Height="52" Width="124.283" />
-              <Label LocationX="-60.1415" LocationY="392.4544" Height="15.09114" Width="120.283" />
+              <Label LocationX="-60.14149" LocationY="392.4544" Height="15.09114" Width="120.283" />
             </Node>
             <Node PartID="2675" NodeType="Auxiliary" MemberName="Average life of land" IsMidLabel="False" LabelText="Average life of land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -9172,7 +9177,6 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               </Causes>
               <Uses>
                 <Use CausalType="InformationSource" Reference="World3" VariableName="Nonrenewable resource usage rate" OwnerTag="EntityType:World3" />
-                <Use CausalType="InformationSource" Reference="World3_2003" VariableName="Nonrenewable resource usage rate" OwnerTag="EntityType:World3_2003" />
               </Uses>
             </Aggregate>
           </Aggregates>
