@@ -1634,7 +1634,7 @@ The utilisation of industrial capital to produce industrial output both depletes
         <Auxiliary name="Land life policy implementation year">
           <Units>Year</Units>
           <IsConstant>true</IsConstant>
-          <Equation>1940</Equation>
+          <Equation>1900</Equation>
           <Description>Year at which land erosion protection technology is implemented</Description>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Land life multiplier from land yield" OwnerTag="EntityType:Urban1" />
@@ -6720,7 +6720,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="1611" NodeType="Auxiliary" MemberName="Social discount rate" IsMidLabel="False" LabelText="Social discount rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="0" LocationY="400" Height="52" Width="124.283" />
-              <Label LocationX="-60.14149" LocationY="392.4544" Height="15.09114" Width="120.283" />
+              <Label LocationX="-60.1415" LocationY="392.4544" Height="15.09114" Width="120.283" />
             </Node>
             <Node PartID="2675" NodeType="Auxiliary" MemberName="Average life of land" IsMidLabel="False" LabelText="Average life of land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -8825,8 +8825,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="2965" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="325" LocationY="375" Height="45" Width="50.00085" />
-              <Label LocationX="301.9996" LocationY="367.4544" Height="15.09114" Width="46.00085" />
+              <Position LocationX="325" LocationY="375" Height="45" Width="50.00082" />
+              <Label LocationX="301.9996" LocationY="367.4544" Height="15.09114" Width="46.00082" />
             </Node>
             <Node PartID="3100" NodeType="Flow" MemberName="Service capital investment rate" IsMidLabel="True" LabelText="Service capital investment rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />

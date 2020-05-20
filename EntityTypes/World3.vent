@@ -569,7 +569,7 @@ The units of vegetable equivalents take into account the conversion factor for t
         <Auxiliary name="Food cost normal">
           <Units>Dimensionless</Units>
           <IsConstant>true</IsConstant>
-          <Equation>0.3333</Equation>
+          <Equation>0.08</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Food cost" OwnerTag="EntityType:World3" />
           </Uses>
