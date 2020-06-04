@@ -83,6 +83,9 @@
           <Units>Year</Units>
           <IsConstant>true</IsConstant>
           <Equation>1</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Urban1" VariableName="Land removal for urban and industrial use" OwnerTag="EntityType:Urban1" />
+          </Uses>
         </Auxiliary>
       </Auxiliaries>
       <Diagrams>

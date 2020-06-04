@@ -551,12 +551,12 @@ Updated to 3.8 iin Meadows et al 1992 (p239-249)</Description>
         <Auxiliary name="Food imported">
           <Units>Veg equiv kg/Year</Units>
           <IsConstant>false</IsConstant>
-          <Equation>SMOOTHI(Marginal productivity of importing food * Fraction of industrial output allocated to agriculture * Fraction of agricultural inputs allocated to importing food * Industrial output, 3, 0)</Equation>
+          <Equation>SMOOTHI(Marginal productivity of importing food * Fraction of industrial output allocated to agriculture * Fraction of industrial output allocated to agriculture for importing food * Industrial output, 3, 0)</Equation>
           <Description>Total food imported into urban system</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Marginal productivity of importing food" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Fraction of industrial output allocated to agriculture" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Fraction of industrial output allocated to agriculture for importing food" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Industrial output" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
@@ -622,23 +622,6 @@ The units of vegetable equivalents take into account the conversion factor for t
           <Uses>
             <Use CausalType="InformationSource" VariableName="Perceived food ratio" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Perceived food ratio SMOOTHI1 DelayTime" OwnerTag="EntityType:Urban1" />
-          </Uses>
-        </Auxiliary>
-        <Auxiliary name="Fraction of agricultural inputs allocated to importing food">
-          <Units>Dimensionless</Units>
-          <IsConstant>false</IsConstant>
-          <Equation>SMOOTH(Fraction of agricultural inputs allocated to importing food table ( SMOOTH(Marginal productivity of importing food, 3) / ( SMOOTH(Marginal productivity of agricultural inputs + Marginal productivity of land development, 3) )), 5)</Equation>
-          <Description>Fraction of agricultural inputs that are allocated to importing food from outside the urban system</Description>
-          <Causes>
-            <Cause CausalType="Information" VariableName="Fraction of agricultural inputs allocated to importing food table" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" VariableName="Marginal productivity of importing food" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" VariableName="Marginal productivity of agricultural inputs" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" VariableName="Marginal productivity of land development" OwnerTag="EntityType:Urban1" />
-          </Causes>
-          <Uses>
-            <Use CausalType="InformationSource" VariableName="Food imported" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Food imported SMOOTHI1 Input" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Total agricultural investment" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Fraction of agricultural inputs allocated to land development">
@@ -772,6 +755,23 @@ Its value at any tie defines the necessary fraction of capital stock that must b
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Fraction of industrial output allocated to agriculture for importing food">
+          <Units>Dimensionless</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>SMOOTH(Fraction of industrial output allocated to agriculture for importing food table ( SMOOTH(Marginal productivity of importing food, 3) / ( SMOOTH(Marginal productivity of agricultural inputs + Marginal productivity of land development, 3) )), 5)</Equation>
+          <Description>Fraction of industrial output allocated to agriculture that is allocated to importing food from outside the urban system</Description>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Fraction of industrial output allocated to agriculture for importing food table" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Marginal productivity of importing food" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Marginal productivity of agricultural inputs" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Marginal productivity of land development" OwnerTag="EntityType:Urban1" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Food imported" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Food imported SMOOTHI1 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Total agricultural investment" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Fraction of industrial output allocated to consumption">
@@ -1955,18 +1955,22 @@ Air pollution affects food output by: reducing plant growth, or by making food i
         <Auxiliary name="Marginal productivity of agricultural inputs">
           <Units>Veg equiv kg / $</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Average lifetime of agricultural inputs * Land yield * Marginal land yield multiplier from capital / Land yield multiplier from capital</Equation>
+          <Equation>(Average lifetime of agricultural inputs * Land yield * Marginal land yield multiplier from capital / Land yield multiplier from capital)*Arable land/Total potentially arable land</Equation>
           <Description>"The additional amount of crops that will arise from the next dollar invested in agricultural inputs" (Meadows et al 1974, p312-313)</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Average lifetime of agricultural inputs" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Land yield" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Marginal land yield multiplier from capital" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Land yield multiplier from capital" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Arable land" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Total potentially arable land" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to land development" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Marginal productivity of importing food">
@@ -1981,6 +1985,8 @@ Air pollution affects food output by: reducing plant growth, or by making food i
             <Use CausalType="InformationSource" VariableName="Food imported SMOOTHI1 Input" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH2 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food SMOOTH2 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Marginal productivity of land development">
@@ -1998,6 +2004,8 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to land development" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Maximum total fertility">
@@ -2691,13 +2699,13 @@ Informed by perceived social benefit of development: Land yield/ Social discount
         <Auxiliary name="Total agricultural investment">
           <Units>$ / Year</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Industrial output * Fraction of industrial output allocated to agriculture * (1 - Fraction of agricultural inputs allocated to importing food)</Equation>
+          <Equation>Industrial output * Fraction of industrial output allocated to agriculture * (1 - Fraction of industrial output allocated to agriculture for importing food)</Equation>
           <Description>"Value in dollar equivalents of that portion of the world's industrial output allocated to agriculture each year" (Meadows et al 1974, p287)
 "May be allocated in two ways: to develop new arable land or to increase the yield on land already developed" (p288)</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Industrial output" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Fraction of industrial output allocated to agriculture" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Fraction of industrial output allocated to agriculture for importing food" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Current agricultural inputs" OwnerTag="EntityType:Urban1" />
@@ -2727,6 +2735,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Use CausalType="InformationSource" VariableName="Development cost per hectare" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of land cultivated" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Marginal productivity of agricultural inputs" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Unemployment">
@@ -2883,15 +2892,6 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Use CausalType="InformationSource" VariableName="Fertility control effectiveness" OwnerTag="EntityType:Urban1" />
           </Uses>
         </TableFunction>
-        <TableFunction name="Fraction of agricultural inputs allocated to importing food table">
-          <UnitsIn>Dimensionless</UnitsIn>
-          <UnitsOut>Dimensionless</UnitsOut>
-          <Equation>-1,2,-1,2,0,0,0.25,0.05,0.5,0.15,0.75,0.3,1,0.5,1.25,0.7,1.5,0.85,1.75,0.95,2,1</Equation>
-          <Uses>
-            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH3 Input" OwnerTag="EntityType:Urban1" />
-          </Uses>
-        </TableFunction>
         <TableFunction name="Fraction of agricultural inputs allocated to land development table">
           <UnitsIn>Dimensionless</UnitsIn>
           <UnitsOut>Dimensionless</UnitsOut>
@@ -2938,6 +2938,17 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Equation>-1,4,-1,1,0,0.4,0.5,0.2,1,0.1,1.5,0.025,2,0,2.5,0</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture 2" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </TableFunction>
+        <TableFunction name="Fraction of industrial output allocated to agriculture for importing food table">
+          <UnitsIn>Dimensionless</UnitsIn>
+          <UnitsOut>Dimensionless</UnitsOut>
+          <Equation>-1,2,-1,2,0,0,0.25,0.05,0.5,0.15,0.75,0.3,1,0.5,1.25,0.7,1.5,0.85,1.75,0.95,2,1</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH3 Input" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food SMOOTH3 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </TableFunction>
         <TableFunction name="Fraction of industrial output allocated to consumption variable table">
@@ -3315,6 +3326,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Use CausalType="InformationSource" VariableName="Fraction of land cultivated" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Land erosion rate" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Land removal for urban and industrial use" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Marginal productivity of agricultural inputs" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Persistent pollution generated by agricultural output" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Potential agricultural sector jobs" OwnerTag="EntityType:Urban1" />
           </Uses>
@@ -3647,7 +3660,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           <From>Arable land</From>
           <IsConstant>false</IsConstant>
           <Description>Arable land irreversibly lost to erosion per year</Description>
-          <Equation>Arable land / Average life of land</Equation>
+          <Equation>IfThenElse(Arable land &gt; 0, Arable land / Average life of land, 0)</Equation>
           <Causes>
             <Cause CausalType="Information" VariableName="Arable land" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Average life of land" OwnerTag="EntityType:Urban1" />
@@ -3691,11 +3704,13 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           <To>Urban and Industrial Land</To>
           <IsConstant>false</IsConstant>
           <Description>Rate at which land is removed for urban and industrial use</Description>
-          <Equation>Max(0 , Urban and industrial land required - Urban and Industrial Land)/ Urban and industrial land development time</Equation>
+          <Equation>IfThenElse(Max(0 , Urban and industrial land required - Urban and Industrial Land)/ Urban and industrial land development time &lt; Arable land/model.Time Step, Max(0 , Urban and industrial land required - Urban and Industrial Land)/ Urban and industrial land development time, Arable land/model.Time Step)</Equation>
           <Causes>
             <Cause CausalType="Information" VariableName="Urban and industrial land required" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Urban and Industrial Land" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Urban and industrial land development time" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Arable land" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" Reference="Model" VariableName="Time Step" OwnerTag="EntityType:Model" />
           </Causes>
           <Uses>
             <Use CausalType="InFlow" VariableName="Urban and Industrial Land" OwnerTag="EntityType:Urban1" />
@@ -6421,8 +6436,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="8565" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="1050" LocationY="50" Height="44.99997" Width="50.01343" />
-              <Label LocationX="1026.993" LocationY="42.45443" Height="15.09114" Width="46.01343" />
+              <Position LocationX="1050" LocationY="50" Height="44.99997" Width="50.01331" />
+              <Label LocationX="1026.993" LocationY="42.45443" Height="15.09114" Width="46.01331" />
             </Node>
             <Node PartID="8595" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6491,8 +6506,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="15979" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="425" LocationY="275" Height="45" Width="50.00189" />
-              <Label LocationX="401.9991" LocationY="267.4544" Height="15.09114" Width="46.00186" />
+              <Position LocationX="425" LocationY="275" Height="45" Width="50.00211" />
+              <Label LocationX="401.999" LocationY="267.4544" Height="15.09114" Width="46.00211" />
             </Node>
             <Node PartID="16089" NodeType="Auxiliary" MemberName="Time" IsMidLabel="False" LabelText="Time" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
@@ -6559,6 +6574,16 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Position LocationX="550" LocationY="350" Height="68" Width="164.0719" />
               <Label LocationX="469.9641" LocationY="334.9088" Height="30.18229" Width="160.0719" />
             </Node>
+            <Node PartID="30419" NodeType="Stock" MemberName="Arable land" IsMidLabel="False" LabelText="Arable land" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="1050" LocationY="425" Height="60" Width="86" />
+              <Label LocationX="1009" LocationY="417.4544" Height="15.09114" Width="82" />
+            </Node>
+            <Node PartID="30698" NodeType="Auxiliary" MemberName="Total potentially arable land" IsMidLabel="False" LabelText="Total potentially arable land" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="1027" LocationY="311" Height="36" Width="120" />
+              <Label LocationX="969" LocationY="295.9088" Height="30.18229" Width="116" />
+            </Node>
           </Nodes>
           <Links>
             <Link PartID="13" LinkType="Information" FromNode="9" FromPort="10717" ToNode="3" ToPort="10716" PointCount="4" LabelNodeID="0" Points="714.7605|473|705|447.263|705|421.526|716.5059|395.789" ManualStroke="False" />
@@ -6618,6 +6643,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Link PartID="19858" LinkType="Information" FromNode="19808" FromPort="19809" ToNode="17224" ToPort="17987" PointCount="4" LabelNodeID="0" Points="325.1411|410.4739|325.1785|405.4283|325.1785|398.0088|325.1612|395.1077" ManualStroke="False" />
             <Link PartID="30156" LinkType="Information" FromNode="103" FromPort="17186" ToNode="30105" ToPort="30106" PointCount="4" LabelNodeID="0" Points="621.1207|240.448|642.04|259.2668|639.252|261.7841|617.4767|264.704" ManualStroke="False" />
             <Link PartID="30259" LinkType="Information" FromNode="30207" FromPort="30790" ToNode="30105" ToPort="30106" PointCount="4" LabelNodeID="0" Points="539.3152|315|538.0187|310.7532|537.5229|306.4199|537.9688|302" ManualStroke="False" />
+            <Link PartID="30472" LinkType="Information" FromNode="30419" FromPort="30420" ToNode="2424" ToPort="30279" PointCount="4" LabelNodeID="0" Points="1041.262|394|1035.787|374.5774|1039.44|376.2359|1021.015|376.9291" ManualStroke="False" />
+            <Link PartID="30752" LinkType="Information" FromNode="30698" FromPort="30699" ToNode="2424" ToPort="30279" PointCount="4" LabelNodeID="0" Points="982.6572|330|985.794|325.3338|978.609|331.7346|968.1689|349.2022" ManualStroke="False" />
           </Links>
         </Diagram>
         <Diagram name="Arable land">
@@ -6720,7 +6747,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="1611" NodeType="Auxiliary" MemberName="Social discount rate" IsMidLabel="False" LabelText="Social discount rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="0" LocationY="400" Height="52" Width="124.283" />
-              <Label LocationX="-60.1415" LocationY="392.4544" Height="15.09114" Width="120.283" />
+              <Label LocationX="-60.14149" LocationY="392.4544" Height="15.09114" Width="120.283" />
             </Node>
             <Node PartID="2675" NodeType="Auxiliary" MemberName="Average life of land" IsMidLabel="False" LabelText="Average life of land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6812,6 +6839,11 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Position LocationX="875" LocationY="300" Height="52" Width="149.001" />
               <Label LocationX="802.4995" LocationY="284.9088" Height="30.18229" Width="145.001" />
             </Node>
+            <Node PartID="11891" NodeType="Auxiliary" MemberName="Time Step" IsMidLabel="False" LabelText="Time Step" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
+              <Position LocationX="475" LocationY="225" Height="52" Width="76" />
+              <Label LocationX="439" LocationY="209.9089" Height="30.18229" Width="72" />
+            </Node>
           </Nodes>
           <Links>
             <Link PartID="29" LinkType="Information" FromNode="19" FromPort="7367" ToNode="15" ToPort="7366" PointCount="4" LabelNodeID="0" Points="376.0127|94|390.5241|83.54135|402.6908|79.25731|421.5|78.14989" ManualStroke="False" />
@@ -6855,6 +6887,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Link PartID="6745" LinkType="Information" FromNode="5748" FromPort="7396" ToNode="77" ToPort="7399" PointCount="4" LabelNodeID="0" Points="644.3378|203.1764|604.9263|204.8642|568.6243|197.7632|535.432|182.7688" ManualStroke="False" />
             <Link PartID="7363" LinkType="Initial" FromNode="7324" FromPort="7398" ToNode="66" ToPort="7368" PointCount="4" LabelNodeID="0" Points="600.3259|52|600.4805|64.81006|600.4805|78.81006|600.3224|94" ManualStroke="False" />
             <Link PartID="11813" LinkType="Information" FromNode="11774" FromPort="11809" ToNode="2875" ToPort="11794" PointCount="4" LabelNodeID="0" Points="799.4995|321.4344|760.3417|332.5512|719.2695|340.5619|676.283|344.5937" ManualStroke="False" />
+            <Link PartID="11852" LinkType="Information" FromNode="19" FromPort="11817" ToNode="77" ToPort="11849" PointCount="4" LabelNodeID="0" Points="385|113.7163|399.6747|110.532|401.4594|110.8755|407.9357|115" ManualStroke="False" />
+            <Link PartID="11931" LinkType="Information" FromNode="11891" FromPort="11927" ToNode="77" ToPort="11928" PointCount="4" LabelNodeID="0" Points="461.4452|198|460.0698|195.2603|459.3703|190.9269|459.8804|185" ManualStroke="False" />
           </Links>
         </Diagram>
         <Diagram name="Demographics">
@@ -7573,7 +7607,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Position LocationX="25" LocationY="75" Height="52" Width="76" />
               <Label LocationX="-11" LocationY="52.36328" Height="45.27343" Width="72" />
             </Node>
-            <Node PartID="8420" NodeType="Auxiliary" MemberName="Fraction of agricultural inputs allocated to importing food" IsMidLabel="False" LabelText="Fraction of agricultural inputs allocated to importing food" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+            <Node PartID="8420" NodeType="Auxiliary" MemberName="Fraction of industrial output allocated to agriculture for importing food" IsMidLabel="False" LabelText="Fraction of industrial output allocated to agriculture for importing food" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="175" LocationY="-200" Height="84" Width="135" />
               <Label LocationX="109.5" LocationY="-230.1823" Height="60.36458" Width="131" />
@@ -7593,10 +7627,10 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Position LocationX="175" LocationY="-325" Height="68" Width="109.3473" />
               <Label LocationX="122.3264" LocationY="-347.6367" Height="45.27343" Width="105.3473" />
             </Node>
-            <Node PartID="9788" NodeType="TableFunction" MemberName="Fraction of agricultural inputs allocated to importing food table" IsMidLabel="False" LabelText="Fraction of agricultural inputs allocated to importing food table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+            <Node PartID="9788" NodeType="TableFunction" MemberName="Fraction of industrial output allocated to agriculture for importing food table" IsMidLabel="False" LabelText="Fraction of industrial output allocated to agriculture for importing food table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="375" LocationY="-300" Height="55" Width="160.9515" />
-              <Label LocationX="296.5242" LocationY="-322.6367" Height="45.27343" Width="156.9515" />
+              <Position LocationX="388.7621" LocationY="-300" Height="68" Width="188.4758" />
+              <Label LocationX="296.5242" LocationY="-322.6367" Height="45.27343" Width="184.4758" />
             </Node>
             <Node PartID="11539" NodeType="Auxiliary" MemberName="Food imported" IsMidLabel="False" LabelText="Food imported" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -7659,7 +7693,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Link PartID="9159" LinkType="Information" FromNode="8927" FromPort="8928" ToNode="8420" ToPort="8421" PointCount="4" LabelNodeID="0" Points="293.4009|-151.2173|271.2729|-151.6932|254.6392|-156.4456|243.5|-162.5376" ManualStroke="False" />
             <Link PartID="9540" LinkType="Information" FromNode="9397" FromPort="9398" ToNode="8420" ToPort="8421" PointCount="4" LabelNodeID="0" Points="188.8158|-290|195|-274.3333|195|-258.6667|189.6591|-243" ManualStroke="False" />
             <Link PartID="9589" LinkType="Information" FromNode="9207" FromPort="9208" ToNode="8420" ToPort="8421" PointCount="4" LabelNodeID="0" Points="283.5234|-315|266.1978|-278.1963|246.1978|-254.1963|231.4891|-243" ManualStroke="False" />
-            <Link PartID="9986" LinkType="Information" FromNode="9788" FromPort="9789" ToNode="8420" ToPort="8421" PointCount="4" LabelNodeID="0" Points="339.6743|-271.5|302.1109|-241.1948|277.2776|-228.7781|243.5|-219.274" ManualStroke="False" />
+            <Link PartID="9986" LinkType="Information" FromNode="9788" FromPort="18605" ToNode="8420" ToPort="18601" PointCount="4" LabelNodeID="0" Points="338.9943|-265|298.5376|-235.9648|275.2725|-225.03|243.5|-217.0989" ManualStroke="False" />
             <Link PartID="11738" LinkType="Information" FromNode="8927" FromPort="8928" ToNode="11539" ToPort="11540" PointCount="4" LabelNodeID="0" Points="341.8305|-122.2299|333.865|-95.15326|322.5575|-80.07663|314|-74.66464" ManualStroke="False" />
             <Link PartID="11785" LinkType="Information" FromNode="21" FromPort="8336" ToNode="11539" ToPort="11540" PointCount="4" LabelNodeID="0" Points="494.4489|-332|476.2221|-190.813|417.376|-105.813|314|-65.28844" ManualStroke="False" />
             <Link PartID="11832" LinkType="Information" FromNode="8420" FromPort="8421" ToNode="11539" ToPort="11540" PointCount="4" LabelNodeID="0" Points="221.313|-157|238.0854|-141.4273|255.8632|-114.7607|267.0215|-77" ManualStroke="False" />
