@@ -84,6 +84,7 @@
           <IsConstant>true</IsConstant>
           <Equation>1</Equation>
           <Uses>
+            <Use CausalType="InformationSource" Reference="Urban1" VariableName="Eroded land development rate" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Land removal for urban and industrial use" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>

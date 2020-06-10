@@ -851,7 +851,7 @@ Its value at any tie defines the necessary fraction of capital stock that must b
         <Auxiliary name="Fraction of industrial output allocated to services">
           <Units>Dimensionless</Units>
           <IsConstant>false</IsConstant>
-          <Equation>if( Model.Time &gt;= Policy year ) { Fraction of industrial output allocated to services 2 } else { Fraction of industrial output allocated to services 1 }</Equation>
+          <Equation>if( Model.Time &gt;= Policy year ) { smooth(Fraction of industrial output allocated to services 2, 2) } else { smooth(Fraction of industrial output allocated to services 1, 2) }</Equation>
           <Description>Capital invested each year in the service sector to increase the stock of service capital (Meadows et al 1974, p228)</Description>
           <Causes>
             <Cause CausalType="Information" Reference="Model" VariableName="Time" OwnerTag="EntityType:Model" />
@@ -875,6 +875,7 @@ Its value at any tie defines the necessary fraction of capital stock that must b
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to services" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to services smooth1 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Fraction of industrial output allocated to services 2">
@@ -888,6 +889,7 @@ Its value at any tie defines the necessary fraction of capital stock that must b
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to services" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to services smooth2 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Fraction of land cultivated">
@@ -903,14 +905,17 @@ Its value at any tie defines the necessary fraction of capital stock that must b
         <Auxiliary name="Fraction of population urban">
           <Units>Dmnl</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Fraction of population urban table ( Population )</Equation>
-          <Description>Fraction of world populationn that is urban</Description>
+          <Equation>1- Non urban population density*(Total potentially arable land - Urban and Industrial Land)/Population</Equation>
+          <Description>Fraction of world population that is urban</Description>
           <Causes>
-            <Cause CausalType="Information" VariableName="Fraction of population urban table" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Non urban population density" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Total potentially arable land" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Urban and Industrial Land" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Lifetime multiplier from crowding" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Urban popuation density" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Fraction of resources from persistent materials">
@@ -1496,7 +1501,7 @@ The utilisation of industrial capital to produce industrial output both depletes
         <Auxiliary name="Jobs per service capital unit">
           <Units>Person/$</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Jobs per service capital unit table ( Service output per capita ) * 0.001</Equation>
+          <Equation>smooth(Jobs per service capital unit table ( Service output per capita ) * 0.001, 2)</Equation>
           <Description>Number of jobs created for each dollar of service capital</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Jobs per service capital unit table" OwnerTag="EntityType:Urban1" />
@@ -1966,8 +1971,6 @@ Air pollution affects food output by: reducing plant growth, or by making food i
             <Cause CausalType="Information" VariableName="Total potentially arable land" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
-            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to land development" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
@@ -1983,8 +1986,6 @@ Air pollution affects food output by: reducing plant growth, or by making food i
           <Uses>
             <Use CausalType="InformationSource" VariableName="Food imported" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Food imported SMOOTHI1 Input" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH2 Input" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food SMOOTH2 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
@@ -2001,8 +2002,6 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Cause CausalType="Information" VariableName="Social discount rate" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
-            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to land development" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
@@ -2034,7 +2033,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
         <Auxiliary name="Migration normal">
           <Units>Dimensionless</Units>
           <IsConstant>true</IsConstant>
-          <Equation>0.1</Equation>
+          <Equation>0.05</Equation>
           <Description>Normalisation constant for migration, represents the maximum possible yearly net migration as a fraction of the total population</Description>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Net migration" OwnerTag="EntityType:Urban1" />
@@ -2106,6 +2105,15 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fraction of services allocated to fertility control" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Non urban population density">
+          <Units>Person/Hectare</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>3</Equation>
+          <Description>Population density in arable/potential arable land</Description>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Fraction of population urban" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Nonrenewable resource fraction remaining">
@@ -2417,6 +2425,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Use CausalType="InformationSource" VariableName="Relative per capita resource usage" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Service output per capita" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Urban and industrial land required" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Urban popuation density" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Population equilibrium time">
@@ -2508,7 +2517,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
         <Auxiliary name="Relative unemployment rate">
           <Units>Dimensionless</Units>
           <IsConstant>false</IsConstant>
-          <Equation>Unemployment rate - National.Unemployment rate</Equation>
+          <Equation>smooth(max(Unemployment rate - National.Unemployment rate, -0.01), 2)</Equation>
           <Causes>
             <Cause CausalType="Information" VariableName="Unemployment rate" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" Reference="National" VariableName="Unemployment rate" OwnerTag="EntityType:UK" />
@@ -2639,6 +2648,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to services 2" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Health services per capita" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Jobs per service capital unit" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Jobs per service capital unit smooth1 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Social adjustment delay">
@@ -2734,6 +2744,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Uses>
             <Use CausalType="InformationSource" VariableName="Development cost per hectare" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of land cultivated" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of population urban" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Marginal productivity of agricultural inputs" OwnerTag="EntityType:Urban1" />
           </Uses>
@@ -2762,6 +2773,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Relative unemployment rate" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Relative unemployment rate smooth1 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Urban and industrial land development time">
@@ -2770,6 +2782,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Equation>10</Equation>
           <Description>Average planning and construction delay between demand and development of urban and industrial land (Meadows et al 1974, p321)</Description>
           <Uses>
+            <Use CausalType="InformationSource" VariableName="Eroded land development rate" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Land removal for urban and industrial use" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
@@ -2783,6 +2796,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
+            <Use CausalType="InformationSource" VariableName="Eroded land development rate" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Land removal for urban and industrial use" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
@@ -2797,6 +2811,20 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Urban and industrial land required" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Urban popuation density">
+          <Units>Person/Hectare</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Population*Fraction of population urban/Urban and Industrial Land</Equation>
+          <Description>Population density in urban industrial land</Description>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Fraction of population urban" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Urban and Industrial Land" OwnerTag="EntityType:Urban1" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Net migration" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Zero population growth time">
@@ -2842,6 +2870,15 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Use CausalType="InformationSource" VariableName="Crowding multiplier from industrialisation" OwnerTag="EntityType:Urban1" />
           </Uses>
         </TableFunction>
+        <TableFunction name="Density multiplier">
+          <Description>Crude estimate for housing availability</Description>
+          <UnitsIn>Person/Hectare</UnitsIn>
+          <UnitsOut>Dimensionless</UnitsOut>
+          <Equation>0,401,-1,1,0,1,50,1,100,0.8,150,0.4,200,0.2,250,0.1,300,0.05,350,0.025,400,0.01</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Net migration" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </TableFunction>
         <TableFunction name="Development cost per hectare table">
           <UnitsIn>Dimensionless</UnitsIn>
           <UnitsOut>$/Hectare</UnitsOut>
@@ -2859,10 +2896,10 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           </Uses>
         </TableFunction>
         <TableFunction name="Employment multiplier table">
-          <Description>Relates the capital utilisation fraction to net migration</Description>
+          <Description>Relates the relative unemployment rate to net migration</Description>
           <UnitsIn>Dimensionless</UnitsIn>
           <UnitsOut>/Year</UnitsOut>
-          <Equation>-2,2,-2,2,-1,1,0,0,1,-1</Equation>
+          <Equation>-2,2,-2,2,-0.1,1,0,0,0.1,-1</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Net migration" OwnerTag="EntityType:Urban1" />
           </Uses>
@@ -2945,8 +2982,6 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <UnitsOut>Dimensionless</UnitsOut>
           <Equation>-1,2,-1,2,0,0,0.25,0.05,0.5,0.15,0.75,0.3,1,0.5,1.25,0.7,1.5,0.85,1.75,0.95,2,1</Equation>
           <Uses>
-            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Fraction of agricultural inputs allocated to importing food SMOOTH3 Input" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to agriculture for importing food SMOOTH3 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
@@ -2974,14 +3009,6 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Equation>-1,2,-1,1,0,0.3,0.5,0.2,1,0.1,1.5,0.05,2,0</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to services 2" OwnerTag="EntityType:Urban1" />
-          </Uses>
-        </TableFunction>
-        <TableFunction name="Fraction of population urban table">
-          <UnitsIn>Person</UnitsIn>
-          <UnitsOut>Dmnl</UnitsOut>
-          <Equation>-1,16000000001,-1,4000000001,0,0,2000000000,0.2,4000000000,0.4,6000000000,0.5,8000000000,0.58,10000000000,0.65,12000000000,0.72,14000000000,0.78,16000000000,0.8</Equation>
-          <Uses>
-            <Use CausalType="InformationSource" VariableName="Fraction of population urban" OwnerTag="EntityType:Urban1" />
           </Uses>
         </TableFunction>
         <TableFunction name="Fraction of services allocated to fertility control per capita table">
@@ -3076,7 +3103,7 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Description>Updated using UK data, see data notes</Description>
           <UnitsIn>$/(Person*Year)</UnitsIn>
           <UnitsOut>Person/$</UnitsOut>
-          <Equation>0,1701,-1,1,50,0.39,200,0.25,350,0.16,500,0.1,650,0.06,800,0.04,950,0.025,1100,0.016,1250,0.01,1400,0.006,1550,0.004,1700,0.003</Equation>
+          <Equation>0,3151,-1,1,50,0.39,200,0.25,350,0.16,500,0.1,650,0.06,800,0.04,950,0.025,1100,0.016,1250,0.01,1400,0.006,1550,0.004,1700,0.003,1850,0.0017,2000,0.0011,2150,0.0007,2300,0.00045,2450,0.00029,2600,0.00018,2750,0.00011,2900,7.5E-05,3150,3.5E-05</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Jobs per industrial capital unit" OwnerTag="EntityType:Urban1" />
           </Uses>
@@ -3085,9 +3112,10 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Description>Edited using UK data - see notes for calculations</Description>
           <UnitsIn>$/(Person*Year)</UnitsIn>
           <UnitsOut>Person/$</UnitsOut>
-          <Equation>0,3151,-1,4,50,2.52,200,0.93,350,0.62,500,0.48,650,0.4,800,0.34,950,0.3,1100,0.27,1250,0.25,1400,0.23,1550,0.21,1700,0.2,1850,0.19,2000,0.18,2150,0.17,2300,0.16,2450,0.15,2750,0.14,3150,0.13</Equation>
+          <Equation>0,4401,-1,4,50,2.52,200,0.93,350,0.62,500,0.48,650,0.4,800,0.34,950,0.3,1100,0.27,1250,0.25,1400,0.23,1550,0.21,1700,0.2,1850,0.19,2000,0.18,2150,0.17,2300,0.16,2450,0.15,2750,0.14,3150,0.13,3400,0.12,3650,0.114,3900,0.109,4150,0.104,4400,0.1</Equation>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Jobs per service capital unit" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Jobs per service capital unit smooth1 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </TableFunction>
         <TableFunction name="Land fertility degradation rate table">
@@ -3322,6 +3350,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Agricultural inputs per hectare" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Eroded land development rate" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Food produced" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of land cultivated" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
@@ -3330,6 +3359,19 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Use CausalType="InformationSource" VariableName="Marginal productivity of agricultural inputs" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Persistent pollution generated by agricultural output" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Potential agricultural sector jobs" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </Stock>
+        <Stock name="Eroded land">
+          <Units>Hectare</Units>
+          <Description>Total land that has eroded</Description>
+          <Equation>0</Equation>
+          <Causes>
+            <Cause CausalType="InFlow" VariableName="Land erosion rate" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="OutFlow" VariableName="Eroded land development rate" OwnerTag="EntityType:Urban1" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Eroded land development rate" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Land removal for urban and industrial use" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Stock>
         <Stock name="Industrial Capital">
@@ -3525,10 +3567,14 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           <Causes>
             <Cause CausalType="Information" VariableName="Initial urban and industrial land" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="InFlow" VariableName="Land removal for urban and industrial use" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="InFlow" VariableName="Eroded land development rate" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
+            <Use CausalType="InformationSource" VariableName="Eroded land development rate" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Fraction of population urban" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Land removal for urban and industrial use" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Urban popuation density" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Stock>
       </Stocks>
@@ -3610,6 +3656,26 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Use CausalType="OutFlow" Reference="Urban1" VariableName="Population 65 plus" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Flow>
+        <Flow name="Eroded land development rate">
+          <Units>Hectare/year</Units>
+          <From>Eroded land</From>
+          <To>Urban and Industrial Land</To>
+          <IsConstant>false</IsConstant>
+          <Description>Development rate of degraded land into urban/industrial</Description>
+          <Equation>IfThenElse(Max(0 , (Eroded land/(Arable land+Eroded land))*(Urban and industrial land required - Urban and Industrial Land)/ Urban and industrial land development time) &lt; Eroded land/model.Time Step, Max(0 , (Eroded land/(Arable land+Eroded land))*(Urban and industrial land required - Urban and Industrial Land)/ Urban and industrial land development time), Eroded land/model.Time Step)</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Eroded land" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Arable land" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Urban and industrial land required" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Urban and Industrial Land" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Urban and industrial land development time" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" Reference="Model" VariableName="Time Step" OwnerTag="EntityType:Model" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InFlow" VariableName="Urban and Industrial Land" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="OutFlow" Reference="Urban1" VariableName="Eroded land" OwnerTag="EntityType:Urban1" />
+          </Uses>
+        </Flow>
         <Flow name="Industrial capital depreciation rate">
           <Units>$/Year</Units>
           <From>Industrial Capital</From>
@@ -3658,6 +3724,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
         <Flow name="Land erosion rate">
           <Units>Hectare / Year</Units>
           <From>Arable land</From>
+          <To>Eroded land</To>
           <IsConstant>false</IsConstant>
           <Description>Arable land irreversibly lost to erosion per year</Description>
           <Equation>IfThenElse(Arable land &gt; 0, Arable land / Average life of land, 0)</Equation>
@@ -3666,6 +3733,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Cause CausalType="Information" VariableName="Average life of land" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
+            <Use CausalType="InFlow" VariableName="Eroded land" OwnerTag="EntityType:Urban1" />
             <Use CausalType="OutFlow" Reference="Urban1" VariableName="Arable land" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Flow>
@@ -3704,12 +3772,13 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           <To>Urban and Industrial Land</To>
           <IsConstant>false</IsConstant>
           <Description>Rate at which land is removed for urban and industrial use</Description>
-          <Equation>IfThenElse(Max(0 , Urban and industrial land required - Urban and Industrial Land)/ Urban and industrial land development time &lt; Arable land/model.Time Step, Max(0 , Urban and industrial land required - Urban and Industrial Land)/ Urban and industrial land development time, Arable land/model.Time Step)</Equation>
+          <Equation>IfThenElse(Max(0 , (Arable land/(Arable land+Eroded land))*(Urban and industrial land required - Urban and Industrial Land)/ Urban and industrial land development time) &lt; Arable land/model.Time Step, Max(0 , (Arable land/(Arable land+Eroded land))*(Urban and industrial land required - Urban and Industrial Land)/ Urban and industrial land development time), Arable land/model.Time Step)</Equation>
           <Causes>
+            <Cause CausalType="Information" VariableName="Arable land" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Eroded land" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Urban and industrial land required" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Urban and Industrial Land" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Urban and industrial land development time" OwnerTag="EntityType:Urban1" />
-            <Cause CausalType="Information" VariableName="Arable land" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" Reference="Model" VariableName="Time Step" OwnerTag="EntityType:Model" />
           </Causes>
           <Uses>
@@ -3786,12 +3855,14 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           <To>Population 15 to 44</To>
           <IsConstant>false</IsConstant>
           <Description>Net migration into urban system due to number of available jobs</Description>
-          <Equation>Migration normal*Population* Employment multiplier table(SMOOTH(Relative unemployment rate,2))</Equation>
+          <Equation>Migration normal*Population* Employment multiplier table(SMOOTH(Relative unemployment rate,2))*Density multiplier(Urban popuation density)</Equation>
           <Causes>
             <Cause CausalType="Information" VariableName="Migration normal" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Employment multiplier table" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Relative unemployment rate" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Density multiplier" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Urban popuation density" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
             <Use CausalType="InFlow" VariableName="Population 15 to 44" OwnerTag="EntityType:Urban1" />
@@ -6656,13 +6727,13 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="11" NodeType="Auxiliary" MemberName="Total potentially arable land" IsMidLabel="False" LabelText="Total potentially arable land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="400" LocationY="0" Height="52" Width="113" />
-              <Label LocationX="345.5" LocationY="-15.09114" Height="30.18229" Width="109" />
+              <Position LocationX="325" LocationY="0" Height="52" Width="113" />
+              <Label LocationX="270.5" LocationY="-15.09114" Height="30.18229" Width="109" />
             </Node>
             <Node PartID="15" NodeType="Auxiliary" MemberName="Fraction of land cultivated" IsMidLabel="False" LabelText="Fraction of land cultivated" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="475" LocationY="75" Height="52" Width="105" />
-              <Label LocationX="424.5" LocationY="59.90886" Height="30.18229" Width="101" />
+              <Position LocationX="450" LocationY="50" Height="52" Width="105" />
+              <Label LocationX="399.5" LocationY="34.90886" Height="30.18229" Width="101" />
             </Node>
             <Node PartID="19" NodeType="Stock" MemberName="Arable land" IsMidLabel="False" LabelText="Arable land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6676,8 +6747,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="77" NodeType="Flow" MemberName="Land removal for urban and industrial use" IsMidLabel="True" LabelText="Land removal for urban and industrial use" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="462.8931" LocationY="150" Height="68" Width="143.0779" />
-              <Label LocationX="393.3541" LocationY="134.9089" Height="30.18229" Width="139.0779" />
+              <Position LocationX="462.8931" LocationY="149" Height="36" Width="143.0779" />
+              <Label LocationX="393.3541" LocationY="133.9089" Height="30.18229" Width="139.0779" />
             </Node>
             <Node PartID="82" NodeType="Flow" MemberName="Land development rate" IsMidLabel="True" LabelText="Land development rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6691,8 +6762,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="103" NodeType="Flow" MemberName="Land erosion rate" IsMidLabel="True" LabelText="Land erosion rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="400" LocationY="225" Height="37.92351" Width="108" />
-              <Label LocationX="348" LocationY="217.4544" Height="15.09114" Width="104" />
+              <Position LocationX="300" LocationY="225" Height="37.92351" Width="92.30206" />
+              <Label LocationX="255.849" LocationY="209.9089" Height="30.18229" Width="88.30206" />
             </Node>
             <Node PartID="167" NodeType="Auxiliary" MemberName="Initial arable land" IsMidLabel="False" LabelText="Initial arable land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6701,18 +6772,18 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="195" NodeType="Auxiliary" MemberName="Initial potentially arable land" IsMidLabel="False" LabelText="Initial potentially arable land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="125" LocationY="225" Height="52" Width="103" />
-              <Label LocationX="75.5" LocationY="209.9089" Height="30.18229" Width="99" />
+              <Position LocationX="100" LocationY="240.75" Height="36" Width="103" />
+              <Label LocationX="50.5" LocationY="225.6589" Height="30.18229" Width="99" />
             </Node>
             <Node PartID="925" NodeType="Auxiliary" MemberName="Total agricultural investment" IsMidLabel="False" LabelText="Total agricultural investment" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="250" LocationY="250" Height="52" Width="76" />
-              <Label LocationX="214" LocationY="227.3633" Height="45.27343" Width="72" />
+              <Position LocationX="225" LocationY="250" Height="52" Width="76" />
+              <Label LocationX="189" LocationY="227.3633" Height="45.27343" Width="72" />
             </Node>
             <Node PartID="933" NodeType="Auxiliary" MemberName="Fraction of agricultural inputs allocated to land development" IsMidLabel="False" LabelText="Fraction of agricultural inputs allocated to land development" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="150" LocationY="350" Height="68" Width="142.8374" />
-              <Label LocationX="80.5813" LocationY="327.3633" Height="45.27343" Width="138.8374" />
+              <Position LocationX="150" LocationY="320.4398" Height="54.81323" Width="142.8374" />
+              <Label LocationX="80.5813" LocationY="297.8031" Height="45.27343" Width="138.8374" />
             </Node>
             <Node PartID="961" NodeType="Auxiliary" MemberName="Development cost per hectare" IsMidLabel="False" LabelText="Development cost per hectare" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6726,8 +6797,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="1193" NodeType="TableFunction" MemberName="Fraction of agricultural inputs allocated to land development table" IsMidLabel="False" LabelText="Fraction of agricultural inputs allocated to land development table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="335.1772" LocationY="375" Height="84" Width="173.623" />
-              <Label LocationX="250.3657" LocationY="352.3633" Height="45.27343" Width="169.623" />
+              <Position LocationX="150" LocationY="400" Height="63.5" Width="173.623" />
+              <Label LocationX="65.1885" LocationY="377.3633" Height="45.27343" Width="169.623" />
             </Node>
             <Node PartID="1237" NodeType="Auxiliary" MemberName="Marginal productivity of land development" IsMidLabel="False" LabelText="Marginal productivity of land development" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6736,83 +6807,83 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="1291" NodeType="Auxiliary" MemberName="Marginal productivity of agricultural inputs" IsMidLabel="False" LabelText="Marginal productivity of agricultural inputs" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="227.6678" LocationY="450" Height="68" Width="133.3959" />
-              <Label LocationX="162.9698" LocationY="434.9088" Height="30.18229" Width="129.3959" />
+              <Position LocationX="0" LocationY="400" Height="56.5" Width="133.3959" />
+              <Label LocationX="-64.69795" LocationY="384.9088" Height="30.18229" Width="129.3959" />
             </Node>
             <Node PartID="1579" NodeType="Auxiliary" MemberName="Land yield" IsMidLabel="False" LabelText="Land yield" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="25" LocationY="300" Height="52" Width="76" />
-              <Label LocationX="-11" LocationY="292.4544" Height="15.09114" Width="72" />
+              <Position LocationX="25" LocationY="275" Height="25" Width="76" />
+              <Label LocationX="-11" LocationY="267.4544" Height="15.09114" Width="72" />
             </Node>
             <Node PartID="1611" NodeType="Auxiliary" MemberName="Social discount rate" IsMidLabel="False" LabelText="Social discount rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="0" LocationY="400" Height="52" Width="124.283" />
-              <Label LocationX="-60.14149" LocationY="392.4544" Height="15.09114" Width="120.283" />
+              <Position LocationX="0" LocationY="300" Height="54.5" Width="125.4436" />
+              <Label LocationX="-60.7218" LocationY="292.4544" Height="15.09114" Width="121.4436" />
             </Node>
             <Node PartID="2675" NodeType="Auxiliary" MemberName="Average life of land" IsMidLabel="False" LabelText="Average life of land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="473.1646" LocationY="300" Height="52" Width="92.95398" />
-              <Label LocationX="428.6876" LocationY="284.9088" Height="30.18229" Width="88.95398" />
+              <Position LocationX="275" LocationY="350" Height="52" Width="92.95398" />
+              <Label LocationX="230.523" LocationY="334.9088" Height="30.18229" Width="88.95398" />
             </Node>
             <Node PartID="2823" NodeType="Auxiliary" MemberName="Average life of land normal" IsMidLabel="False" LabelText="Average life of land normal" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="687.1415" LocationY="250" Height="52" Width="100.283" />
-              <Label LocationX="639" LocationY="234.9089" Height="30.18229" Width="96.28302" />
+              <Position LocationX="325" LocationY="425" Height="52" Width="100.283" />
+              <Label LocationX="276.8585" LocationY="409.9088" Height="30.18229" Width="96.28302" />
             </Node>
             <Node PartID="2875" NodeType="Auxiliary" MemberName="Land life multiplier from land yield" IsMidLabel="False" LabelText="Land life multiplier from land yield" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="618.6415" LocationY="350" Height="68" Width="113.283" />
-              <Label LocationX="564" LocationY="334.9088" Height="30.18229" Width="109.283" />
+              <Position LocationX="625" LocationY="350" Height="43.5" Width="113.283" />
+              <Label LocationX="570.3585" LocationY="334.9088" Height="30.18229" Width="109.283" />
             </Node>
             <Node PartID="3126" NodeType="Auxiliary" MemberName="Land life multiplier from land yield 1" IsMidLabel="False" LabelText="Land life multiplier from land yield 1" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="600" LocationY="450" Height="68" Width="116.283" />
-              <Label LocationX="543.8585" LocationY="434.9088" Height="30.18229" Width="112.283" />
+              <Position LocationX="625" LocationY="425" Height="52" Width="116.283" />
+              <Label LocationX="568.8585" LocationY="409.9088" Height="30.18229" Width="112.283" />
             </Node>
             <Node PartID="3184" NodeType="Auxiliary" MemberName="Land life multiplier from land yield 2" IsMidLabel="False" LabelText="Land life multiplier from land yield 2" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="795.1415" LocationY="375" Height="68" Width="116.283" />
-              <Label LocationX="739" LocationY="359.9088" Height="30.18229" Width="112.283" />
+              <Position LocationX="750" LocationY="344.0034" Height="52" Width="116.283" />
+              <Label LocationX="693.8585" LocationY="328.9122" Height="30.18229" Width="112.283" />
             </Node>
             <Node PartID="3242" NodeType="TableFunction" MemberName="Land life multiplier from land yield 1 table" IsMidLabel="False" LabelText="Land life multiplier from land yield 1 table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="600" LocationY="550" Height="55" Width="159.3516" />
-              <Label LocationX="522.3242" LocationY="534.9089" Height="30.18229" Width="155.3516" />
+              <Position LocationX="475" LocationY="425" Height="55" Width="159.3516" />
+              <Label LocationX="397.3242" LocationY="409.9088" Height="30.18229" Width="155.3516" />
             </Node>
             <Node PartID="3300" NodeType="TableFunction" MemberName="Land life multiplier from land yield 2 table" IsMidLabel="False" LabelText="Land life multiplier from land yield 2 table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="925" LocationY="450" Height="55" Width="163.3516" />
-              <Label LocationX="845.3242" LocationY="434.9088" Height="30.18229" Width="159.3516" />
+              <Position LocationX="850" LocationY="275" Height="55" Width="163.3516" />
+              <Label LocationX="770.3242" LocationY="259.9088" Height="30.18229" Width="159.3516" />
             </Node>
             <Node PartID="3446" NodeType="Auxiliary" MemberName="Land yield" IsMidLabel="False" LabelText="Land yield" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="750" LocationY="475" Height="52" Width="76" />
-              <Label LocationX="714" LocationY="467.4544" Height="15.09114" Width="72" />
+              <Position LocationX="750" LocationY="400" Height="25" Width="76" />
+              <Label LocationX="714" LocationY="392.4544" Height="15.09114" Width="72" />
             </Node>
             <Node PartID="3466" NodeType="Auxiliary" MemberName="Inherent land fertility" IsMidLabel="False" LabelText="Inherent land fertility" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="825" LocationY="550" Height="52" Width="76" />
-              <Label LocationX="789" LocationY="534.9089" Height="30.18229" Width="72" />
+              <Position LocationX="875" LocationY="425" Height="52" Width="76" />
+              <Label LocationX="839" LocationY="409.9088" Height="30.18229" Width="72" />
             </Node>
-            <Node PartID="3506" NodeType="Auxiliary" MemberName="Time" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+            <Node PartID="3506" NodeType="Auxiliary" MemberName="Time" IsMidLabel="False" LabelText="Time" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
-              <Position LocationX="747" LocationY="288" Height="52" Width="76" />
-              <Label LocationX="711" LocationY="272.9088" Height="30.18229" Width="72" />
+              <Position LocationX="450" LocationY="350" Height="37.5" Width="70.30203" />
+              <Label LocationX="416.849" LocationY="334.9088" Height="30.18229" Width="66.30203" />
             </Node>
             <Node PartID="5037" NodeType="Auxiliary" MemberName="Urban and industrial land required per capita" IsMidLabel="False" LabelText="Urban and industrial land required per capita" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="789.8378" LocationY="25" Height="52" Width="155.6758" />
-              <Label LocationX="713.9999" LocationY="9.908855" Height="30.18229" Width="151.6758" />
+              <Position LocationX="775" LocationY="126" Height="39" Width="155.6758" />
+              <Label LocationX="699.1621" LocationY="110.9089" Height="30.18229" Width="151.6758" />
             </Node>
             <Node PartID="5283" NodeType="Auxiliary" MemberName="Industrial output per capita" IsMidLabel="False" LabelText="Industrial output per capita" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="950" LocationY="50" Height="52" Width="100.6758" />
-              <Label LocationX="901.6621" LocationY="34.90886" Height="30.18229" Width="96.67578" />
+              <Position LocationX="950" LocationY="75" Height="52" Width="100.6758" />
+              <Label LocationX="901.6621" LocationY="59.90886" Height="30.18229" Width="96.67578" />
             </Node>
             <Node PartID="5497" NodeType="TableFunction" MemberName="Urban and industrial land required per capita table" IsMidLabel="False" LabelText="Urban and industrial land required per capita table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="875" LocationY="125" Height="55" Width="174.7415" />
-              <Label LocationX="789.6293" LocationY="109.9089" Height="30.18229" Width="170.7415" />
+              <Position LocationX="775" LocationY="50" Height="55" Width="174.7415" />
+              <Label LocationX="689.6293" LocationY="34.90886" Height="30.18229" Width="170.7415" />
             </Node>
             <Node PartID="5649" NodeType="Auxiliary" MemberName="Population" IsMidLabel="False" LabelText="Population" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6821,13 +6892,13 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="5748" NodeType="Auxiliary" MemberName="Urban and industrial land required" IsMidLabel="False" LabelText="Urban and industrial land required" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="718.5067" LocationY="200" Height="52" Width="146.3379" />
-              <Label LocationX="647.3378" LocationY="184.9089" Height="30.18229" Width="142.3379" />
+              <Position LocationX="700" LocationY="200" Height="52" Width="146.3379" />
+              <Label LocationX="628.8311" LocationY="184.9089" Height="30.18229" Width="142.3379" />
             </Node>
             <Node PartID="6631" NodeType="Auxiliary" MemberName="Urban and industrial land development time" IsMidLabel="False" LabelText="Urban and industrial land development time" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="550" LocationY="236" Height="46" Width="147" />
-              <Label LocationX="478.5" LocationY="220.9089" Height="30.18229" Width="143" />
+              <Position LocationX="525" LocationY="225" Height="46" Width="147" />
+              <Label LocationX="453.5" LocationY="209.9089" Height="30.18229" Width="143" />
             </Node>
             <Node PartID="7324" NodeType="Auxiliary" MemberName="Initial urban and industrial land" IsMidLabel="False" LabelText="Initial urban and industrial land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6836,59 +6907,77 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="11774" NodeType="Auxiliary" MemberName="Land life policy implementation year" IsMidLabel="False" LabelText="Land life policy implementation year" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="875" LocationY="300" Height="52" Width="149.001" />
-              <Label LocationX="802.4995" LocationY="284.9088" Height="30.18229" Width="145.001" />
+              <Position LocationX="700" LocationY="275" Height="52" Width="149.001" />
+              <Label LocationX="627.4995" LocationY="259.9088" Height="30.18229" Width="145.001" />
             </Node>
             <Node PartID="11891" NodeType="Auxiliary" MemberName="Time Step" IsMidLabel="False" LabelText="Time Step" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
-              <Position LocationX="475" LocationY="225" Height="52" Width="76" />
-              <Label LocationX="439" LocationY="209.9089" Height="30.18229" Width="72" />
+              <Position LocationX="400" LocationY="225" Height="52" Width="76" />
+              <Label LocationX="364" LocationY="209.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="12091" NodeType="Stock" MemberName="Eroded land" IsMidLabel="False" LabelText="Eroded land" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="325" LocationY="300" Height="60" Width="86" />
+              <Label LocationX="284" LocationY="292.4544" Height="15.09114" Width="82" />
+            </Node>
+            <Node PartID="14537" NodeType="Flow" MemberName="Eroded land development rate" IsMidLabel="True" LabelText="Eroded land development rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="450" LocationY="300" Height="40.5" Width="123.8798" />
+              <Label LocationX="390.0601" LocationY="284.9088" Height="30.18229" Width="119.8798" />
             </Node>
           </Nodes>
           <Links>
-            <Link PartID="29" LinkType="Information" FromNode="19" FromPort="7367" ToNode="15" ToPort="7366" PointCount="4" LabelNodeID="0" Points="376.0127|94|390.5241|83.54135|402.6908|79.25731|421.5|78.14989" ManualStroke="False" />
-            <Link PartID="34" LinkType="Information" FromNode="11" FromPort="7365" ToNode="15" ToPort="7366" PointCount="4" LabelNodeID="0" Points="455.434|27|448.1422|19.85785|455.1422|26.85785|463.8629|48" ManualStroke="False" />
-            <Link PartID="76" LinkType="Flow" FromNode="19" FromPort="20" ToNode="66" ToPort="67" PointCount="6" LabelNodeID="77" Points="384|128.4235|384|128.4235|442.5|128.4235|442.5|128.4235|542|128.4235|542|128.4235" ManualStroke="True" />
+            <Link PartID="29" LinkType="Information" FromNode="19" FromPort="11935" ToNode="15" ToPort="11934" PointCount="4" LabelNodeID="0" Points="359.8877|94|379.4067|71.49574|388.2467|65.82907|396.5|63.71352" ManualStroke="False" />
+            <Link PartID="34" LinkType="Information" FromNode="11" FromPort="11933" ToNode="15" ToPort="11934" PointCount="4" LabelNodeID="0" Points="382.5|5.202761|394.5945|6.297104|399.2612|8.163771|417.2545|23" ManualStroke="False" />
+            <Link PartID="76" LinkType="Flow" FromNode="19" FromPort="11935" ToNode="66" ToPort="11936" PointCount="6" LabelNodeID="77" Points="384|128.4235|384|128.4235|442.5|128.4235|442.5|128.4235|542|128.4235|542|128.4235" ManualStroke="True" />
             <Link PartID="81" LinkType="Flow" FromNode="7" FromPort="8" ToNode="19" ToPort="20" PointCount="6" LabelNodeID="82" Points="150.5|128.4235|150.5|128.4235|225|128.4235|225|128.4235|282|128.4235|282|128.4235" ManualStroke="True" />
-            <Link PartID="102" LinkType="Flow" FromNode="19" FromPort="20" ToNode="98" ToPort="99" PointCount="6" LabelNodeID="103" Points="324|155|324|155|324|223.9235|324|223.9235|324|277|324|277" ManualStroke="True" />
+            <Link PartID="102" LinkType="Flow" FromNode="19" FromPort="11935" ToNode="12091" ToPort="12092" PointCount="6" LabelNodeID="103" Points="324|155|324|155|324|223.9235|323.2801|223.9235|323.2801|270|323.2801|270" ManualStroke="True" />
             <Link PartID="178" LinkType="Initial" FromNode="167" FromPort="7370" ToNode="19" ToPort="7367" PointCount="4" LabelNodeID="0" Points="335.833|60.23737|337.4365|67.77179|337.6053|79.026|336.1054|94" ManualStroke="False" />
-            <Link PartID="207" LinkType="Initial" FromNode="195" FromPort="7371" ToNode="7" ToPort="7364" PointCount="4" LabelNodeID="0" Points="111.0352|198|105.0486|186.4254|101.5486|172.4254|101.0122|156" ManualStroke="False" />
-            <Link PartID="947" LinkType="Information" FromNode="925" FromPort="1104" ToNode="82" ToPort="1109" PointCount="4" LabelNodeID="0" Points="223.7369|223|216.7274|215.7937|211.8392|201.9349|213.7601|181.4235" ManualStroke="False" />
-            <Link PartID="961" LinkType="Information" FromNode="933" FromPort="1105" ToNode="82" ToPort="1109" PointCount="4" LabelNodeID="0" Points="153.2631|315|158.0129|264.0544|173.1044|219.5289|198.3797|181.4235" ManualStroke="False" />
+            <Link PartID="207" LinkType="Initial" FromNode="195" FromPort="11939" ToNode="7" ToPort="11932" PointCount="4" LabelNodeID="0" Points="95.57172|223|90|200.6667|90|178.3333|94.1875|156" ManualStroke="False" />
+            <Link PartID="947" LinkType="Information" FromNode="925" FromPort="14840" ToNode="82" ToPort="14870" PointCount="4" LabelNodeID="0" Points="208.651|223|201.3585|210.9565|200.0954|197.0977|206.0432|181.4235" ManualStroke="False" />
+            <Link PartID="961" LinkType="Information" FromNode="933" FromPort="14841" ToNode="82" ToPort="14870" PointCount="4" LabelNodeID="0" Points="152.4206|292.0331|156.7129|247.6153|171.7386|210.7454|194.932|181.4235" ManualStroke="False" />
             <Link PartID="976" LinkType="Information" FromNode="961" FromPort="7374" ToNode="82" ToPort="7400" PointCount="4" LabelNodeID="0" Points="202.6571|27|218.7969|56.87965|224.9133|90.35415|219.9233|127.4235" ManualStroke="False" />
-            <Link PartID="991" LinkType="Information" FromNode="11" FromPort="7365" ToNode="961" ToPort="7374" PointCount="4" LabelNodeID="0" Points="342.5|-0.1460428|309.8275|-0.2290268|278.3451|-0.2290268|248.0526|-0.1516628" ManualStroke="False" />
+            <Link PartID="991" LinkType="Information" FromNode="11" FromPort="11933" ToNode="961" ToPort="11942" PointCount="4" LabelNodeID="0" Points="267.5|4.530063|268.0175|5|261.5351|5|248.0526|4.07486" ManualStroke="False" />
             <Link PartID="1006" LinkType="Information" FromNode="7" FromPort="7364" ToNode="961" ToPort="7374" PointCount="4" LabelNodeID="0" Points="110.1473|94|121.2284|60.14719|136.964|37.81386|151.5799|27" ManualStroke="False" />
             <Link PartID="1095" LinkType="Information" FromNode="1079" FromPort="7375" ToNode="961" ToPort="7374" PointCount="4" LabelNodeID="0" Points="107.6393|-0.8415383|117.2338|-0.9609127|124.4483|-0.9609127|129.283|-0.8885712" ManualStroke="False" />
-            <Link PartID="1310" LinkType="Information" FromNode="1237" FromPort="7377" ToNode="933" ToPort="7373" PointCount="4" LabelNodeID="0" Points="36.24013|235|61.52948|259.424|88.19618|286.0906|116.1531|315" ManualStroke="False" />
-            <Link PartID="1329" LinkType="Information" FromNode="1291" FromPort="1325" ToNode="933" ToPort="1320" PointCount="4" LabelNodeID="0" Points="189.0816|415|184.8195|411.134|177.0527|401.134|168.517|385" ManualStroke="False" />
-            <Link PartID="1348" LinkType="Information" FromNode="1193" FromPort="7376" ToNode="933" ToPort="7373" PointCount="4" LabelNodeID="0" Points="247.3657|372.6968|237.6581|372.4191|229.3425|371.2503|222.4187|369.3959" ManualStroke="False" />
-            <Link PartID="1633" LinkType="Information" FromNode="1579" FromPort="7379" ToNode="1237" ToPort="7377" PointCount="4" LabelNodeID="0" Points="22.17859|273|21.85923|269.9439|18.69257|257.2772|11.42235|235" ManualStroke="False" />
-            <Link PartID="1677" LinkType="Information" FromNode="1611" FromPort="7380" ToNode="1237" ToPort="7377" PointCount="4" LabelNodeID="0" Points="-10.47807|373|-28.3296|327|-28.3296|281|-12.24118|235" ManualStroke="False" />
+            <Link PartID="1310" LinkType="Information" FromNode="1237" FromPort="14845" ToNode="933" ToPort="14841" PointCount="4" LabelNodeID="0" Points="65.69795|231.5427|79.97446|238.3971|103.7251|257.4081|129.2965|292.0331" ManualStroke="False" />
+            <Link PartID="1329" LinkType="Information" FromNode="1291" FromPort="14846" ToNode="933" ToPort="14841" PointCount="4" LabelNodeID="0" Points="32.27346|370.75|59.31536|346.2415|72.2643|339.4377|77.5813|338.1893" ManualStroke="False" />
+            <Link PartID="1348" LinkType="Information" FromNode="1193" FromPort="14844" ToNode="933" ToPort="14841" PointCount="4" LabelNodeID="0" Points="152.1232|367.25|152.3865|369.3239|152.3865|363.1893|151.5858|348.8464" ManualStroke="False" />
+            <Link PartID="1633" LinkType="Information" FromNode="1579" FromPort="11947" ToNode="1237" ToPort="11945" PointCount="4" LabelNodeID="0" Points="2.72191|261.5|-1.418112|258.9912|-4.362556|250.1579|-3.044177|235" ManualStroke="False" />
+            <Link PartID="1677" LinkType="Information" FromNode="1611" FromPort="14848" ToNode="1237" ToPort="14845" PointCount="4" LabelNodeID="0" Points="-13.95062|271.75|-20|259.5|-20|247.25|-14.81482|235" ManualStroke="False" />
             <Link PartID="1698" LinkType="Information" FromNode="961" FromPort="7374" ToNode="1237" ToPort="7377" PointCount="4" LabelNodeID="0" Points="129.283|21.44937|60.57583|46.26591|17.18227|92.26595|5.582075|165" ManualStroke="False" />
-            <Link PartID="2899" LinkType="Information" FromNode="2823" FromPort="7382" ToNode="2675" ToPort="7381" PointCount="4" LabelNodeID="0" Points="636|274.0077|602.1663|290.3704|563.7134|299.4979|520.6415|299.7417" ManualStroke="False" />
-            <Link PartID="2923" LinkType="Information" FromNode="2875" FromPort="7383" ToNode="2675" ToPort="7381" PointCount="4" LabelNodeID="0" Points="561|345.8194|541.0226|344.3705|527.5698|339.7278|510.3303|327" ManualStroke="False" />
-            <Link PartID="3496" LinkType="Information" FromNode="3126" FromPort="7384" ToNode="2875" ToPort="7383" PointCount="4" LabelNodeID="0" Points="602.1625|415|603.0068|401.3348|604.871|391.3348|606.9814|385" ManualStroke="False" />
-            <Link PartID="3540" LinkType="Information" FromNode="3506" FromPort="3535" ToNode="2875" ToPort="3528" PointCount="4" LabelNodeID="0" Points="709.9424|315|701.7771|320.9492|691.2047|326.0558|676.283|330.9796" ManualStroke="False" />
-            <Link PartID="3604" LinkType="Information" FromNode="3184" FromPort="3594" ToNode="2875" ToPort="3592" PointCount="4" LabelNodeID="0" Points="736|374.0476|714.6919|373.7045|694.7863|370.885|676.283|365.8099" ManualStroke="False" />
-            <Link PartID="3636" LinkType="Information" FromNode="3242" FromPort="7386" ToNode="3126" ToPort="7384" PointCount="4" LabelNodeID="0" Points="597.5131|521.5|596.6592|511.7132|596.6592|499.5466|597.6401|485" ManualStroke="False" />
-            <Link PartID="3700" LinkType="Information" FromNode="3446" FromPort="7388" ToNode="3126" ToPort="7384" PointCount="4" LabelNodeID="0" Points="711|481.7735|690.4259|485.3468|673.1397|482.4658|659.1415|476.2522" ManualStroke="False" />
-            <Link PartID="3732" LinkType="Information" FromNode="3466" FromPort="7389" ToNode="3126" ToPort="7384" PointCount="4" LabelNodeID="0" Points="786|547.2354|722.0251|542.7005|679.7388|523.9066|637.762|485" ManualStroke="False" />
-            <Link PartID="3764" LinkType="Information" FromNode="3300" FromPort="7387" ToNode="3184" ToPort="7385" PointCount="4" LabelNodeID="0" Points="902.2134|421.5|882.3264|396.6266|875.2028|392.5124|854.283|387.9364" ManualStroke="False" />
-            <Link PartID="3796" LinkType="Information" FromNode="3466" FromPort="7389" ToNode="3184" ToPort="7385" PointCount="4" LabelNodeID="0" Points="820.7517|523|815.3543|488.6971|808.9276|451.0305|801.4878|410" ManualStroke="False" />
-            <Link PartID="3828" LinkType="Information" FromNode="3446" FromPort="7388" ToNode="3184" ToPort="7385" PointCount="4" LabelNodeID="0" Points="757.4496|448|759.7985|439.4872|763.2119|450.9442|780.4263|410" ManualStroke="False" />
-            <Link PartID="3860" LinkType="Information" FromNode="19" FromPort="3832" ToNode="103" ToPort="3859" PointCount="4" LabelNodeID="0" Points="362.7013|156|373.0296|166.7799|383.9814|183.126|392.3638|205.0382" ManualStroke="False" />
-            <Link PartID="3892" LinkType="Information" FromNode="2675" FromPort="7381" ToNode="103" ToPort="7401" PointCount="4" LabelNodeID="0" Points="434.9568|273|431.5828|270.725|422.2368|261.3789|412.2017|244.9617" ManualStroke="False" />
-            <Link PartID="5685" LinkType="Information" FromNode="5497" FromPort="7394" ToNode="5037" ToPort="7392" PointCount="4" LabelNodeID="0" Points="832.0342|96.5|830.3779|95.64134|815.8898|80.80801|802.1837|52" ManualStroke="False" />
-            <Link PartID="5721" LinkType="Information" FromNode="5283" FromPort="7393" ToNode="5037" ToPort="7392" PointCount="4" LabelNodeID="0" Points="898.6622|57.94957|884.6102|60.1255|873.6146|58.42512|857.2224|52" ManualStroke="False" />
-            <Link PartID="5785" LinkType="Information" FromNode="5649" FromPort="7395" ToNode="5748" ToPort="7396" PointCount="4" LabelNodeID="0" Points="836|202.438|821.5585|203.3408|807.1171|203.3408|792.6757|202.7963" ManualStroke="False" />
-            <Link PartID="5822" LinkType="Information" FromNode="5037" FromPort="7392" ToNode="5748" ToPort="7396" PointCount="4" LabelNodeID="0" Points="771.1393|52|751.1643|80.84335|734.7242|121.1767|724.0618|173" ManualStroke="False" />
-            <Link PartID="6669" LinkType="Information" FromNode="6631" FromPort="6632" ToNode="77" ToPort="1108" PointCount="4" LabelNodeID="0" Points="501.0869|212|502.5238|217.2323|493.408|208.2323|481.2338|185" ManualStroke="False" />
-            <Link PartID="6707" LinkType="Information" FromNode="66" FromPort="7368" ToNode="77" ToPort="7399" PointCount="4" LabelNodeID="0" Points="574.1894|156|564.7367|167.3532|562.8806|167.6916|535.432|162.8349" ManualStroke="False" />
-            <Link PartID="6745" LinkType="Information" FromNode="5748" FromPort="7396" ToNode="77" ToPort="7399" PointCount="4" LabelNodeID="0" Points="644.3378|203.1764|604.9263|204.8642|568.6243|197.7632|535.432|182.7688" ManualStroke="False" />
+            <Link PartID="2899" LinkType="Information" FromNode="2823" FromPort="14850" ToNode="2675" ToPort="14849" PointCount="4" LabelNodeID="0" Points="285.2986|398|285.6923|402.094|281.0256|395.094|278.6078|377" ManualStroke="False" />
+            <Link PartID="2923" LinkType="Information" FromNode="2875" FromPort="14851" ToNode="2675" ToPort="14849" PointCount="4" LabelNodeID="0" Points="567.3585|358.2777|485.7314|370|404.1042|370|322.477|357.3548" ManualStroke="False" />
+            <Link PartID="3496" LinkType="Information" FromNode="3126" FromPort="14852" ToNode="2875" ToPort="14851" PointCount="4" LabelNodeID="0" Points="622.014|398|620.6705|385.8522|620.6705|377.4356|621.4099|372.75" ManualStroke="False" />
+            <Link PartID="3540" LinkType="Information" FromNode="3506" FromPort="14858" ToNode="2875" ToPort="14851" PointCount="4" LabelNodeID="0" Points="486.151|347.0342|502.7732|345.6705|529.8424|345.6705|567.3585|347.3774" ManualStroke="False" />
+            <Link PartID="3604" LinkType="Information" FromNode="3184" FromPort="14853" ToNode="2875" ToPort="14851" PointCount="4" LabelNodeID="0" Points="707.3635|371.0034|686.6271|384.1349|683.8881|384.2664|664.0967|372.75" ManualStroke="False" />
+            <Link PartID="3636" LinkType="Information" FromNode="3242" FromPort="14854" ToNode="3126" ToPort="14852" PointCount="4" LabelNodeID="0" Points="555.6758|397.4169|583.6951|387.837|587.0894|387.837|597.4568|398" ManualStroke="False" />
+            <Link PartID="3700" LinkType="Information" FromNode="3446" FromPort="14856" ToNode="3126" ToPort="14852" PointCount="4" LabelNodeID="0" Points="729.6449|413.5|705.9695|429.2021|697.0166|430.9926|684.1415|429.9213" ManualStroke="False" />
+            <Link PartID="3732" LinkType="Information" FromNode="3466" FromPort="14857" ToNode="3126" ToPort="14852" PointCount="4" LabelNodeID="0" Points="836|433.7035|785.3805|445|734.761|445|684.1415|435.7764" ManualStroke="False" />
+            <Link PartID="3764" LinkType="Information" FromNode="3300" FromPort="14855" ToNode="3184" ToPort="14853" PointCount="4" LabelNodeID="0" Points="834.3834|303.5|827.0609|316.8632|818.5945|322.8632|809.1415|325.7765" ManualStroke="False" />
+            <Link PartID="3796" LinkType="Information" FromNode="3466" FromPort="14857" ToNode="3184" ToPort="14853" PointCount="4" LabelNodeID="0" Points="836|413.6082|808.0338|405.4393|790.9434|394.3652|768.2949|366.5067" ManualStroke="False" />
+            <Link PartID="3828" LinkType="Information" FromNode="3446" FromPort="14856" ToNode="3184" ToPort="14853" PointCount="4" LabelNodeID="0" Points="747.6011|386.5|746.4167|379.8356|746.4167|373.1711|746.683|371.0034" ManualStroke="False" />
+            <Link PartID="3860" LinkType="Information" FromNode="19" FromPort="11935" ToNode="103" ToPort="12048" PointCount="4" LabelNodeID="0" Points="306.3517|156|296.3684|167.6136|290.9742|183.9597|295.6099|205.0382" ManualStroke="False" />
+            <Link PartID="3892" LinkType="Information" FromNode="2675" FromPort="14849" ToNode="103" ToPort="14871" PointCount="4" LabelNodeID="0" Points="270.7277|323|265.9909|293.0649|271.1935|267.0522|286.3258|244.9617" ManualStroke="False" />
+            <Link PartID="5685" LinkType="Information" FromNode="5497" FromPort="11961" ToNode="5037" ToPort="11959" PointCount="4" LabelNodeID="0" Points="771.4923|78.5|771|82.5|771|91.5|772.6232|105.5" ManualStroke="False" />
+            <Link PartID="5721" LinkType="Information" FromNode="5283" FromPort="11960" ToNode="5037" ToPort="11959" PointCount="4" LabelNodeID="0" Points="906.4103|102|886.4849|114.342|868.7119|119.5216|853.8379|120.5499" ManualStroke="False" />
+            <Link PartID="5785" LinkType="Information" FromNode="5649" FromPort="11962" ToNode="5748" ToPort="11963" PointCount="4" LabelNodeID="0" Points="836|201.9962|816.3896|203|795.7793|203|774.1689|202.3231" ManualStroke="False" />
+            <Link PartID="5822" LinkType="Information" FromNode="5037" FromPort="11959" ToNode="5748" ToPort="11963" PointCount="4" LabelNodeID="0" Points="759.1185|146.5|751.3172|156.5701|742.3645|165.4034|733.0623|173" ManualStroke="False" />
+            <Link PartID="6669" LinkType="Information" FromNode="6631" FromPort="11964" ToNode="77" ToPort="11968" PointCount="4" LabelNodeID="0" Points="486.7967|201|480.9115|202.6556|471.9223|191.6556|466.915|168" ManualStroke="False" />
+            <Link PartID="6707" LinkType="Information" FromNode="66" FromPort="11936" ToNode="77" ToPort="11968" PointCount="4" LabelNodeID="0" Points="566.2177|156|554.4178|166.828|552.5618|167.1359|535.432|163.6713" ManualStroke="False" />
+            <Link PartID="6745" LinkType="Information" FromNode="5748" FromPort="11963" ToNode="77" ToPort="11968" PointCount="4" LabelNodeID="0" Points="625.8311|198.0302|591.4924|197.1183|561.3593|190.6369|507.8258|168" ManualStroke="False" />
             <Link PartID="7363" LinkType="Initial" FromNode="7324" FromPort="7398" ToNode="66" ToPort="7368" PointCount="4" LabelNodeID="0" Points="600.3259|52|600.4805|64.81006|600.4805|78.81006|600.3224|94" ManualStroke="False" />
-            <Link PartID="11813" LinkType="Information" FromNode="11774" FromPort="11809" ToNode="2875" ToPort="11794" PointCount="4" LabelNodeID="0" Points="799.4995|321.4344|760.3417|332.5512|719.2695|340.5619|676.283|344.5937" ManualStroke="False" />
-            <Link PartID="11852" LinkType="Information" FromNode="19" FromPort="11817" ToNode="77" ToPort="11849" PointCount="4" LabelNodeID="0" Points="385|113.7163|399.6747|110.532|401.4594|110.8755|407.9357|115" ManualStroke="False" />
-            <Link PartID="11931" LinkType="Information" FromNode="11891" FromPort="11927" ToNode="77" ToPort="11928" PointCount="4" LabelNodeID="0" Points="461.4452|198|460.0698|195.2603|459.3703|190.9269|459.8804|185" ManualStroke="False" />
+            <Link PartID="11813" LinkType="Information" FromNode="11774" FromPort="14866" ToNode="2875" ToPort="14851" PointCount="4" LabelNodeID="0" Points="691.6544|302|687.6801|314.858|679.2634|323.2747|671.1918|327.25" ManualStroke="False" />
+            <Link PartID="11852" LinkType="Information" FromNode="19" FromPort="11935" ToNode="77" ToPort="11968" PointCount="4" LabelNodeID="0" Points="385|116.1887|390.4186|115.2705|392.2033|115.6003|423.7382|130.5" ManualStroke="False" />
+            <Link PartID="11931" LinkType="Information" FromNode="11891" FromPort="11967" ToNode="77" ToPort="11968" PointCount="4" LabelNodeID="0" Points="400.1851|198|400.2108|194.2491|408.4862|184.2491|433.5666|168" ManualStroke="False" />
+            <Link PartID="14536" LinkType="Flow" FromNode="12091" FromPort="12092" ToNode="66" ToPort="11936" PointCount="6" LabelNodeID="14537" Points="368|316.5|368|316.5|383.3021|316.5|599.3021|316.5|599.3021|155|599.3021|155" ManualStroke="True" />
+            <Link PartID="14579" LinkType="Information" FromNode="12091" FromPort="12092" ToNode="77" ToPort="11968" PointCount="4" LabelNodeID="0" Points="332.0571|269|344.6562|213.6556|375.6554|179.8223|409.1165|168" ManualStroke="False" />
+            <Link PartID="14621" LinkType="Information" FromNode="11891" FromPort="14615" ToNode="14537" ToPort="14620" PointCount="4" LabelNodeID="0" Points="428.685|252|432.265|255.3697|438.2094|264.2863|442.9844|278.75" ManualStroke="False" />
+            <Link PartID="14663" LinkType="Information" FromNode="6631" FromPort="14654" ToNode="14537" ToPort="14662" PointCount="4" LabelNodeID="0" Points="509.2808|249|498.1544|265.9877|488.2377|275.9044|483.722|278.75" ManualStroke="False" />
+            <Link PartID="14705" LinkType="Information" FromNode="5748" FromPort="14695" ToNode="14537" ToPort="14704" PointCount="4" LabelNodeID="0" Points="646.0801|227|593.0889|253.5348|549.9639|270.7848|512.9399|281.6054" ManualStroke="False" />
+            <Link PartID="14747" LinkType="Information" FromNode="12091" FromPort="14742" ToNode="14537" ToPort="14746" PointCount="4" LabelNodeID="0" Points="369|291.2035|375.0201|290|381.0401|290|387.0601|290.873" ManualStroke="False" />
+            <Link PartID="14789" LinkType="Information" FromNode="66" FromPort="11936" ToNode="14537" ToPort="14538" PointCount="4" LabelNodeID="0" Points="608.3071|156|634.9498|255.4246|599.8783|296.3412|512.9399|298.4635" ManualStroke="False" />
+            <Link PartID="14831" LinkType="Information" FromNode="19" FromPort="11935" ToNode="14537" ToPort="14538" PointCount="4" LabelNodeID="0" Points="340.044|156|357.3946|232.3587|384.7503|273.2754|398.1169|278.75" ManualStroke="False" />
           </Links>
         </Diagram>
         <Diagram name="Demographics">
@@ -7105,18 +7194,28 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="2773" NodeType="Auxiliary" MemberName="Migration normal" IsMidLabel="False" LabelText="Migration normal" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="125" LocationY="-200" Height="52" Width="76" />
-              <Label LocationX="89" LocationY="-215.0911" Height="30.18229" Width="72" />
+              <Position LocationX="150" LocationY="-200" Height="52" Width="76" />
+              <Label LocationX="114" LocationY="-215.0911" Height="30.18229" Width="72" />
             </Node>
             <Node PartID="4446" NodeType="TableFunction" MemberName="Employment multiplier table" IsMidLabel="False" LabelText="Employment multiplier table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="-32.68283" LocationY="-100" Height="55" Width="118.6343" />
-              <Label LocationX="-90" LocationY="-115.0911" Height="30.18229" Width="114.6343" />
+              <Position LocationX="-25" LocationY="-75" Height="55" Width="118.6343" />
+              <Label LocationX="-82.31715" LocationY="-90.09114" Height="30.18229" Width="114.6343" />
             </Node>
             <Node PartID="4634" NodeType="Auxiliary" MemberName="Relative unemployment rate" IsMidLabel="False" LabelText="Relative unemployment rate" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="-25" LocationY="-175" Height="52" Width="98.59418" />
-              <Label LocationX="-72.29709" LocationY="-197.6367" Height="45.27343" Width="94.59418" />
+              <Position LocationX="-25" LocationY="-125" Height="38" Width="124.2971" />
+              <Label LocationX="-85.14856" LocationY="-140.0911" Height="30.18229" Width="120.2971" />
+            </Node>
+            <Node PartID="21768" NodeType="TableFunction" MemberName="Density multiplier" IsMidLabel="False" LabelText="Density multiplier" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="-75.00001" LocationY="-175" Height="37.5" Width="138.6343" />
+              <Label LocationX="-142.3172" LocationY="-182.5456" Height="15.09114" Width="134.6343" />
+            </Node>
+            <Node PartID="22538" NodeType="Auxiliary" MemberName="Urban popuation density" IsMidLabel="False" LabelText="Urban popuation density" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="50" LocationY="-200" Height="36.5" Width="116" />
+              <Label LocationX="-6.000008" LocationY="-215.0911" Height="30.18229" Width="112" />
             </Node>
           </Nodes>
           <Links>
@@ -7172,11 +7271,13 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Link PartID="2157" LinkType="Information" FromNode="2075" FromPort="2271" ToNode="31" ToPort="2255" PointCount="4" LabelNodeID="0" Points="488.9243|-148|432.5302|-105.7932|378.2802|-78.34138|315|-60.18803" ManualStroke="False" />
             <Link PartID="2198" LinkType="Information" FromNode="2075" FromPort="2271" ToNode="39" ToPort="2259" PointCount="4" LabelNodeID="0" Points="535.8359|-148|545.4042|-124.1587|545.5946|-100.1587|536.3414|-76" ManualStroke="False" />
             <Link PartID="2239" LinkType="Information" FromNode="2075" FromPort="2271" ToNode="35" ToPort="2257" PointCount="4" LabelNodeID="0" Points="572.25|-157.33|618.337|-140.095|657.9798|-115.2442|698.2761|-76" ManualStroke="False" />
-            <Link PartID="2504" LinkType="Flow" FromNode="2458" FromPort="2459" ToNode="5" ToPort="2242" PointCount="6" LabelNodeID="2505" Points="199|-152|199|-152|199|-76|199|-76|199|-8|199|-8" ManualStroke="True" />
-            <Link PartID="3083" LinkType="Information" FromNode="2773" FromPort="2774" ToNode="2505" ToPort="2506" PointCount="4" LabelNodeID="0" Points="132.6906|-173|137.7449|-155.2557|142.4783|-131.589|146.4112|-102" ManualStroke="False" />
-            <Link PartID="3129" LinkType="Information" FromNode="212" FromPort="2270" ToNode="2505" ToPort="2506" PointCount="4" LabelNodeID="0" Points="288.1574|-153|255.2971|-118.6679|224.8102|-99.14882|183.5393|-85.82652" ManualStroke="False" />
-            <Link PartID="4589" LinkType="Information" FromNode="4446" FromPort="4447" ToNode="2505" ToPort="2506" PointCount="4" LabelNodeID="0" Points="27.63433|-99.28153|47.07156|-99.05|76.68036|-94.8201|116.4607|-84.06649" ManualStroke="False" />
-            <Link PartID="4680" LinkType="Information" FromNode="4634" FromPort="20719" ToNode="2505" ToPort="2506" PointCount="4" LabelNodeID="0" Points="25.29709|-159.339|63.57636|-147.42|94.97993|-129.4751|122.7299|-102" ManualStroke="False" />
+            <Link PartID="2504" LinkType="Flow" FromNode="2458" FromPort="22667" ToNode="5" ToPort="22637" PointCount="6" LabelNodeID="2505" Points="199|-152.5|199|-152.5|199|-76|199|-76|199|-8|199|-8" ManualStroke="True" />
+            <Link PartID="3083" LinkType="Information" FromNode="2773" FromPort="22668" ToNode="2505" ToPort="22681" PointCount="4" LabelNodeID="0" Points="150.6183|-173|150.6183|-156.3289|150.6183|-132.6649|150.4682|-102" ManualStroke="False" />
+            <Link PartID="3129" LinkType="Information" FromNode="212" FromPort="22665" ToNode="2505" ToPort="22681" PointCount="4" LabelNodeID="0" Points="288.1574|-153|255.2971|-118.6679|224.8102|-99.14881|183.5393|-85.82652" ManualStroke="False" />
+            <Link PartID="4589" LinkType="Information" FromNode="4446" FromPort="22669" ToNode="2505" ToPort="22681" PointCount="4" LabelNodeID="0" Points="35.31715|-88.80808|62.36501|-95|89.41287|-95|116.4607|-86.07142" ManualStroke="False" />
+            <Link PartID="4680" LinkType="Information" FromNode="4634" FromPort="22670" ToNode="2505" ToPort="22681" PointCount="4" LabelNodeID="0" Points="38.14854|-120.8209|69.74704|-118.7297|95.85111|-111.2714|116.4607|-97.46613" ManualStroke="False" />
+            <Link PartID="22586" LinkType="Information" FromNode="21768" FromPort="22671" ToNode="2505" ToPort="22681" PointCount="4" LabelNodeID="0" Points="-4.682861|-164.6796|43.50661|-157.6069|92.5144|-135.8257|124.4826|-102" ManualStroke="False" />
+            <Link PartID="22634" LinkType="Information" FromNode="22538" FromPort="22672" ToNode="2505" ToPort="22681" PointCount="4" LabelNodeID="0" Points="71.68026|-180.75|94.20869|-160.7469|115.2087|-134.4969|134.2115|-102" ManualStroke="False" />
           </Links>
         </Diagram>
         <Diagram name="Fertility">
@@ -8104,11 +8205,11 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Link PartID="1855" LinkType="Information" FromNode="1549" FromPort="1999" ToNode="1830" ToPort="2001" PointCount="4" LabelNodeID="0" Points="5.21664|-27|0.1511097|-40.1397|1.408783|-50.97303|8.164392|-59.5" ManualStroke="False" />
             <Link PartID="1927" LinkType="Information" FromNode="1901" FromPort="2002" ToNode="1830" ToPort="2001" PointCount="4" LabelNodeID="0" Points="-87.8875|-91.86129|-69.06249|-96.9716|-49.75191|-97.44057|-29.95575|-92.62325" ManualStroke="False" />
             <Link PartID="1978" LinkType="Information" FromNode="1952" FromPort="1977" ToNode="11" ToPort="1955" PointCount="4" LabelNodeID="0" Points="131|206.9919|113.855|199.9749|101.855|192.7749|82.73148|177" ManualStroke="False" />
-            <Link PartID="2249" LinkType="Information" FromNode="1026" FromPort="2238" ToNode="2222" ToPort="2248" PointCount="4" LabelNodeID="0" Points="407.5267|27|392.6296|42.34609|382.0236|49.34609|376.4364|51.85966" ManualStroke="False" />
+            <Link PartID="2249" LinkType="Information" FromNode="1026" FromPort="10059" ToNode="2222" ToPort="10069" PointCount="4" LabelNodeID="0" Points="407.8228|27|404.6296|30.34609|394.0236|37.34609|374.4938|48" ManualStroke="False" />
             <Link PartID="2276" LinkType="Information" FromNode="3" FromPort="2250" ToNode="2222" ToPort="2275" PointCount="4" LabelNodeID="0" Points="231.9375|123|247.5217|109.8251|261.1884|101.6251|273.5636|96.46158" ManualStroke="False" />
             <Link PartID="2962" LinkType="Information" FromNode="2222" FromPort="2223" ToNode="2934" ToPort="2935" PointCount="4" LabelNodeID="0" Points="376.4364|78.20748|389.1455|79|404.8545|79|423.5636|77.93313" ManualStroke="False" />
             <Link PartID="2990" LinkType="Information" FromNode="1026" FromPort="2978" ToNode="2934" ToPort="2989" PointCount="4" LabelNodeID="0" Points="450.5458|27|451.9103|27.96143|457.2133|34.96143|463.0056|48" ManualStroke="False" />
-            <Link PartID="9984" LinkType="Information" FromNode="2934" FromPort="2935" ToNode="9870" ToPort="9871" PointCount="4" LabelNodeID="0" Points="526.4364|57.62046|534.1919|55|541.9474|55|549.7029|57.67188" ManualStroke="False" />
+            <Link PartID="9984" LinkType="Information" FromNode="2934" FromPort="10070" ToNode="9870" ToPort="10071" PointCount="4" LabelNodeID="0" Points="526.4364|73.23218|533.1919|73|540.9474|73|549.7029|73.29653" ManualStroke="False" />
             <Link PartID="10043" LinkType="Information" FromNode="10013" FromPort="11936" ToNode="9870" ToPort="10847" PointCount="4" LabelNodeID="0" Points="608.9849|27|604.6404|34.32457|602.307|41.32457|601.8497|48" ManualStroke="False" />
           </Links>
         </Diagram>
@@ -8199,16 +8300,6 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Position LocationX="125" LocationY="200" Height="52" Width="76" />
               <Label LocationX="89" LocationY="177.3633" Height="45.27343" Width="72" />
             </Node>
-            <Node PartID="516" NodeType="Auxiliary" MemberName="Population" IsMidLabel="False" LabelText="Population" CaptionHidden="False" IsEditable="False" IsPrimary="False">
-              <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="100" LocationY="100" Height="52" Width="76" />
-              <Label LocationX="64" LocationY="92.45443" Height="15.09114" Width="72" />
-            </Node>
-            <Node PartID="586" NodeType="TableFunction" MemberName="Fraction of population urban table" IsMidLabel="False" LabelText="Fraction of population urban table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
-              <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="-53.00004" LocationY="-75" Height="68" Width="131" />
-              <Label LocationX="-116.5" LocationY="-97.63672" Height="45.27343" Width="127" />
-            </Node>
             <Node PartID="624" NodeType="TableFunction" MemberName="Crowding multiplier from industrialisation table" IsMidLabel="False" LabelText="Crowding multiplier from industrialisation table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="250" LocationY="225" Height="68" Width="128.6187" />
@@ -8264,6 +8355,31 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Position LocationX="625" LocationY="300" Height="52" Width="122" />
               <Label LocationX="566" LocationY="284.9088" Height="30.18229" Width="118" />
             </Node>
+            <Node PartID="1696" NodeType="Stock" MemberName="Urban and Industrial Land" IsMidLabel="False" LabelText="Urban and Industrial Land" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="0" LocationY="-100" Height="60" Width="86" />
+              <Label LocationX="-41" LocationY="-122.6367" Height="45.27343" Width="82" />
+            </Node>
+            <Node PartID="1750" NodeType="Auxiliary" MemberName="Total potentially arable land" IsMidLabel="False" LabelText="Total potentially arable land" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="-25" LocationY="100" Height="52" Width="105.5" />
+              <Label LocationX="-75.74998" LocationY="84.90886" Height="30.18229" Width="101.5" />
+            </Node>
+            <Node PartID="7258" NodeType="Auxiliary" MemberName="Population" IsMidLabel="False" LabelText="Population" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="-50" LocationY="50" Height="52" Width="76" />
+              <Label LocationX="-86" LocationY="42.45443" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="7400" NodeType="Auxiliary" MemberName="Non urban population density" IsMidLabel="False" LabelText="Non urban population density" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="100" LocationY="100" Height="36" Width="126.4999" />
+              <Label LocationX="38.75003" LocationY="84.90886" Height="30.18229" Width="122.4999" />
+            </Node>
+            <Node PartID="7687" NodeType="Auxiliary" MemberName="Urban popuation density" IsMidLabel="False" LabelText="Urban popuation density" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="-50" LocationY="-25" Height="41" Width="113.5" />
+              <Label LocationX="-104.75" LocationY="-40.09114" Height="30.18229" Width="109.5" />
+            </Node>
           </Nodes>
           <Links>
             <Link PartID="207" LinkType="Information" FromNode="204" FromPort="205" ToNode="202" ToPort="203" PointCount="4" LabelNodeID="0" Points="339.3643|-52|338.579|-63.79279|338.2185|-77.12612|337.8286|-92" ManualStroke="False" />
@@ -8280,8 +8396,6 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Link PartID="394" LinkType="Information" FromNode="380" FromPort="728" ToNode="308" ToPort="419" PointCount="4" LabelNodeID="0" Points="614.2289|90|613.436|68.44355|614.9432|50.11022|617.9757|35" ManualStroke="False" />
             <Link PartID="438" LinkType="Information" FromNode="380" FromPort="728" ToNode="330" ToPort="431" PointCount="4" LabelNodeID="0" Points="567.0324|129.1813|543.1229|131.2433|522.9926|128.2028|506.6415|121.8851" ManualStroke="False" />
             <Link PartID="484" LinkType="Information" FromNode="468" FromPort="816" ToNode="254" ToPort="375" PointCount="4" LabelNodeID="0" Points="143.8335|173|165.4228|142.0493|184.5894|126.716|197.2517|121.5442" ManualStroke="False" />
-            <Link PartID="533" LinkType="Information" FromNode="516" FromPort="870" ToNode="270" ToPort="384" PointCount="4" LabelNodeID="0" Points="100.2192|73|100.3052|62.40454|100.3052|47.07121|100.1751|27" ManualStroke="False" />
-            <Link PartID="605" LinkType="Information" FromNode="586" FromPort="936" ToNode="270" ToPort="928" PointCount="4" LabelNodeID="0" Points="13.49995|-60.2725|38.472|-54.09138|54.30534|-45.95781|73.1546|-27" ManualStroke="False" />
             <Link PartID="644" LinkType="Information" FromNode="624" FromPort="1777" ToNode="254" ToPort="375" PointCount="4" LabelNodeID="0" Points="249.3447|190|248.9515|169|248.9515|148|249.4102|127" ManualStroke="False" />
             <Link PartID="685" LinkType="Information" FromNode="664" FromPort="2140" ToNode="240" ToPort="221" PointCount="4" LabelNodeID="0" Points="144.7756|-173|144.3571|-170.8372|143.0238|-166.8372|140.5091|-161" ManualStroke="False" />
             <Link PartID="728" LinkType="Information" FromNode="706" FromPort="939" ToNode="240" ToPort="926" PointCount="4" LabelNodeID="0" Points="50.49291|-179.9649|65.10965|-176.3042|70.99252|-173.4485|84.86934|-161" ManualStroke="False" />
@@ -8293,6 +8407,13 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Link PartID="1020" LinkType="Information" FromNode="994" FromPort="1019" ToNode="380" ToPort="933" PointCount="4" LabelNodeID="0" Points="623.1392|198|622.3275|186.2216|621.1262|173.555|619.5601|160" ManualStroke="False" />
             <Link PartID="1453" LinkType="Information" FromNode="1323" FromPort="1324" ToNode="994" ToPort="1019" PointCount="4" LabelNodeID="0" Points="728.6828|225.8032|711.2052|226|693.7276|226|676.25|225.7457" ManualStroke="False" />
             <Link PartID="1481" LinkType="Information" FromNode="1425" FromPort="1480" ToNode="994" ToPort="1478" PointCount="4" LabelNodeID="0" Points="617.0588|273|615|266|615|259|617.0588|252" ManualStroke="False" />
+            <Link PartID="1779" LinkType="Information" FromNode="1696" FromPort="1697" ToNode="270" ToPort="1489" PointCount="4" LabelNodeID="0" Points="44|-77.04266|59.14214|-69.14214|73.14214|-55.14214|86.84922|-27" ManualStroke="False" />
+            <Link PartID="1808" LinkType="Information" FromNode="1750" FromPort="1751" ToNode="270" ToPort="1489" PointCount="4" LabelNodeID="0" Points="-6.166495|73|15.42276|42.04929|34.58943|26.71596|61|15.92896" ManualStroke="False" />
+            <Link PartID="7287" LinkType="Information" FromNode="7258" FromPort="7259" ToNode="270" ToPort="1489" PointCount="4" LabelNodeID="0" Points="-11.71887|23|6.675445|10.02633|30.67545|2.026337|61|1.139959" ManualStroke="False" />
+            <Link PartID="7430" LinkType="Information" FromNode="7400" FromPort="7401" ToNode="270" ToPort="1489" PointCount="4" LabelNodeID="0" Points="89.72973|81|80|63|80|45|88|27" ManualStroke="False" />
+            <Link PartID="7749" LinkType="Information" FromNode="1696" FromPort="1697" ToNode="7687" ToPort="7688" PointCount="4" LabelNodeID="0" Points="-44|-77.02966|-49.02566|-74.40599|-54.02566|-66.90599|-52.06538|-46.5" ManualStroke="False" />
+            <Link PartID="7780" LinkType="Information" FromNode="7258" FromPort="7777" ToNode="7687" ToPort="7779" PointCount="4" LabelNodeID="0" Points="-57.53489|23|-60|14.16667|-60|5.333334|-57.08791|-3.5" ManualStroke="False" />
+            <Link PartID="7811" LinkType="Information" FromNode="270" FromPort="1489" ToNode="7687" ToPort="7688" PointCount="4" LabelNodeID="0" Points="61|-14.049|45.606|-19.5944|27.856|-22.55273|7.749985|-23.18473" ManualStroke="False" />
           </Links>
         </Diagram>
         <Diagram name="Nonrenewable resources">
@@ -8859,8 +8980,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="2965" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="325" LocationY="375" Height="45" Width="50.00082" />
-              <Label LocationX="301.9996" LocationY="367.4544" Height="15.09114" Width="46.00082" />
+              <Position LocationX="325" LocationY="375" Height="45" Width="50.00085" />
+              <Label LocationX="301.9996" LocationY="367.4544" Height="15.09114" Width="46.00085" />
             </Node>
             <Node PartID="3100" NodeType="Flow" MemberName="Service capital investment rate" IsMidLabel="True" LabelText="Service capital investment rate" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
