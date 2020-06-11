@@ -35,7 +35,6 @@
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Fraction of industrial output allocated to consumption constant" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Fraction of industrial output allocated to services" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Indicated food per capita" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" Reference="Urban1" VariableName="Indicated service output per capita" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Industrial capital output ratio" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Land life multiplier from land yield" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Land yield multiplier from air pollution" OwnerTag="EntityType:Urban1" />
