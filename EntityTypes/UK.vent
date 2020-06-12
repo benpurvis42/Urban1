@@ -210,10 +210,15 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
           <PlotedItems>
             <PlottedItem VariableName="Service output per capita" OwnerTag="EntityType:UK" />
             <PlottedItem VariableName="Industrial output per capita" OwnerTag="EntityType:UK" />
+            <PlottedItem VariableName="Industrial output per capita" OwnerTag="EntityType:Urban1" />
+            <PlottedItem VariableName="Service output per capita" OwnerTag="EntityType:Urban1" />
           </PlotedItems>
           <MainTitleText MainTitleText="" />
           <ViewType ViewType="Line" />
           <VChartTitleCollection>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
             <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
             </VChartTitle>
@@ -227,7 +232,7 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
             <ForeColor />
             <Border Visibility="True" Color="D3D3D3" Thickness="1" />
             <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
-            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
             <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
             </EmptyChartText>
@@ -245,16 +250,19 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
             <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
               <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
               <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
-              <VisualRange Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+              <VisualRange Auto="false" AutoSideMargins="false" SideMarginsValue="0">
+                <Min Value="1900" />
+                <Max Value="2100" />
+              </VisualRange>
               <WholeRange>
                 <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
-                  <Min Value="0" />
-                  <Max Value="9" />
+                  <Min Value="1900" />
+                  <Max Value="2100" />
                 </Range>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -275,14 +283,14 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
               <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
               <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
               <WholeRange>
-                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0.9">
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="336.25834433485431">
                   <Min Value="0" />
-                  <Max Value="9" />
+                  <Max Value="3362.58344334854" />
                 </Range>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -301,7 +309,7 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
             <SecondaryAxesX />
             <SecondaryAxesY />
             <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
-              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               <Border Visibility="True" Color="D3D3D3" Thickness="1" />
               <Shadow Size="2" Visible="false" Color="FFFFFF" />
               <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
@@ -379,7 +387,7 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
             </Node>
             <Node PartID="1010" NodeType="Plot" MemberName="Plot2" IsMidLabel="False" LabelText="Plot2" CaptionHidden="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:UK" />
-              <Position LocationX="850" LocationY="75" Height="390.2" Width="400" />
+              <Position LocationX="700" LocationY="0" Height="469" Width="536" />
               <Label LocationX="0" LocationY="0" Height="0" Width="0" />
             </Node>
           </Nodes>

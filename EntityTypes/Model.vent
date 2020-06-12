@@ -32,7 +32,6 @@
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Fraction of capital allocated to obtaining resources" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Fraction of industrial output allocated to agriculture" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Fraction of industrial output allocated to consumption" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" Reference="Urban1" VariableName="Fraction of industrial output allocated to consumption constant" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Fraction of industrial output allocated to services" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Indicated food per capita" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" Reference="Urban1" VariableName="Industrial capital output ratio" OwnerTag="EntityType:Urban1" />
