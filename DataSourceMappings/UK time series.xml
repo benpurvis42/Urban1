@@ -106,6 +106,16 @@
                 <dataEntityFieldType>Data Variable</dataEntityFieldType>
                 <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
               </UK>
+              <UK diffgr:id="UK8" msdata:rowOrder="7" diffgr:hasChanges="inserted">
+                <dataFieldName>FIOC</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataAggregationType>Last</dataAggregationType>
+                <dataFieldDescription>Fraction of Industrial Output Consumed</dataFieldDescription>
+                <dataEntityFieldName>Fraction of industrial output consumed</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>Dimensionless</dataEntityFieldUnits>
+              </UK>
             </DocumentElement>
           </diffgr:diffgram>
         </MappingDataTable>

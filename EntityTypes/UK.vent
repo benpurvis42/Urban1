@@ -93,6 +93,11 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
           <InputVariableName>Fraction of GDP services</InputVariableName>
           <Units>Dimensionless</Units>
         </DataVariable>
+        <DataVariable name="Fraction of industrial output consumed">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Fraction of industrial output consumed</InputVariableName>
+          <Units>Dimensionless</Units>
+        </DataVariable>
         <DataVariable name="GDP pounds">
           <Interpolation>Straight</Interpolation>
           <InputVariableName>GDP pounds</InputVariableName>
@@ -201,6 +206,116 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
             </DefaultPane>
           </VChartDiagram>
         </Chart>
+        <Chart name="Plot2">
+          <PlotedItems>
+            <PlottedItem VariableName="Service output per capita" OwnerTag="EntityType:UK" />
+            <PlottedItem VariableName="Industrial output per capita" OwnerTag="EntityType:UK" />
+            <PlottedItem VariableName="Industrial output per capita" OwnerTag="EntityType:Urban1" />
+            <PlottedItem VariableName="Service output per capita" OwnerTag="EntityType:Urban1" />
+          </PlotedItems>
+          <MainTitleText MainTitleText="" />
+          <ViewType ViewType="Line" />
+          <VChartTitleCollection>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+          </VChartTitleCollection>
+          <VChartArea>
+            <AutoLayout>true</AutoLayout>
+            <BackColor>FFFFFF</BackColor>
+            <ForeColor />
+            <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+            <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </EmptyChartText>
+            <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </SmallChartText>
+          </VChartArea>
+          <VChartDiagram>
+            <Rotated>false</Rotated>
+            <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <PaneDistance>10</PaneDistance>
+            <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+            <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+            <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="false" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+            <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="false" AutoSideMargins="false" SideMarginsValue="0">
+                <Min Value="1900" />
+                <Max Value="2100" />
+              </VisualRange>
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
+                  <Min Value="1900" />
+                  <Max Value="2100" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisX>
+            <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="336.25834433485431">
+                  <Min Value="0" />
+                  <Max Value="3362.58344334854" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisY>
+            <SecondaryAxesX />
+            <SecondaryAxesY />
+            <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
+              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+              <Shadow Size="2" Visible="false" Color="FFFFFF" />
+              <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+            </DefaultPane>
+          </VChartDiagram>
+        </Chart>
       </Charts>
       <Images>
         <Image name="Image1">
@@ -223,7 +338,7 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
             <Node PartID="7" NodeType="Data" MemberName="Population" IsMidLabel="False" LabelText="Population" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:UK" />
               <Position LocationX="225" LocationY="100" Height="52" Width="76" />
-              <Label LocationX="189" LocationY="92.45442" Height="15.09114" Width="72" />
+              <Label LocationX="189" LocationY="92.45443" Height="15.09114" Width="72" />
             </Node>
             <Node PartID="9" NodeType="Data" MemberName="GDP pounds" IsMidLabel="False" LabelText="GDP pounds" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:UK" />
@@ -264,6 +379,16 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
               <Owner OwnerTag="EntityType:UK" />
               <Position LocationX="525" LocationY="200" Height="52" Width="76" />
               <Label LocationX="489" LocationY="177.3633" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="564" NodeType="Data" MemberName="Fraction of industrial output consumed" IsMidLabel="False" LabelText="Fraction of industrial output consumed" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="975" LocationY="250" Height="68" Width="76" />
+              <Label LocationX="939" LocationY="219.8177" Height="60.36458" Width="72" />
+            </Node>
+            <Node PartID="1010" NodeType="Plot" MemberName="Plot2" IsMidLabel="False" LabelText="Plot2" CaptionHidden="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:UK" />
+              <Position LocationX="700" LocationY="0" Height="469" Width="536" />
+              <Label LocationX="0" LocationY="0" Height="0" Width="0" />
             </Node>
           </Nodes>
           <Links>
