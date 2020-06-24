@@ -271,7 +271,7 @@ Updated to 1000 in Meadows et a;; 1992 (p239-249)</Description>
         <Auxiliary name="Consumption switch time">
           <Units>Year</Units>
           <IsConstant>true</IsConstant>
-          <Equation>2100</Equation>
+          <Equation>2200</Equation>
           <Description>Time at which FIOAC switches from constant to national data</Description>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Fraction of industrial output allocated to consumption" OwnerTag="EntityType:Urban1" />
@@ -820,7 +820,7 @@ Its value at any tie defines the necessary fraction of capital stock that must b
         <Auxiliary name="Fraction of industrial output allocated to consumption constant">
           <Units>Dimensionless</Units>
           <IsConstant>true</IsConstant>
-          <Equation>0.455</Equation>
+          <Equation>0.46</Equation>
           <Description>0.43 from Meadows et al 1974
 
 The evolution of the economic system seems to be very sensitive to the definition of this parameter. This is something which requires further analysis and testing - BP 12/06/20</Description>
@@ -1656,7 +1656,7 @@ The utilisation of industrial capital to produce industrial output both depletes
         <Auxiliary name="Land life policy implementation year">
           <Units>Year</Units>
           <IsConstant>true</IsConstant>
-          <Equation>1900</Equation>
+          <Equation>4000</Equation>
           <Description>Year at which land erosion protection technology is implemented</Description>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Land life multiplier from land yield" OwnerTag="EntityType:Urban1" />
@@ -4650,33 +4650,17 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
             </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
           </VChartTitleCollection>
-          <VChartLegend>
-            <General Visibility="True" AlignmentHorizontal="Center" AlignmentVertical="BottomOutside" Direction="TopToBottom" EquallySpacedItems="true" UseCheckBoxes="false" MaxHorizontalPercentage="100" MaxVerticalPercentage="100">
-              <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
-            </General>
-            <Appearance BackColor="FFFFFF">
-              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
-            </Appearance>
-            <Text TextVisible="true" TextColor="000000" TextOffset="5" EnableAntialiasing="False">
-              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
-            </Text>
-            <Interior HorizontalIndent="5" VerticalIndent="5">
-              <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
-            </Interior>
-            <Border Visibility="True" Color="D3D3D3" Thickness="1" />
-            <Shadow Size="2" Visible="false" Color="FFFFFF" />
-            <Marker MarkerVisible="true">
-              <MarkerSize Height="1" Width="5" />
-            </Marker>
-          </VChartLegend>
           <VChartArea>
             <AutoLayout>true</AutoLayout>
             <BackColor>FFFFFF</BackColor>
             <ForeColor />
             <Border Visibility="True" Color="D3D3D3" Thickness="1" />
             <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
-            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
             <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
             </EmptyChartText>
@@ -4706,7 +4690,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4727,14 +4711,14 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
               <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
               <WholeRange>
-                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="716.41335272854326">
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="391.93867445197935">
                   <Min Value="0" />
-                  <Max Value="7164.13352728543" />
+                  <Max Value="3919.38674451979" />
                 </Range>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4753,7 +4737,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <SecondaryAxesX />
             <SecondaryAxesY />
             <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="104" BackColor="FFFFFF">
-              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               <Border Visibility="True" Color="D3D3D3" Thickness="1" />
               <Shadow Size="2" Visible="false" Color="FFFFFF" />
               <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
@@ -4762,23 +4746,225 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           <VChartDataStyleCollection>
             <VChartDataStyle>
               <Variable ParentName="Urban1" VariableName="Service output per capita" />
-              <Result UniqueId="owC7u59iP5" Name="Run 1" DateRun="2020-06-12T11:51:00.0785945+01:00" FilePath="" Visibility="true" IsLoaded="true" />
+              <Result UniqueId="" Name="Run 1" DateRun="0001-01-01T00:00:00" FilePath="" Visibility="false" IsLoaded="false" />
               <EntityName />
               <Style Color="F79646" DashStyle="Solid" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
             </VChartDataStyle>
             <VChartDataStyle>
               <Variable ParentName="Urban1" VariableName="Industrial output per capita" />
-              <Result UniqueId="owC7u59iP5" Name="Run 1" DateRun="2020-06-12T11:51:00.0785945+01:00" FilePath="" Visibility="true" IsLoaded="true" />
+              <Result UniqueId="" Name="Run 1" DateRun="0001-01-01T00:00:00" FilePath="" Visibility="false" IsLoaded="false" />
               <EntityName />
               <Style Color="8064A2" DashStyle="Solid" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
             </VChartDataStyle>
             <VChartDataStyle>
               <Variable ParentName="Urban1" VariableName="Indicated service output per capita" />
-              <Result UniqueId="owC7u59iP5" Name="Run 1" DateRun="2020-06-12T11:51:00.0785945+01:00" FilePath="" Visibility="true" IsLoaded="true" />
+              <Result UniqueId="" Name="Run 1" DateRun="0001-01-01T00:00:00" FilePath="" Visibility="false" IsLoaded="false" />
               <EntityName />
               <Style Color="FAC08F" DashStyle="Solid" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
             </VChartDataStyle>
           </VChartDataStyleCollection>
+        </Chart>
+        <Chart name="Plot5">
+          <PlotedItems>
+            <PlottedItem VariableName="Population" OwnerTag="EntityType:Urban1" />
+          </PlotedItems>
+          <MainTitleText MainTitleText="" />
+          <ViewType ViewType="Line" />
+          <VChartTitleCollection>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+          </VChartTitleCollection>
+          <VChartArea>
+            <AutoLayout>true</AutoLayout>
+            <BackColor>FFFFFF</BackColor>
+            <ForeColor />
+            <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+            <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </EmptyChartText>
+            <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </SmallChartText>
+          </VChartArea>
+          <VChartDiagram>
+            <Rotated>false</Rotated>
+            <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <PaneDistance>10</PaneDistance>
+            <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+            <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+            <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="false" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+            <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
+                  <Min Value="0" />
+                  <Max Value="9" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisX>
+            <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0.9">
+                  <Min Value="0" />
+                  <Max Value="9" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisY>
+            <SecondaryAxesX />
+            <SecondaryAxesY />
+            <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
+              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+              <Shadow Size="2" Visible="false" Color="FFFFFF" />
+              <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+            </DefaultPane>
+          </VChartDiagram>
+        </Chart>
+        <Chart name="Plot6">
+          <PlotedItems>
+            <PlottedItem VariableName="Food per capita" OwnerTag="EntityType:Urban1" />
+          </PlotedItems>
+          <MainTitleText MainTitleText="" />
+          <ViewType ViewType="Line" />
+          <VChartTitleCollection>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+          </VChartTitleCollection>
+          <VChartArea>
+            <AutoLayout>true</AutoLayout>
+            <BackColor>FFFFFF</BackColor>
+            <ForeColor />
+            <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+            <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </EmptyChartText>
+            <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </SmallChartText>
+          </VChartArea>
+          <VChartDiagram>
+            <Rotated>false</Rotated>
+            <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <PaneDistance>10</PaneDistance>
+            <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+            <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+            <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="false" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+            <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
+                  <Min Value="0" />
+                  <Max Value="9" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisX>
+            <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0.9">
+                  <Min Value="0" />
+                  <Max Value="9" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisY>
+            <SecondaryAxesX />
+            <SecondaryAxesY />
+            <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
+              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+              <Shadow Size="2" Visible="false" Color="FFFFFF" />
+              <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+            </DefaultPane>
+          </VChartDiagram>
         </Chart>
         <Chart name="Uses of Policy year: Policy year, Average lifetime of agricultural inputs, Average lifetime of industrial capital, Average lifetime of service capital, Fraction of industrial output allocated to agriculture, Fraction of industrial output allocated to consumption constant, Fraction of industrial output allocated to services, Indicated food per capita, Indicated service output per capita, Industrial capital output ratio, Land yield multiplier from air pollution, Land yield multiplier from technology, Land yield technology change rate, Nonrenewable resource usage factor, Persistent pollution generation factor, Persistent pollution technology change rate, Resource technology change rate, Service capital output ratio Chart1">
           <PlotedItems>
@@ -6562,8 +6748,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="8565" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="1050" LocationY="50" Height="44.99997" Width="50.01331" />
-              <Label LocationX="1026.993" LocationY="42.45443" Height="15.09114" Width="46.01331" />
+              <Position LocationX="1050" LocationY="50" Height="44.99997" Width="50.01318" />
+              <Label LocationX="1026.993" LocationY="42.45443" Height="15.09114" Width="46.01318" />
             </Node>
             <Node PartID="8595" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6632,8 +6818,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="15979" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="425" LocationY="275" Height="45" Width="50.00211" />
-              <Label LocationX="401.999" LocationY="267.4544" Height="15.09114" Width="46.00211" />
+              <Position LocationX="425" LocationY="275" Height="45" Width="50.0022" />
+              <Label LocationX="401.9989" LocationY="267.4544" Height="15.09114" Width="46.0022" />
             </Node>
             <Node PartID="16089" NodeType="Auxiliary" MemberName="Time" IsMidLabel="False" LabelText="Time" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
@@ -6688,12 +6874,12 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="19808" NodeType="Auxiliary" MemberName="Land yield policy time" IsMidLabel="False" LabelText="Land yield policy time" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="325" LocationY="429.4739" Height="36" Width="135.1187" />
-              <Label LocationX="259.4406" LocationY="421.9283" Height="15.09114" Width="131.1187" />
+              <Label LocationX="259.4407" LocationY="421.9283" Height="15.09114" Width="131.1187" />
             </Node>
             <Node PartID="30105" NodeType="Auxiliary" MemberName="Industrial capital output ratio multipler from land yield technology" IsMidLabel="False" LabelText="Industrial capital output ratio multipler from land yield technology" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="540.6931" LocationY="275" Height="52" Width="151.5671" />
-              <Label LocationX="466.9095" LocationY="252.3633" Height="45.27343" Width="147.5671" />
+              <Label LocationX="466.9096" LocationY="252.3633" Height="45.27343" Width="147.567" />
             </Node>
             <Node PartID="30207" NodeType="TableFunction" MemberName="Industrial capital output ratio multiplier table" IsMidLabel="False" LabelText="Industrial capital output ratio multiplier table" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -6838,7 +7024,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="933" NodeType="Auxiliary" MemberName="Fraction of agricultural inputs allocated to land development" IsMidLabel="False" LabelText="Fraction of agricultural inputs allocated to land development" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="150" LocationY="320.4398" Height="54.8132" Width="142.8374" />
-              <Label LocationX="80.5813" LocationY="297.8031" Height="45.27343" Width="138.8374" />
+              <Label LocationX="80.58131" LocationY="297.8031" Height="45.27343" Width="138.8374" />
             </Node>
             <Node PartID="961" NodeType="Auxiliary" MemberName="Development cost per hectare" IsMidLabel="False" LabelText="Development cost per hectare" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -8435,12 +8621,22 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           <Nodes>
             <Node PartID="29212" NodeType="Plot" MemberName="Plot3" IsMidLabel="False" LabelText="Plot3" CaptionHidden="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="-25" LocationY="0" Height="429" Width="665" />
+              <Position LocationX="50" LocationY="25" Height="296" Width="408" />
               <Label LocationX="0" LocationY="0" Height="0" Width="0" />
             </Node>
             <Node PartID="29230" NodeType="Plot" MemberName="Plot4" IsMidLabel="False" LabelText="Plot4" CaptionHidden="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="700" LocationY="28.4" Height="447.6" Width="524" />
+              <Position LocationX="475" LocationY="25" Height="292" Width="428" />
+              <Label LocationX="0" LocationY="0" Height="0" Width="0" />
+            </Node>
+            <Node PartID="29237" NodeType="Plot" MemberName="Plot5" IsMidLabel="False" LabelText="Plot5" CaptionHidden="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="50" LocationY="325" Height="243.2" Width="400" />
+              <Label LocationX="0" LocationY="0" Height="0" Width="0" />
+            </Node>
+            <Node PartID="29243" NodeType="Plot" MemberName="Plot6" IsMidLabel="False" LabelText="Plot6" CaptionHidden="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="475" LocationY="325" Height="243.2" Width="430" />
               <Label LocationX="0" LocationY="0" Height="0" Width="0" />
             </Node>
           </Nodes>

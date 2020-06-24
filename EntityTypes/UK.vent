@@ -387,7 +387,7 @@ https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator</
             </Node>
             <Node PartID="1010" NodeType="Plot" MemberName="Plot2" IsMidLabel="False" LabelText="Plot2" CaptionHidden="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:UK" />
-              <Position LocationX="700" LocationY="0" Height="469" Width="536" />
+              <Position LocationX="50" LocationY="475" Height="469" Width="536" />
               <Label LocationX="0" LocationY="0" Height="0" Width="0" />
             </Node>
           </Nodes>
