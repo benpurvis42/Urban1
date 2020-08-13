@@ -33,6 +33,18 @@
             <Use CausalType="InformationSource" VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
+        <Auxiliary name="Adjusted ecological footprint">
+          <Units>Dimensionless</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Human ecological footprint * Total potentially arable land / Population * World3.population / World3.Total land</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Total potentially arable land" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" VariableName="Population" OwnerTag="EntityType:Urban1" />
+            <Cause CausalType="Information" Reference="World3" VariableName="Population" OwnerTag="EntityType:World3" />
+            <Cause CausalType="Information" Reference="World3" VariableName="Total land" OwnerTag="EntityType:World3" />
+          </Causes>
+        </Auxiliary>
         <Auxiliary name="Agricultural inputs">
           <Units>$/Year</Units>
           <IsConstant>false</IsConstant>
@@ -173,7 +185,6 @@ Updated to 1000 in Meadows et a;; 1992 (p239-249)</Description>
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Agricultural inputs" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Agricultural inputs SMOOTH1 DelayTime" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Agricultural inputs SMOOTHI1 DelayTime" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Marginal productivity of agricultural inputs" OwnerTag="EntityType:Urban1" />
           </Uses>
@@ -317,8 +328,6 @@ Updated to 1000 in Meadows et a;; 1992 (p239-249)</Description>
           </Causes>
           <Uses>
             <Use CausalType="InformationSource" VariableName="Agricultural inputs" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Agricultural inputs SMOOTH1 Input" OwnerTag="EntityType:Urban1" />
-            <Use CausalType="InformationSource" VariableName="Agricultural inputs SMOOTHI1 InitialValue" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Agricultural inputs SMOOTHI1 Input" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
@@ -683,7 +692,6 @@ The units of vegetable equivalents take into account the conversion factor for t
             <Cause CausalType="Information" VariableName="Marginal productivity of agricultural inputs" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
-            <Use CausalType="InformationSource" VariableName="Average lifetime of agricultural inputs 2" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Current agricultural inputs" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Land development rate" OwnerTag="EntityType:Urban1" />
           </Uses>
@@ -851,7 +859,7 @@ Its value at any tie defines the necessary fraction of capital stock that must b
         <Auxiliary name="Fraction of industrial output allocated to consumption constant">
           <Units>Dimensionless</Units>
           <IsConstant>true</IsConstant>
-          <Equation>0.425</Equation>
+          <Equation>0.42</Equation>
           <Description>0.43 from Meadows et al 1974
 
 The evolution of the economic system seems to be very sensitive to the definition of this parameter. This is something which requires further analysis and testing - BP 12/06/20</Description>
@@ -1062,6 +1070,10 @@ The evolution of the economic system seems to be very sensitive to the definitio
             <Cause CausalType="Information" VariableName="Imported food land" OwnerTag="EntityType:Urban1" />
             <Cause CausalType="Information" VariableName="Total potentially arable land" OwnerTag="EntityType:Urban1" />
           </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Adjusted ecological footprint" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Per capita footprint" OwnerTag="EntityType:Urban1" />
+          </Uses>
         </Auxiliary>
         <Auxiliary name="Human welfare index">
           <Units>Dimensionless</Units>
@@ -1112,7 +1124,7 @@ The evolution of the economic system seems to be very sensitive to the definitio
         <Auxiliary name="Indicated food per capita">
           <Units>Veg equiv kg/(Person*Year)</Units>
           <IsConstant>false</IsConstant>
-          <Equation>if( Model.Time &gt;= Policy year ) { Indicated food per capita 2 } else { Indicated food per capita 1 }</Equation>
+          <Equation>if( Model.Time &gt;= Policy year ) { Indicated food per capita 2 } else { Indicated food per capita 1}</Equation>
           <Description>Per capita demand for food, this determines the level of investment given to agriculture</Description>
           <Causes>
             <Cause CausalType="Information" Reference="Model" VariableName="Time" OwnerTag="EntityType:Model" />
@@ -2470,11 +2482,13 @@ Informed by perceived social benefit of development: Land yield/ Social discount
             <Cause CausalType="Information" VariableName="Population 65 plus" OwnerTag="EntityType:Urban1" />
           </Causes>
           <Uses>
+            <Use CausalType="InformationSource" VariableName="Adjusted ecological footprint" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Food per capita" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of population urban" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Industrial output per capita" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Net migration" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Nonrenewable resource usage rate" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Per capita footprint" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Persistent pollution generated by industrial output" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Relative per capita resource usage" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Service output per capita" OwnerTag="EntityType:Urban1" />
@@ -2815,11 +2829,13 @@ Informed by perceived social benefit of development: Land yield/ Social discount
           <Equation>100000</Equation>
           <Description>Upper limit to the amount of cultivatable land in the world (Meadows et al 1974, p278)</Description>
           <Uses>
+            <Use CausalType="InformationSource" VariableName="Adjusted ecological footprint" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Development cost per hectare" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of land cultivated" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Fraction of population urban" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
             <Use CausalType="InformationSource" VariableName="Marginal productivity of agricultural inputs" OwnerTag="EntityType:Urban1" />
+            <Use CausalType="InformationSource" VariableName="Per capita footprint" OwnerTag="EntityType:Urban1" />
           </Uses>
         </Auxiliary>
         <Auxiliary name="Unemployment">
@@ -4592,14 +4608,23 @@ Updated in Meadows et al 1992 (p239-249)</Description>
         </Chart>
         <Chart name="Plot3">
           <PlotedItems>
-            <PlottedItem VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
             <PlottedItem VariableName="Human welfare index" OwnerTag="EntityType:Urban1" />
+            <PlottedItem VariableName="Human welfare index" OwnerTag="EntityType:World3" />
           </PlotedItems>
-          <MainTitleText MainTitleText="Human Welfare and Ecological Footprint" />
+          <MainTitleText MainTitleText="Human Welfare" />
           <ViewType ViewType="Line" />
           <VChartTitleCollection>
-            <VChartTitle Text="Human Welfare and Ecological Footprint" Visibility="True" TextColor="" EnableAntialiasing="False" Alignment="Center" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="0">
+            <VChartTitle Text="Human Welfare" Visibility="True" TextColor="" EnableAntialiasing="False" Alignment="Center" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="0">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="18" Style="Regular" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
             </VChartTitle>
           </VChartTitleCollection>
           <VChartArea>
@@ -4608,7 +4633,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <ForeColor />
             <Border Visibility="True" Color="D3D3D3" Thickness="1" />
             <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
-            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
             <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
             </EmptyChartText>
@@ -4638,7 +4663,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4659,14 +4684,14 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
               <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
               <WholeRange>
-                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0.19597464079195911">
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0.08931463606892312">
                   <Min Value="0" />
-                  <Max Value="1.95974640791959" />
+                  <Max Value="0.893146360689231" />
                 </Range>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4685,7 +4710,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <SecondaryAxesX />
             <SecondaryAxesY />
             <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="140" BackColor="FFFFFF">
-              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               <Border Visibility="True" Color="D3D3D3" Thickness="1" />
               <Shadow Size="2" Visible="false" Color="FFFFFF" />
               <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
@@ -4696,6 +4721,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
           <PlotedItems>
             <PlottedItem VariableName="Service output per capita" OwnerTag="EntityType:Urban1" />
             <PlottedItem VariableName="Industrial output per capita" OwnerTag="EntityType:Urban1" />
+            <PlottedItem VariableName="Industrial output per capita" OwnerTag="EntityType:World3" />
+            <PlottedItem VariableName="Service output per capita" OwnerTag="EntityType:World3" />
           </PlotedItems>
           <MainTitleText MainTitleText="" />
           <ViewType ViewType="Line" />
@@ -4715,6 +4742,9 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
             </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
           </VChartTitleCollection>
           <VChartArea>
             <AutoLayout>true</AutoLayout>
@@ -4722,7 +4752,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <ForeColor />
             <Border Visibility="True" Color="D3D3D3" Thickness="1" />
             <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
-            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
             <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
             </EmptyChartText>
@@ -4752,7 +4782,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4773,14 +4803,14 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
               <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
               <WholeRange>
-                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="391.93867445197935">
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="578.77394919704466">
                   <Min Value="0" />
-                  <Max Value="3919.38674451979" />
+                  <Max Value="5787.73949197045" />
                 </Range>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4798,8 +4828,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </PrimaryAxisY>
             <SecondaryAxesX />
             <SecondaryAxesY />
-            <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="104" BackColor="FFFFFF">
-              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
+              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               <Border Visibility="True" Color="D3D3D3" Thickness="1" />
               <Shadow Size="2" Visible="false" Color="FFFFFF" />
               <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
@@ -4930,10 +4960,14 @@ Updated in Meadows et al 1992 (p239-249)</Description>
         <Chart name="Plot6">
           <PlotedItems>
             <PlottedItem VariableName="Food per capita" OwnerTag="EntityType:Urban1" />
+            <PlottedItem VariableName="Food per capita" OwnerTag="EntityType:World3" />
           </PlotedItems>
           <MainTitleText MainTitleText="" />
           <ViewType ViewType="Line" />
           <VChartTitleCollection>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
             <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
             </VChartTitle>
@@ -4947,7 +4981,7 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <ForeColor />
             <Border Visibility="True" Color="D3D3D3" Thickness="1" />
             <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
-            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
             <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
               <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
             </EmptyChartText>
@@ -4965,16 +4999,19 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
               <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
               <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
-              <VisualRange Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+              <VisualRange Auto="false" AutoSideMargins="false" SideMarginsValue="0">
+                <Min Value="1900" />
+                <Max Value="2100" />
+              </VisualRange>
               <WholeRange>
                 <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
-                  <Min Value="0" />
-                  <Max Value="9" />
+                  <Min Value="1900" />
+                  <Max Value="2100" />
                 </Range>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -4995,14 +5032,14 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
               <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
               <WholeRange>
-                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0.9">
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="121.07343215406759">
                   <Min Value="0" />
-                  <Max Value="9" />
+                  <Max Value="1210.73432154068" />
                 </Range>
                 <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
               </WholeRange>
               <Interlace Enabled="false" Color="FFFFFF">
-                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               </Interlace>
               <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
                 <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
@@ -5021,7 +5058,222 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <SecondaryAxesX />
             <SecondaryAxesY />
             <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
-              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+              <Shadow Size="2" Visible="false" Color="FFFFFF" />
+              <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+            </DefaultPane>
+          </VChartDiagram>
+        </Chart>
+        <Chart name="Plot7">
+          <PlotedItems>
+            <PlottedItem VariableName="Population" OwnerTag="EntityType:World3" />
+          </PlotedItems>
+          <MainTitleText MainTitleText="" />
+          <ViewType ViewType="Line" />
+          <VChartTitleCollection>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+          </VChartTitleCollection>
+          <VChartArea>
+            <AutoLayout>true</AutoLayout>
+            <BackColor>FFFFFF</BackColor>
+            <ForeColor />
+            <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+            <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </EmptyChartText>
+            <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </SmallChartText>
+          </VChartArea>
+          <VChartDiagram>
+            <Rotated>false</Rotated>
+            <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <PaneDistance>10</PaneDistance>
+            <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+            <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+            <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="false" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+            <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="false" AutoSideMargins="false" SideMarginsValue="0">
+                <Min Value="1900" />
+                <Max Value="2100" />
+              </VisualRange>
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
+                  <Min Value="1900" />
+                  <Max Value="2100" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisX>
+            <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="76732.689497155545">
+                  <Min Value="0" />
+                  <Max Value="767326.894971555" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisY>
+            <SecondaryAxesX />
+            <SecondaryAxesY />
+            <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
+              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+              <Shadow Size="2" Visible="false" Color="FFFFFF" />
+              <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+            </DefaultPane>
+          </VChartDiagram>
+        </Chart>
+        <Chart name="Plot8">
+          <PlotedItems>
+            <PlottedItem VariableName="Adjusted ecological footprint" OwnerTag="EntityType:Urban1" />
+            <PlottedItem VariableName="Human ecological footprint" OwnerTag="EntityType:World3" />
+          </PlotedItems>
+          <MainTitleText MainTitleText="" />
+          <ViewType ViewType="Line" />
+          <VChartTitleCollection>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+          </VChartTitleCollection>
+          <VChartArea>
+            <AutoLayout>true</AutoLayout>
+            <BackColor>FFFFFF</BackColor>
+            <ForeColor />
+            <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+            <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </EmptyChartText>
+            <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </SmallChartText>
+          </VChartArea>
+          <VChartDiagram>
+            <Rotated>false</Rotated>
+            <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <PaneDistance>10</PaneDistance>
+            <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+            <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+            <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="false" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+            <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="false" AutoSideMargins="false" SideMarginsValue="0">
+                <Min Value="1900" />
+                <Max Value="2100" />
+              </VisualRange>
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
+                  <Min Value="1900" />
+                  <Max Value="2100" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisX>
+            <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0.45351158733654423">
+                  <Min Value="0" />
+                  <Max Value="4.53511587336544" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisY>
+            <SecondaryAxesX />
+            <SecondaryAxesY />
+            <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
+              <FillStyle FillMode="Solid" GradientMode="TopToBottom" HatchStyle="Horizontal" />
               <Border Visibility="True" Color="D3D3D3" Thickness="1" />
               <Shadow Size="2" Visible="false" Color="FFFFFF" />
               <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
@@ -6810,8 +7062,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="8565" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="1050" LocationY="50" Height="44.99997" Width="50.01331" />
-              <Label LocationX="1026.993" LocationY="42.45443" Height="15.09114" Width="46.01331" />
+              <Position LocationX="1050" LocationY="50" Height="44.99997" Width="50.01318" />
+              <Label LocationX="1026.993" LocationY="42.45443" Height="15.09114" Width="46.01318" />
             </Node>
             <Node PartID="8595" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -7085,8 +7337,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="933" NodeType="Auxiliary" MemberName="Fraction of agricultural inputs allocated to land development" IsMidLabel="False" LabelText="Fraction of agricultural inputs allocated to land development" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="150" LocationY="320.4398" Height="54.81323" Width="142.8374" />
-              <Label LocationX="80.5813" LocationY="297.803" Height="45.27343" Width="138.8374" />
+              <Position LocationX="150" LocationY="320.4398" Height="54.8132" Width="142.8374" />
+              <Label LocationX="80.5813" LocationY="297.8031" Height="45.27343" Width="138.8374" />
             </Node>
             <Node PartID="961" NodeType="Auxiliary" MemberName="Development cost per hectare" IsMidLabel="False" LabelText="Development cost per hectare" CaptionHidden="False" IsEditable="False" IsPrimary="True">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -7312,8 +7564,8 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             </Node>
             <Node PartID="11" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
-              <Position LocationX="-9.999985" LocationY="154" Height="45" Width="50.00005" />
-              <Label LocationX="-33.00001" LocationY="146.4544" Height="15.09114" Width="46.00005" />
+              <Position LocationX="-9.999985" LocationY="154" Height="45" Width="50.00006" />
+              <Label LocationX="-33.00002" LocationY="146.4544" Height="15.09114" Width="46.00006" />
             </Node>
             <Node PartID="13" NodeType="Cloud" IsMidLabel="False" CaptionHidden="False" IsEditable="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
@@ -8274,6 +8526,26 @@ Updated in Meadows et al 1992 (p239-249)</Description>
               <Position LocationX="525" LocationY="75" Height="52" Width="76" />
               <Label LocationX="489" LocationY="52.36328" Height="45.27343" Width="72" />
             </Node>
+            <Node PartID="2559" NodeType="Auxiliary" MemberName="Adjusted ecological footprint" IsMidLabel="False" LabelText="Adjusted ecological footprint" CaptionHidden="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="700" LocationY="0" Height="52" Width="76" />
+              <Label LocationX="664" LocationY="-22.63672" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="2695" NodeType="Auxiliary" MemberName="Population" IsMidLabel="False" LabelText="Population" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:World3" ReferenceName="World3" />
+              <Position LocationX="475" LocationY="0" Height="52" Width="76" />
+              <Label LocationX="439" LocationY="-15.09114" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="3839" NodeType="Auxiliary" MemberName="Total land" IsMidLabel="False" LabelText="Total land" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:World3" ReferenceName="World3" />
+              <Position LocationX="815" LocationY="13" Height="52" Width="76" />
+              <Label LocationX="779" LocationY="-2.091144" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="3909" NodeType="Auxiliary" MemberName="Population" IsMidLabel="False" LabelText="Population" CaptionHidden="False" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="889" LocationY="-13" Height="52" Width="76" />
+              <Label LocationX="853" LocationY="-20.54557" Height="15.09114" Width="72" />
+            </Node>
           </Nodes>
           <Links>
             <Link PartID="14" LinkType="Information" FromNode="10" FromPort="13" ToNode="3" ToPort="4" PointCount="4" LabelNodeID="0" Points="74.25791|123|88.87257|106.7333|107.7218|94.06664|129.4553|85" ManualStroke="False" />
@@ -8305,6 +8577,11 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Link PartID="2424" LinkType="Information" FromNode="2362" FromPort="2363" ToNode="2225" ToPort="2226" PointCount="4" LabelNodeID="0" Points="739|423.3024|737.7063|426.5091|744.5412|419.5091|755.827|402" ManualStroke="False" />
             <Link PartID="2457" LinkType="Information" FromNode="2391" FromPort="2392" ToNode="2225" ToPort="2226" PointCount="4" LabelNodeID="0" Points="787.2794|423|788.6359|427.5124|783.8041|420.5124|779.5032|402" ManualStroke="False" />
             <Link PartID="2524" LinkType="Information" FromNode="2490" FromPort="2607" ToNode="7" ToPort="2459" PointCount="4" LabelNodeID="0" Points="564|62.65172|588.1667|55|612.3333|55|636.5|60.51331" ManualStroke="False" />
+            <Link PartID="2593" LinkType="Information" FromNode="7" FromPort="2561" ToNode="2559" ToPort="2592" PointCount="4" LabelNodeID="0" Points="692.0588|48|690|41|690|34|692.0588|27" ManualStroke="False" />
+            <Link PartID="2627" LinkType="Information" FromNode="2490" FromPort="2625" ToNode="2559" ToPort="2626" PointCount="4" LabelNodeID="0" Points="564|51.98977|592.3941|35.23708|624.7275|21.37994|661|11.07732" ManualStroke="False" />
+            <Link PartID="2766" LinkType="Information" FromNode="2695" FromPort="2764" ToNode="2559" ToPort="2763" PointCount="4" LabelNodeID="0" Points="514|-4.431818|563|-10|612|-10|661|-4.431818" ManualStroke="False" />
+            <Link PartID="3875" LinkType="Information" FromNode="3839" FromPort="3874" ToNode="2559" ToPort="3872" PointCount="4" LabelNodeID="0" Points="776|16.07344|762.5434|17.13391|750.21|15.7397|739|12.22561" ManualStroke="False" />
+            <Link PartID="3946" LinkType="Information" FromNode="3909" FromPort="3910" ToNode="2559" ToPort="2560" PointCount="4" LabelNodeID="0" Points="850|-23.82598|817.6862|-32.79593|780.6862|-30.25096|739|-14.62192" ManualStroke="False" />
           </Links>
         </Diagram>
         <Diagram name="Industrial">
@@ -8728,6 +9005,16 @@ Updated in Meadows et al 1992 (p239-249)</Description>
             <Node PartID="29243" NodeType="Plot" MemberName="Plot6" IsMidLabel="False" LabelText="Plot6" CaptionHidden="False" IsPrimary="False">
               <Owner OwnerTag="EntityType:Urban1" />
               <Position LocationX="475" LocationY="325" Height="243.2" Width="430" />
+              <Label LocationX="0" LocationY="0" Height="0" Width="0" />
+            </Node>
+            <Node PartID="29256" NodeType="Plot" MemberName="Plot7" IsMidLabel="False" LabelText="Plot7" CaptionHidden="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="50" LocationY="575" Height="243.2" Width="400" />
+              <Label LocationX="0" LocationY="0" Height="0" Width="0" />
+            </Node>
+            <Node PartID="29262" NodeType="Plot" MemberName="Plot8" IsMidLabel="False" LabelText="Plot8" CaptionHidden="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Urban1" />
+              <Position LocationX="475" LocationY="575" Height="246" Width="429" />
               <Label LocationX="0" LocationY="0" Height="0" Width="0" />
             </Node>
           </Nodes>

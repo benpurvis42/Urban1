@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Model name="Ventity World" UniqueID="3d51d7cd-7247-487c-866d-73a013b14bcf">
+<Model name="Ventity World" UniqueID="77080854-db6a-456a-ade0-ccde62a73e3e">
   <SaveLists />
   <OptimizationConfigs />
   <SensitivityConfigs />
@@ -16,10 +16,11 @@
     <ExternalFile Filename=".\Data\World3_03 Scenario 2.xlsx" UniqueID="71ff675a-dbf8-75a9-9920-f01fbb32f138" />
     <ExternalFile Filename=".\Data\Urban initialisation data.xlsx" UniqueID="f96b633d-5e15-9a0e-9542-1ab6fcfacad2" />
     <ExternalFile Filename=".\Data\World3_03 Scenario 9.xlsx" UniqueID="73768a31-3699-5863-bc66-db6d2cf37bf1" />
+    <ExternalFile Filename=".\Data\World3_03 Scenario 3.xlsx" UniqueID="a7c206da-3a9c-643f-b8c7-d11a35b9afca" />
   </DataSources>
   <InputDataSets>
     <DataSet Name="Initialisation" UniqueID="e969495f-78db-48a1-a61c-9b19ab754ee9" Selected="true">
-      <ExternalFile Filename=".\Data\World3_03 Scenario 2.xlsx" Selected="true" UniqueID="71ff675a-dbf8-75a9-9920-f01fbb32f138" />
+      <ExternalFile Filename=".\Data\World3_03 Scenario 3.xlsx" Selected="true" UniqueID="a7c206da-3a9c-643f-b8c7-d11a35b9afca" />
       <ExternalFile Filename=".\Data\Urban initialisation data.xlsx" Selected="true" UniqueID="f96b633d-5e15-9a0e-9542-1ab6fcfacad2" />
     </DataSet>
     <DataSet Name="Other" UniqueID="303da36d-d656-4add-82a8-666ac794db0c">
@@ -30628,6 +30629,98 @@
         </DefaultPane>
       </VChartDiagram>
     </Chart>
+    <Chart name="chart399">
+      <PlotedItems>
+        <PlottedItem VariableName="Human ecological footprint" OwnerTag="EntityType:Urban1" />
+      </PlotedItems>
+      <MainTitleText MainTitleText="" />
+      <ViewType ViewType="Line" />
+      <VChartTitleCollection>
+        <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+        </VChartTitle>
+      </VChartTitleCollection>
+      <VChartArea>
+        <AutoLayout>true</AutoLayout>
+        <BackColor>FFFFFF</BackColor>
+        <ForeColor>FFFFFF</ForeColor>
+        <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+        <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+        <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="Default" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </EmptyChartText>
+        <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </SmallChartText>
+      </VChartArea>
+      <VChartDiagram>
+        <Rotated>false</Rotated>
+        <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <PaneDistance>10</PaneDistance>
+        <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+        <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+        <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="true" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+        <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisX>
+        <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisY>
+        <SecondaryAxesX />
+        <SecondaryAxesY />
+        <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="613" BackColor="FFFFFF">
+          <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+          <Shadow Size="2" Visible="false" Color="FFFFFF" />
+          <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+        </DefaultPane>
+      </VChartDiagram>
+    </Chart>
     <Chart name="chart4">
       <PlotedItems>
         <PlottedItem VariableName="Net migration" OwnerTag="EntityType:Urban1" />
@@ -30723,6 +30816,926 @@
     <Chart name="chart40">
       <PlotedItems>
         <PlottedItem VariableName="Fraction of industrial output allocated to agriculture for importing food" OwnerTag="EntityType:Urban1" />
+      </PlotedItems>
+      <MainTitleText MainTitleText="" />
+      <ViewType ViewType="Line" />
+      <VChartTitleCollection>
+        <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+        </VChartTitle>
+      </VChartTitleCollection>
+      <VChartArea>
+        <AutoLayout>true</AutoLayout>
+        <BackColor>FFFFFF</BackColor>
+        <ForeColor>FFFFFF</ForeColor>
+        <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+        <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+        <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="Default" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </EmptyChartText>
+        <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </SmallChartText>
+      </VChartArea>
+      <VChartDiagram>
+        <Rotated>false</Rotated>
+        <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <PaneDistance>10</PaneDistance>
+        <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+        <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+        <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="true" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+        <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisX>
+        <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisY>
+        <SecondaryAxesX />
+        <SecondaryAxesY />
+        <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="613" BackColor="FFFFFF">
+          <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+          <Shadow Size="2" Visible="false" Color="FFFFFF" />
+          <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+        </DefaultPane>
+      </VChartDiagram>
+    </Chart>
+    <Chart name="chart400">
+      <PlotedItems>
+        <PlottedItem VariableName="Indicated food per capita" OwnerTag="EntityType:Urban1" />
+      </PlotedItems>
+      <MainTitleText MainTitleText="" />
+      <ViewType ViewType="Line" />
+      <VChartTitleCollection>
+        <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+        </VChartTitle>
+      </VChartTitleCollection>
+      <VChartArea>
+        <AutoLayout>true</AutoLayout>
+        <BackColor>FFFFFF</BackColor>
+        <ForeColor>FFFFFF</ForeColor>
+        <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+        <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+        <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="Default" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </EmptyChartText>
+        <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </SmallChartText>
+      </VChartArea>
+      <VChartDiagram>
+        <Rotated>false</Rotated>
+        <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <PaneDistance>10</PaneDistance>
+        <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+        <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+        <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="true" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+        <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisX>
+        <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisY>
+        <SecondaryAxesX />
+        <SecondaryAxesY />
+        <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="613" BackColor="FFFFFF">
+          <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+          <Shadow Size="2" Visible="false" Color="FFFFFF" />
+          <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+        </DefaultPane>
+      </VChartDiagram>
+    </Chart>
+    <Chart name="chart401">
+      <PlotedItems>
+        <PlottedItem VariableName="Indicated food per capita" OwnerTag="EntityType:Urban1" />
+      </PlotedItems>
+      <MainTitleText MainTitleText="" />
+      <ViewType ViewType="Line" />
+      <VChartTitleCollection>
+        <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+        </VChartTitle>
+      </VChartTitleCollection>
+      <VChartArea>
+        <AutoLayout>true</AutoLayout>
+        <BackColor>FFFFFF</BackColor>
+        <ForeColor>FFFFFF</ForeColor>
+        <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+        <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+        <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="Default" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </EmptyChartText>
+        <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </SmallChartText>
+      </VChartArea>
+      <VChartDiagram>
+        <Rotated>false</Rotated>
+        <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <PaneDistance>10</PaneDistance>
+        <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+        <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+        <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="true" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+        <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisX>
+        <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisY>
+        <SecondaryAxesX />
+        <SecondaryAxesY />
+        <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="613" BackColor="FFFFFF">
+          <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+          <Shadow Size="2" Visible="false" Color="FFFFFF" />
+          <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+        </DefaultPane>
+      </VChartDiagram>
+    </Chart>
+    <Chart name="chart402">
+      <PlotedItems>
+        <PlottedItem VariableName="Indicated food per capita" OwnerTag="EntityType:World3" />
+      </PlotedItems>
+      <MainTitleText MainTitleText="" />
+      <ViewType ViewType="Line" />
+      <VChartTitleCollection>
+        <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+        </VChartTitle>
+      </VChartTitleCollection>
+      <VChartArea>
+        <AutoLayout>true</AutoLayout>
+        <BackColor>FFFFFF</BackColor>
+        <ForeColor>FFFFFF</ForeColor>
+        <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+        <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+        <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="Default" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </EmptyChartText>
+        <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </SmallChartText>
+      </VChartArea>
+      <VChartDiagram>
+        <Rotated>false</Rotated>
+        <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <PaneDistance>10</PaneDistance>
+        <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+        <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+        <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="true" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+        <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisX>
+        <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisY>
+        <SecondaryAxesX />
+        <SecondaryAxesY />
+        <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="613" BackColor="FFFFFF">
+          <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+          <Shadow Size="2" Visible="false" Color="FFFFFF" />
+          <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+        </DefaultPane>
+      </VChartDiagram>
+    </Chart>
+    <Chart name="chart403">
+      <PlotedItems>
+        <PlottedItem VariableName="Indicated food per capita" OwnerTag="EntityType:Urban1" />
+      </PlotedItems>
+      <MainTitleText MainTitleText="" />
+      <ViewType ViewType="Line" />
+      <VChartTitleCollection>
+        <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+        </VChartTitle>
+      </VChartTitleCollection>
+      <VChartArea>
+        <AutoLayout>true</AutoLayout>
+        <BackColor>FFFFFF</BackColor>
+        <ForeColor>FFFFFF</ForeColor>
+        <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+        <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+        <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="Default" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </EmptyChartText>
+        <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </SmallChartText>
+      </VChartArea>
+      <VChartDiagram>
+        <Rotated>false</Rotated>
+        <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <PaneDistance>10</PaneDistance>
+        <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+        <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+        <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="true" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+        <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisX>
+        <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisY>
+        <SecondaryAxesX />
+        <SecondaryAxesY />
+        <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="613" BackColor="FFFFFF">
+          <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+          <Shadow Size="2" Visible="false" Color="FFFFFF" />
+          <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+        </DefaultPane>
+      </VChartDiagram>
+    </Chart>
+    <Chart name="chart404">
+      <PlotedItems>
+        <PlottedItem VariableName="Adjusted ecological footprint" OwnerTag="EntityType:Urban1" />
+      </PlotedItems>
+      <MainTitleText MainTitleText="" />
+      <ViewType ViewType="Line" />
+      <VChartTitleCollection>
+        <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+        </VChartTitle>
+      </VChartTitleCollection>
+      <VChartArea>
+        <AutoLayout>true</AutoLayout>
+        <BackColor>FFFFFF</BackColor>
+        <ForeColor>FFFFFF</ForeColor>
+        <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+        <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+        <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="Default" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </EmptyChartText>
+        <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </SmallChartText>
+      </VChartArea>
+      <VChartDiagram>
+        <Rotated>false</Rotated>
+        <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <PaneDistance>10</PaneDistance>
+        <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+        <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+        <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="true" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+        <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisX>
+        <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisY>
+        <SecondaryAxesX />
+        <SecondaryAxesY />
+        <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="613" BackColor="FFFFFF">
+          <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+          <Shadow Size="2" Visible="false" Color="FFFFFF" />
+          <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+        </DefaultPane>
+      </VChartDiagram>
+    </Chart>
+    <Chart name="chart405">
+      <PlotedItems>
+        <PlottedItem VariableName="Total fertility" OwnerTag="EntityType:Urban1" />
+      </PlotedItems>
+      <MainTitleText MainTitleText="" />
+      <ViewType ViewType="Line" />
+      <VChartTitleCollection>
+        <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+        </VChartTitle>
+      </VChartTitleCollection>
+      <VChartArea>
+        <AutoLayout>true</AutoLayout>
+        <BackColor>FFFFFF</BackColor>
+        <ForeColor>FFFFFF</ForeColor>
+        <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+        <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+        <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="Default" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </EmptyChartText>
+        <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </SmallChartText>
+      </VChartArea>
+      <VChartDiagram>
+        <Rotated>false</Rotated>
+        <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <PaneDistance>10</PaneDistance>
+        <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+        <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+        <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="true" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+        <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisX>
+        <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisY>
+        <SecondaryAxesX />
+        <SecondaryAxesY />
+        <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="613" BackColor="FFFFFF">
+          <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+          <Shadow Size="2" Visible="false" Color="FFFFFF" />
+          <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+        </DefaultPane>
+      </VChartDiagram>
+    </Chart>
+    <Chart name="chart406">
+      <PlotedItems>
+        <PlottedItem VariableName="Imported food fraction" OwnerTag="EntityType:Urban1" />
+      </PlotedItems>
+      <MainTitleText MainTitleText="" />
+      <ViewType ViewType="Line" />
+      <VChartTitleCollection>
+        <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+        </VChartTitle>
+      </VChartTitleCollection>
+      <VChartArea>
+        <AutoLayout>true</AutoLayout>
+        <BackColor>FFFFFF</BackColor>
+        <ForeColor>FFFFFF</ForeColor>
+        <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+        <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+        <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="Default" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </EmptyChartText>
+        <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </SmallChartText>
+      </VChartArea>
+      <VChartDiagram>
+        <Rotated>false</Rotated>
+        <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <PaneDistance>10</PaneDistance>
+        <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+        <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+        <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="true" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+        <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisX>
+        <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisY>
+        <SecondaryAxesX />
+        <SecondaryAxesY />
+        <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="613" BackColor="FFFFFF">
+          <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+          <Shadow Size="2" Visible="false" Color="FFFFFF" />
+          <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+        </DefaultPane>
+      </VChartDiagram>
+    </Chart>
+    <Chart name="chart407">
+      <PlotedItems>
+        <PlottedItem VariableName="GDP per capita" OwnerTag="EntityType:Urban1" />
+      </PlotedItems>
+      <MainTitleText MainTitleText="" />
+      <ViewType ViewType="Line" />
+      <VChartTitleCollection>
+        <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+        </VChartTitle>
+      </VChartTitleCollection>
+      <VChartArea>
+        <AutoLayout>true</AutoLayout>
+        <BackColor>FFFFFF</BackColor>
+        <ForeColor>FFFFFF</ForeColor>
+        <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+        <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+        <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="Default" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </EmptyChartText>
+        <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </SmallChartText>
+      </VChartArea>
+      <VChartDiagram>
+        <Rotated>false</Rotated>
+        <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <PaneDistance>10</PaneDistance>
+        <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+        <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+        <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="true" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+        <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisX>
+        <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisY>
+        <SecondaryAxesX />
+        <SecondaryAxesY />
+        <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="613" BackColor="FFFFFF">
+          <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+          <Shadow Size="2" Visible="false" Color="FFFFFF" />
+          <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+        </DefaultPane>
+      </VChartDiagram>
+    </Chart>
+    <Chart name="chart408">
+      <PlotedItems>
+        <PlottedItem VariableName="Net migration" OwnerTag="EntityType:Urban1" />
+      </PlotedItems>
+      <MainTitleText MainTitleText="" />
+      <ViewType ViewType="Line" />
+      <VChartTitleCollection>
+        <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+        </VChartTitle>
+      </VChartTitleCollection>
+      <VChartArea>
+        <AutoLayout>true</AutoLayout>
+        <BackColor>FFFFFF</BackColor>
+        <ForeColor>FFFFFF</ForeColor>
+        <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+        <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+        <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="Default" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </EmptyChartText>
+        <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="false">
+          <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+        </SmallChartText>
+      </VChartArea>
+      <VChartDiagram>
+        <Rotated>false</Rotated>
+        <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+        <PaneDistance>10</PaneDistance>
+        <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+        <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+        <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="true" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+        <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisX>
+        <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+          <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+          <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+          <WholeRange>
+            <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+            <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+          </WholeRange>
+          <Interlace Enabled="false" Color="FFFFFF">
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          </Interlace>
+          <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+          </Title>
+          <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+          <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+            <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+            <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+          </GridLines>
+          <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+            <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+          </Label>
+          <CustomLabels />
+          <MinorCount>4</MinorCount>
+        </PrimaryAxisY>
+        <SecondaryAxesX />
+        <SecondaryAxesY />
+        <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="613" BackColor="FFFFFF">
+          <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="BackwardDiagonal" />
+          <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+          <Shadow Size="2" Visible="false" Color="FFFFFF" />
+          <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+        </DefaultPane>
+      </VChartDiagram>
+    </Chart>
+    <Chart name="chart409">
+      <PlotedItems>
+        <PlottedItem VariableName="Net migration" OwnerTag="EntityType:Urban1" />
       </PlotedItems>
       <MainTitleText MainTitleText="" />
       <ViewType ViewType="Line" />
@@ -37833,6 +38846,17 @@
       <Chart name="leaf402" ChartName="chart396" />
       <Chart name="leaf403" ChartName="chart397" />
       <Chart name="leaf404" ChartName="chart398" />
+      <Chart name="leaf405" ChartName="chart399" />
+      <Chart name="leaf406" ChartName="chart400" />
+      <Chart name="leaf407" ChartName="chart401" />
+      <Chart name="leaf408" ChartName="chart402" />
+      <Chart name="leaf409" ChartName="chart403" />
+      <Chart name="leaf410" ChartName="chart404" />
+      <Chart name="leaf411" ChartName="chart405" />
+      <Chart name="leaf412" ChartName="chart406" />
+      <Chart name="leaf413" ChartName="chart407" />
+      <Chart name="leaf414" ChartName="chart408" />
+      <Chart name="leaf415" ChartName="chart409" />
     </ChartManager>
   </ChartManagers>
 </Model>
